@@ -25,3 +25,8 @@ terraform.rc
 
 # Terraform plan output files — binary, can contain sensitive values
 *.tfplan
+
+# Real tfvars files may contain environment-specific values —
+# commit only .tfvars.example files as documentation
+*.tfvars
+!*.tfvars.example
