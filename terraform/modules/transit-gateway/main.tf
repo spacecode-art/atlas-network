@@ -32,8 +32,8 @@ resource "aws_ec2_transit_gateway" "this" {
 # ---------------------------------------------------------------------------
 resource "aws_ec2_transit_gateway_vpc_attachment" "hub" {
   transit_gateway_id = aws_ec2_transit_gateway.this.id
-  vpc_id              = var.hub_vpc_id
-  subnet_ids          = var.hub_subnet_ids
+  vpc_id             = var.hub_vpc_id
+  subnet_ids         = var.hub_subnet_ids
 
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
@@ -47,8 +47,8 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "spoke" {
   for_each = var.spokes
 
   transit_gateway_id = aws_ec2_transit_gateway.this.id
-  vpc_id              = each.value.vpc_id
-  subnet_ids          = each.value.subnet_ids
+  vpc_id             = each.value.vpc_id
+  subnet_ids         = each.value.subnet_ids
 
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
@@ -84,7 +84,7 @@ resource "aws_ec2_transit_gateway_route_table" "spoke" {
 # Associations — each attachment sits in exactly one route table.
 # ---------------------------------------------------------------------------
 resource "aws_ec2_transit_gateway_route_table_association" "hub" {
-  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.hub.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.hub.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.hub.id
 }
 

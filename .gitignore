@@ -1,50 +1,27 @@
-# -----------------------------
-# Terraform
-# -----------------------------
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files — never commit real state, even local/mocked
 *.tfstate
 *.tfstate.*
-.terraform/
+
+# Crash log files
 crash.log
+crash.*.log
+
+# Exclude override files as they are usually used to override resources locally
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-*.tfplan
-plan.json
 
-# -----------------------------
-# Environment Variables
-# -----------------------------
-.env
-.env.*
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
 
-# -----------------------------
-# MiniStack
-# -----------------------------
-.localstack/
-
-# -----------------------------
-# Go
-# -----------------------------
-bin/
-coverage.out
-
-# -----------------------------
-# VS Code
-# -----------------------------
-.vscode/
-
-# -----------------------------
-# macOS
-# -----------------------------
+# OS/editor cruft
 .DS_Store
+*.swp
 
-# -----------------------------
-# Linux
-# -----------------------------
-*~
-
-# -----------------------------
-# Logs
-# -----------------------------
-*.log
+# Terraform plan output files — binary, can contain sensitive values
+*.tfplan
