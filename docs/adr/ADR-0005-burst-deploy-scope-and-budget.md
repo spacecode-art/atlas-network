@@ -30,10 +30,18 @@ relying purely on `plan` and diagrams:
 - `core/data.tf`'s `terraform_remote_state` data sources currently read
   **local** `.tfstate` files from `hub`, `spoke-dev`, and `spoke-prod`.
   That only works on the machine that ran each environment's `apply` —
-  a real burst-deploy needs all four environments on the same shared
-  remote backend `atlas-foundation` already proved out (S3 + DynamoDB
-  locking), so `core` can actually resolve their outputs regardless of
+  a real burst-deploy needs all four environments on a shared remote
+  backend, so `core` can actually resolve their outputs regardless of
   machine.
+- **Correction (2026-09-14):** this ADR originally assumed
+  `atlas-foundation`'s existing `atlas-terraform-state` S3 bucket could
+  be reused directly. Verified false on inspection: that bucket was
+  created against MiniStack (`provider "aws" { endpoints { s3 =
+  "http://localhost:4566" } }`, `access_key/secret_key = "test"`), not
+  real AWS — it doesn't exist as an actual AWS resource and has no
+  companion DynamoDB lock table either. A real-AWS backend has to be
+  bootstrapped from scratch for this repo; see Decision and Consequences
+  below.
 
 ## Decision
 
@@ -53,11 +61,20 @@ a live, billable window is precisely what this ADR exists to prevent.
 
 ### Backend — remote state prerequisite
 
-Before this burst-deploy can run, all four environments' `backend.tf`
-swap from `backend "local"` to the same S3 + DynamoDB backend
-`atlas-foundation` already validated — same bucket/table, a new key
-prefix per environment (`atlas-network/<env>/terraform.tfstate`). That
-swap is a separate, trackable follow-up commit (see Consequences), not
+Before this burst-deploy can run, two things have to happen, in order:
+
+1. **Bootstrap a real-AWS S3 bucket + DynamoDB lock table**, purpose-built
+   for `atlas-network` (`atlas-network-terraform-state` / a matching lock
+   table) — not a reuse of `atlas-foundation`'s `atlas-terraform-state`
+   bucket, which is MiniStack-only (see Context correction above). Same
+   design as `atlas-foundation`'s bootstrap (versioning, encryption,
+   public-access block), pointed at real AWS with real (scoped) IAM
+   credentials instead of MiniStack test credentials.
+2. **Swap all four environments' `backend.tf`** from `backend "local"` to
+   `backend "s3"`, pointed at the new bucket/table, one key prefix per
+   environment (`atlas-network/<env>/terraform.tfstate`).
+
+Both are separate, trackable follow-up commits (see Consequences), not
 part of this ADR's text.
 
 ### Time limit
@@ -166,10 +183,14 @@ recurring paid subscription to a tool whose entire value proposition is
 
 ## Consequences
 
-- **Follow-up commit required before this burst-deploy can run:** swap
-  `backend "local"` → `backend "s3"` (with DynamoDB locking) in all four
-  environments' `backend.tf`, matching `atlas-foundation`'s already-proven
-  pattern. This is the next task after this ADR is accepted.
+- **Two follow-up commits required before this burst-deploy can run:**
+  (1) bootstrap a real-AWS S3 bucket + DynamoDB lock table dedicated to
+  `atlas-network` — `atlas-foundation`'s existing backend is MiniStack-only
+  and cannot be reused, corrected above after being wrongly assumed
+  reusable in this ADR's first draft; (2) swap `backend "local"` →
+  `backend "s3"` (with DynamoDB locking) in all four environments'
+  `backend.tf` to point at it. Both are the next tasks after this ADR is
+  accepted.
 - `docs/evidence/burst-deploy/README.md` (the runbook) and
   `docs/cost-model/burst-deploy-actuals.md` stay unwritten until the
   burst-deploy actually happens — this ADR sets the rules; it doesn't
