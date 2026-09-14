@@ -35,8 +35,11 @@ terraform fmt -check -recursive -diff "${ROOT}/terraform"
 
 for env in "${LEAF_ENVS[@]}"; do
   dir="${ROOT}/terraform/environments/${env}"
-  echo "==> [${env}] terraform init -backend=false"
-  terraform -chdir="${dir}" init -backend=false -input=false
+  # Full init (not -backend=false): these use a real local backend (a
+  # plain file on disk, no AWS involved), and `plan` needs it actually
+  # initialized to run at all.
+  echo "==> [${env}] terraform init"
+  terraform -chdir="${dir}" init -input=false
   echo "==> [${env}] terraform validate"
   terraform -chdir="${dir}" validate
   echo "==> [${env}] terraform plan"
