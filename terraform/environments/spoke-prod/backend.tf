@@ -1,4 +1,5 @@
-terraform {  required_version = ">= 1.11"
+terraform {
+  required_version = ">= 1.11"
 
   backend "local" {
     path = "terraform.tfstate"
@@ -17,5 +18,5 @@ provider "aws" {
 
   # See terraform/environments/hub/backend.tf for why this is here.
   skip_credentials_validation = true
-  skip_requesting_account_id = true
+  skip_requesting_account_id  = true
 }

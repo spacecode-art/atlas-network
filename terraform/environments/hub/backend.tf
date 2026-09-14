@@ -29,6 +29,6 @@ provider "aws" {
   # Skipping it here only disables that identity lookup; a real
   # burst-deploy still needs genuine credentials to create anything.
   skip_credentials_validation = true
-  skip_requesting_account_id = true
+  skip_requesting_account_id  = true
 
 }
