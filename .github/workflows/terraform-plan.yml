@@ -1,0 +1,43 @@
+name: Terraform Plan
+
+# Plan-only, by design. There is no apply workflow in this repository —
+# see README "CI/CD" section. This gate proves every environment's
+# Terraform is well-formatted, valid, and (for the three leaf
+# environments) produces a real plan graph, on every PR that touches
+# Terraform.
+
+on:
+  pull_request:
+    paths:
+      - "terraform/**"
+      - "scripts/tf-check.sh"
+      - ".github/workflows/terraform-plan.yml"
+  push:
+    branches: [main]
+    paths:
+      - "terraform/**"
+      - "scripts/tf-check.sh"
+      - ".github/workflows/terraform-plan.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    name: fmt / validate / plan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.11.4"
+          terraform_wrapper: false
+
+      - name: Make check script executable
+        run: chmod +x scripts/tf-check.sh
+
+      - name: Run fmt / validate / plan
+        run: ./scripts/tf-check.sh
