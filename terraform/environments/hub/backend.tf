@@ -21,4 +21,14 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+
+  # CI plans with dummy credentials (scripts/tf-check.sh) since this repo
+  # never applies in CI. The AWS provider normally calls
+  # sts:GetCallerIdentity as a preflight step to resolve the account ID,
+  # even for a plan-only run — that call fails against dummy creds.
+  # Skipping it here only disables that identity lookup; a real
+  # burst-deploy still needs genuine credentials to create anything.
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+
 }

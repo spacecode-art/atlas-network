@@ -12,6 +12,12 @@ follows [Keep a Changelog](https://keepachangelog.com/).
   segmentation (hub + dev/prod spokes, default TGW route table left
   unused so any future attachment fails closed instead of inheriting
   permissive behavior)
+- CI: `.github/workflows/terraform-plan.yml` running `fmt`/`validate`/`plan`
+  on every PR touching Terraform, backed by `scripts/tf-check.sh` so the
+  same checks are reproducible locally. `core` runs `validate` only, not
+  `plan` — it depends on `hub`/`spoke-dev`/`spoke-prod`'s real state via
+  `terraform_remote_state`, which doesn't exist in a fresh checkout; see
+  the comment in `scripts/tf-check.sh` and ADR-0005 (pending)
 
 ## [2026-09-10]
 
