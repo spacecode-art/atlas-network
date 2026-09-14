@@ -17,7 +17,11 @@ follows [Keep a Changelog](https://keepachangelog.com/).
   same checks are reproducible locally. `core` runs `validate` only, not
   `plan` — it depends on `hub`/`spoke-dev`/`spoke-prod`'s real state via
   `terraform_remote_state`, which doesn't exist in a fresh checkout; see
-  the comment in `scripts/tf-check.sh` and ADR-0005 (pending)
+  the comment in `scripts/tf-check.sh` and ADR-0005
+- ADR-0005: burst-deploy scope, 60-minute time limit, $5 dollar ceiling,
+  and required billing-safety setup (dedicated IAM user, AWS Budget
+  alerts, no root credentials) for the one permitted live deployment in
+  this repo
 
 ## [2026-09-10]
 
