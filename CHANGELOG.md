@@ -22,6 +22,10 @@ follows [Keep a Changelog](https://keepachangelog.com/).
   and required billing-safety setup (dedicated IAM user, AWS Budget
   alerts, no root credentials) for the one permitted live deployment in
   this repo
+- ADR-0005 correction: `atlas-foundation`'s S3 remote-state bucket is
+  MiniStack-only (test credentials, localhost endpoints), not a real AWS
+  resource — cannot be reused as originally assumed. A dedicated
+  real-AWS backend bootstrap is now a documented prerequisite instead.
 
 ## [2026-09-10]
 

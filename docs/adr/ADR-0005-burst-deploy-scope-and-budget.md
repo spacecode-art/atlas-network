@@ -30,10 +30,18 @@ relying purely on `plan` and diagrams:
 - `core/data.tf`'s `terraform_remote_state` data sources currently read
   **local** `.tfstate` files from `hub`, `spoke-dev`, and `spoke-prod`.
   That only works on the machine that ran each environment's `apply` —
-  a real burst-deploy needs all four environments on the same shared
-  remote backend `atlas-foundation` already proved out (S3 + DynamoDB
-  locking), so `core` can actually resolve their outputs regardless of
+  a real burst-deploy needs all four environments on a shared remote
+  backend, so `core` can actually resolve their outputs regardless of
   machine.
+- **Correction (2026-09-14):** this ADR originally assumed
+  `atlas-foundation`'s existing `atlas-terraform-state` S3 bucket could
+  be reused directly. Verified false on inspection: that bucket was
+  created against MiniStack (`provider "aws" { endpoints { s3 =
+  "http://localhost:4566" } }`, `access_key/secret_key = "test"`), not
+  real AWS — it doesn't exist as an actual AWS resource and has no
+  companion DynamoDB lock table either. A real-AWS backend has to be
+  bootstrapped from scratch for this repo; see Decision and Consequences
+  below.
 
 ## Decision
 
@@ -51,14 +59,28 @@ Only what's already coded in `terraform/environments/{hub,spoke-dev,spoke-prod,c
 No resource gets added "since we're already in there." Scope creep during
 a live, billable window is precisely what this ADR exists to prevent.
 
-### Backend — remote state prerequisite
+### Backend — local, deliberately
 
-Before this burst-deploy can run, all four environments' `backend.tf`
-swap from `backend "local"` to the same S3 + DynamoDB backend
-`atlas-foundation` already validated — same bucket/table, a new key
-prefix per environment (`atlas-network/<env>/terraform.tfstate`). That
-swap is a separate, trackable follow-up commit (see Consequences), not
-part of this ADR's text.
+`backend.tf` stays on `backend "local"` for all four environments during
+the burst-deploy. This was reconsidered (see the correction above, and
+Alternatives Considered) and kept intentionally: remote state (S3 +
+DynamoDB locking) solves multi-machine and multi-operator coordination
+problems, and this burst-deploy has neither — one operator, one machine,
+one 60-minute session, full teardown before the session ends.
+`core/data.tf` already reads `hub`/`spoke-dev`/`spoke-prod`'s state by
+relative local path, which is sufficient as long as all four
+environments are applied from the same working directory tree, in
+order, in the same session — exactly this ADR's scope. Building a
+permanent S3+DynamoDB backend to solve a coordination problem that
+doesn't exist here would be exactly the kind of unnecessary complexity
+and non-zero permanent cost this platform's Cost Aware principle argues
+against.
+
+If this repo ever needs a second burst-deploy on a different machine
+before the first one's local state is available, or genuinely persistent
+state across sessions becomes a real requirement, that's a new
+requirement and gets its own ADR revising this decision — not a silent
+reversal.
 
 ### Time limit
 
@@ -162,14 +184,35 @@ few-cents burst against real AWS is cheaper and more credible than a
 recurring paid subscription to a tool whose entire value proposition is
 "not real AWS."
 
+### Remote (S3 + DynamoDB) backend for the burst-deploy, mirroring `atlas-foundation`
+
+Advantages: matches how most real teams run Terraform in production;
+state survives even if the operator's machine has a problem mid-session;
+reusable without re-bootstrapping for any future burst-deploy.
+
+Rejected for this ADR's scope because: it solves a multi-machine/
+multi-operator coordination problem this burst-deploy doesn't have (one
+operator, one machine, one session, full teardown at the end), and would
+require a genuinely permanent AWS resource (S3 bucket + DynamoDB table)
+to justify it. `atlas-foundation` already demonstrates this pattern
+end-to-end against MiniStack — repeating it here with real AWS resources
+wouldn't prove a new skill, only add cost and IAM surface area with no
+corresponding requirement. Revisit if a future burst-deploy genuinely
+needs multi-session persistence (see Backend section above).
+
 ---
 
 ## Consequences
 
-- **Follow-up commit required before this burst-deploy can run:** swap
-  `backend "local"` → `backend "s3"` (with DynamoDB locking) in all four
-  environments' `backend.tf`, matching `atlas-foundation`'s already-proven
-  pattern. This is the next task after this ADR is accepted.
+- No backend swap needed. `backend "local"` stays as-is in all four
+  environments' `backend.tf` — this ADR corrects an earlier draft that
+  wrongly assumed a remote backend was required, then wrongly assumed
+  `atlas-foundation`'s MiniStack-only bucket could be reused for it. The
+  actual requirement (state readable within one local session) was
+  already satisfied by the existing local backend the whole time.
+- IAM least-privilege scope for the burst-deploy user is smaller as a
+  result: no S3/DynamoDB backend permissions needed, only the EC2
+  VPC/TGW/NAT/Endpoint actions the deployed resources themselves require.
 - `docs/evidence/burst-deploy/README.md` (the runbook) and
   `docs/cost-model/burst-deploy-actuals.md` stay unwritten until the
   burst-deploy actually happens — this ADR sets the rules; it doesn't
