@@ -12,3 +12,8 @@ output "public_subnet_ids" {
   description = "Needed by environments/core to place spoke-dev's NAT Gateway"
   value       = module.vpc.public_subnet_ids
 }
+
+output "private_route_table_ids" {
+  description = "Needed by environments/core to attach NAT Gateway routes"
+  value       = module.vpc.private_route_table_ids
+}

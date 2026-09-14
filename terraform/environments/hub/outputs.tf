@@ -9,3 +9,9 @@ output "vpc_id" {
 output "private_subnet_ids" {
   value = module.vpc.private_subnet_ids
 }
+
+
+output "private_route_table_ids" {
+  description = "Needed by environments/core to attach NAT Gateway routes"
+  value       = module.vpc.private_route_table_ids
+}
