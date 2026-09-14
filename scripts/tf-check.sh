@@ -43,7 +43,10 @@ for env in "${LEAF_ENVS[@]}"; do
   echo "==> [${env}] terraform validate"
   terraform -chdir="${dir}" validate
   echo "==> [${env}] terraform plan"
-  terraform -chdir="${dir}" plan -input=false -lock=false
+  # No real terraform.tfvars in CI (correctly gitignored — see .gitignore).
+  # .tfvars.example is committed specifically so CI/new contributors have
+  # a placeholder value to plan against.
+  terraform -chdir="${dir}" plan -input=false -lock=false -var-file="terraform.tfvars.example"
 done
 
 for env in "${STATE_DEPENDENT_ENVS[@]}"; do
