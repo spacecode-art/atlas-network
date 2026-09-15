@@ -112,23 +112,33 @@ bleed going unnoticed.
 
 ### Billing safety (required before this burst-deploy runs, not optional)
 
-- **IAM user, not root.** Dedicated `atlas-network-burst-deploy` IAM
-  user, permissions scoped to exactly the EC2 VPC/TGW/NAT/Endpoint
-  actions plus S3/DynamoDB backend access needed — no console access, no
-  broader policy attached "to be safe." Keys sourced from local shell env
-  vars only (`export AWS_ACCESS_KEY_ID=...`), never written to
-  `terraform.tfvars`, never committed, never pasted into a GitHub Actions
-  secret (CI stays plan-only against dummy creds — see
-  `scripts/tf-check.sh`).
+- **IAM user, not root — done.** Dedicated `atlas-network-burst-deploy`
+  IAM user (see `iam/atlas-network-burst-deploy-policy.json`), scoped to
+  exactly the EC2 VPC/subnet/routing, NAT+EIP, PrivateLink endpoint, and
+  Transit Gateway actions the currently-coded resources require, plus
+  Reachability Analyzer for evidence capture — no IAM, no console access,
+  region locked to `us-east-1` via an explicit deny guardrail. No S3/
+  DynamoDB permissions: dropped along with the remote-backend decision
+  above. Credentials live in a dedicated named AWS CLI profile
+  (`atlas-network-burst`), never in `terraform.tfvars`, never committed,
+  never pasted into a GitHub Actions secret — CI stays plan-only against
+  dummy creds (see `scripts/tf-check.sh`). The burst-deploy itself runs
+  with `AWS_PROFILE=atlas-network-burst terraform apply`, never the
+  default/admin profile.
 - **Root account:** MFA enabled, no root access keys exist. Root never
   touches this deploy.
-- **AWS Budget:** a $10 budget with alerts at 50/80/100%, configured once
-  at the account level and reused for every future burst-deploy across
-  every Atlas repo — not repo-specific setup.
-- **Post-window verification:** Cost Explorer checked the day after, not
-  just trusted — confirms `terraform destroy` actually cleared everything.
-  The classic burst-deploy failure mode is a forgotten Elastic IP or an
-  orphaned ENI from a not-fully-released endpoint, not a runaway resource.
+- **AWS Budget — done.** `atlas-portfolio-burst-deploy`, $10/month,
+  alerts at 50/80/100% via email, confirmed subscribed. Configured once
+  at the account level, reused for every future burst-deploy across every
+  Atlas repo — not repo-specific. Note: AWS Budgets' default cost types
+  include `IncludeCredit: true`, so this budget tracks spend net of any
+  promotional credit balance, not gross usage — treated as one guardrail,
+  not the only one (see post-window verification below).
+- **Post-window verification:** Cost Explorer *and* the AWS Billing
+  Console's Credits balance both checked the day after, not just trusted
+  — confirms `terraform destroy` actually cleared everything. The classic
+  burst-deploy failure mode is a forgotten Elastic IP or an orphaned ENI
+  from a not-fully-released endpoint, not a runaway resource.
 
 ### Evidence captured (permanent, committed to the repo)
 
@@ -203,6 +213,11 @@ needs multi-session persistence (see Backend section above).
 ---
 
 ## Consequences
+
+**Billing-safety prerequisites (IAM user, policy, budget) are complete as
+of 2026-09-15** — see the updated Billing safety section above for the
+actual resource names. Everything below this point is what's still
+outstanding before the burst-deploy itself can run.
 
 - No backend swap needed. `backend "local"` stays as-is in all four
   environments' `backend.tf` — this ADR corrects an earlier draft that
