@@ -39,6 +39,7 @@ module "privatelink" {
   gateway_endpoint_route_table_ids = data.terraform_remote_state.spoke_dev.outputs.private_route_table_ids
 
   allowed_cidr_blocks = ["10.101.0.0/16"]
+}
 
 module "nat_dev" {
   source = "../../modules/nat-strategy"
