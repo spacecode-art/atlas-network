@@ -35,10 +35,29 @@ resource "aws_security_group" "endpoint" {
   })
 }
 
+# Prerequisite for services (S3, DynamoDB) where AWS requires an existing
+# Gateway endpoint before an Interface endpoint for the same service can
+# enable private_dns_enabled. This resource is itself a Gateway endpoint,
+# not PrivateLink — ADR-0003's "never Gateway" rule is about the endpoint
+# this module exposes to consumers (aws_vpc_endpoint.this, always
+# Interface), not about an internal prerequisite resource. Only created
+# when the caller opts in via create_gateway_endpoint.
+resource "aws_vpc_endpoint" "gateway_prerequisite" {
+  count             = var.create_gateway_endpoint ? 1 : 0
+  vpc_id            = var.vpc_id
+  service_name      = var.service_name
+  vpc_endpoint_type = "Gateway"
+  route_table_ids   = var.gateway_endpoint_route_table_ids
+
+  tags = merge(local.common_tags, {
+    Name = "${var.name_prefix}-privatelink-gateway-prereq"
+  })
+}
+
 resource "aws_vpc_endpoint" "this" {
   vpc_id            = var.vpc_id
   service_name      = var.service_name
-  vpc_endpoint_type = "Interface" # never Gateway — Gateway endpoints are not PrivateLink, see ADR-0003
+  vpc_endpoint_type = "Interface" # the endpoint this module actually exposes — never Gateway, see ADR-0003
 
   subnet_ids          = var.subnet_ids
   security_group_ids  = [aws_security_group.endpoint.id]
@@ -47,4 +66,6 @@ resource "aws_vpc_endpoint" "this" {
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-privatelink-endpoint"
   })
+
+  depends_on = [aws_vpc_endpoint.gateway_prerequisite]
 }

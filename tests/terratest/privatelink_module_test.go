@@ -59,3 +59,32 @@ func TestPrivateLinkModulePlanEnforcesInterfaceOnlyAndScopedIngress(t *testing.T
 	require.True(t, ok, "expected egress key to be present (even if empty)")
 	assert.Len(t, egressRules, 0, "expected no egress rules — the endpoint ENI only receives inbound HTTPS")
 }
+
+// This test locks in the ADR-0007 fix: when create_gateway_endpoint is
+// true, the module must produce a Gateway-type endpoint as a prerequisite
+// for the Interface endpoint's private_dns_enabled setting. Without this
+// resource in the plan, AWS rejects private_dns_enabled=true for S3 at
+// apply time — exactly the failure ADR-0007 documents, and one this
+// module's original test suite had no way to catch since the fixture
+// never set create_gateway_endpoint.
+func TestPrivateLinkModuleCreatesGatewayEndpointPrerequisiteWhenRequested(t *testing.T) {
+	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
+		TerraformDir: "./fixtures/privatelink-with-gateway-prereq",
+		PlanFilePath: "terratest.tfplan",
+	})
+
+	planStruct := terraform.InitAndPlanAndShowWithStruct(t, terraformOptions)
+	resourceChanges := planStruct.ResourceChangesMap
+
+	gateway, ok := resourceChanges["module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]"]
+	require.True(t, ok, "expected the Gateway endpoint prerequisite in the plan when create_gateway_endpoint = true")
+	gatewayAfter := gateway.Change.After.(map[string]interface{})
+	assert.Equal(t, "Gateway", gatewayAfter["vpc_endpoint_type"],
+		"the prerequisite endpoint must be Gateway type — this is the ADR-0007 fix, not a violation of ADR-0003's Interface-only rule for the module's primary output")
+
+	interfaceEndpoint, ok := resourceChanges["module.privatelink.aws_vpc_endpoint.this"]
+	require.True(t, ok, "expected the Interface endpoint in the plan")
+	interfaceAfter := interfaceEndpoint.Change.After.(map[string]interface{})
+	assert.Equal(t, "Interface", interfaceAfter["vpc_endpoint_type"],
+		"the module's primary endpoint must still be Interface type — ADR-0003 unchanged")
+}

@@ -39,3 +39,20 @@ variable "private_dns_enabled" {
   type        = bool
   default     = true
 }
+
+variable "create_gateway_endpoint" {
+  description = <<-EOT
+    Some AWS services (S3, DynamoDB) require a Gateway endpoint to already
+    exist in the VPC before an Interface endpoint for the same service can
+    set private_dns_enabled = true. Set true only for those services; for
+    services without a Gateway endpoint type, leave false.
+  EOT
+  type        = bool
+  default     = false
+}
+
+variable "gateway_endpoint_route_table_ids" {
+  description = "Route table IDs to associate the Gateway endpoint with — required if create_gateway_endpoint is true"
+  type        = list(string)
+  default     = []
+}

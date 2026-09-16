@@ -33,6 +33,11 @@ module "privatelink" {
   subnet_ids   = data.terraform_remote_state.spoke_dev.outputs.private_subnet_ids
   service_name = "com.amazonaws.us-east-1.s3"
 
+  # S3 requires a Gateway endpoint to exist before an Interface endpoint
+  # for the same service can enable private_dns_enabled — see ADR-0007.
+  create_gateway_endpoint          = true
+  gateway_endpoint_route_table_ids = data.terraform_remote_state.spoke_dev.outputs.private_route_table_ids
+
   allowed_cidr_blocks = ["10.101.0.0/16"]
 }
 
