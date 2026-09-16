@@ -47,8 +47,8 @@ variable "create_gateway_endpoint" {
     set private_dns_enabled = true. Set true only for those services; for
     services without a Gateway endpoint type, leave false.
   EOT
-  type    = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "gateway_endpoint_route_table_ids" {
