@@ -1,0 +1,25 @@
+[0m[1mdata.terraform_remote_state.hub: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_prod: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.hub: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.spoke_prod: Read complete after 0s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Refreshing state... [id=tgw-02ad93b2664db59b9][0m
+[0m[1mmodule.nat_dev.aws_eip.nat["single"]: Refreshing state... [id=eipalloc-03726aa9cdbea1919][0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-b"]: Refreshing state... [id=eipalloc-06b9428ff8e854855][0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-a"]: Refreshing state... [id=eipalloc-0cf5a20497cb567b3][0m
+[0m[1mmodule.privatelink.aws_security_group.endpoint: Refreshing state... [id=sg-0e3afb14bd8434788][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Refreshing state... [id=tgw-rtb-0c374f1086c212568][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Refreshing state... [id=tgw-rtb-012a97f24176f4033][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Refreshing state... [id=tgw-rtb-0378149753332b95a][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Refreshing state... [id=tgw-attach-023717f05a91ac9fa][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Refreshing state... [id=tgw-attach-0c35bb6a7a1a80d86][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Refreshing state... [id=tgw-attach-0ca9588811eb26ff0][0m
+[0m[1mdata.terraform_remote_state.hub: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_prod: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.hub: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.spoke_prod: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Read complete after 0s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Refreshing state... [id=tgw-02ad93b2664db59b9][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Refreshing state... [id=tgw-rtb-0378149753332b95a][0m
