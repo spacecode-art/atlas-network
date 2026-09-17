@@ -1,0 +1,4 @@
+Final verification sweep - all empty:
+VPCs: []
+TGWs: []
+EIPs: []

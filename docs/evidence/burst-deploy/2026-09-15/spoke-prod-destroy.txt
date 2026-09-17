@@ -1,0 +1,388 @@
+[0m[1mmodule.vpc.aws_vpc.this: Refreshing state... [id=vpc-01acb5236539e8fcb][0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Refreshing state... [id=igw-0031671a5570ba55d][0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Refreshing state... [id=sg-0f5620fbb1f233229][0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-0d76000d9f744e42d][0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0be05b76c10033151][0m
+[0m[1mmodule.vpc.aws_route_table.private[1]: Refreshing state... [id=rtb-03e6e6379a540f364][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0a6e35a04b71e2aa5][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0693d13fe9dad18f2][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0affd93bb7b56e3d4][0m
+[0m[1mmodule.vpc.aws_route_table.public: Refreshing state... [id=rtb-070c2b8e16b7a4b96][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0db9d7faad5eccd66][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-04fa69d7d5ea540ea][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0f58ea501914d1e6e][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0d2fe43d0e6046677][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.vpc.aws_default_security_group.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_default_security_group" "this" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:803347590852:security-group/sg-0f5620fbb1f233229" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "default VPC security group" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-0f5620fbb1f233229" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "default" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-default-sg-locked"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-default-sg-locked"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_internet_gateway.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_internet_gateway" "this" {
+      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:803347590852:internet-gateway/igw-0031671a5570ba55d" [90m-> null[0m[0m
+      [31m-[0m[0m id       = "igw-0031671a5570ba55d" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m tags     = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-igw"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-igw"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id   = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "private" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-0be05b76c10033151" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-0be05b76c10033151" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-rt-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-rt-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.private[1][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "private" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-03e6e6379a540f364" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-03e6e6379a540f364" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-rt-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-rt-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.public[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "public" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-070c2b8e16b7a4b96" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-070c2b8e16b7a4b96" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m gateway_id                 = "igw-0031671a5570ba55d"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-rt"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-rt"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "private" {
+      [31m-[0m[0m id             = "rtbassoc-04fa69d7d5ea540ea" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0be05b76c10033151" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0a6e35a04b71e2aa5" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[1][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "private" {
+      [31m-[0m[0m id             = "rtbassoc-0db9d7faad5eccd66" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-03e6e6379a540f364" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0d76000d9f744e42d" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "public" {
+      [31m-[0m[0m id             = "rtbassoc-0f58ea501914d1e6e" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-070c2b8e16b7a4b96" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0affd93bb7b56e3d4" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[1][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "public" {
+      [31m-[0m[0m id             = "rtbassoc-0d2fe43d0e6046677" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-070c2b8e16b7a4b96" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0693d13fe9dad18f2" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "private" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0a6e35a04b71e2aa5" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.102.10.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0a6e35a04b71e2aa5" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.private[1][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "private" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0d76000d9f744e42d" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.102.11.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0d76000d9f744e42d" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-private-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "public" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0affd93bb7b56e3d4" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.102.0.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0affd93bb7b56e3d4" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.public[1][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "public" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0693d13fe9dad18f2" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.102.1.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0693d13fe9dad18f2" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-public-1"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_vpc.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_vpc" "this" {
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:803347590852:vpc/vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+      [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                           = "10.102.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_id               = "rtb-04cf6a35d194953e1" [90m-> null[0m[0m
+      [31m-[0m[0m default_security_group_id            = "sg-0f5620fbb1f233229" [90m-> null[0m[0m
+      [31m-[0m[0m dhcp_options_id                      = "dopt-05e015f27c458304d" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_hostnames                 = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_support                   = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_network_address_usage_metrics = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+      [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m main_route_table_id                  = "rtb-04cf6a35d194953e1" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-vpc"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Environment" = "network-spoke-prod"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-prod-vpc"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 14 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m private_route_table_ids = [
+      [31m-[0m[0m "rtb-0be05b76c10033151",
+      [31m-[0m[0m "rtb-03e6e6379a540f364",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m private_subnet_ids      = [
+      [31m-[0m[0m "subnet-0a6e35a04b71e2aa5",
+      [31m-[0m[0m "subnet-0d76000d9f744e42d",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m public_subnet_ids       = [
+      [31m-[0m[0m "subnet-0affd93bb7b56e3d4",
+      [31m-[0m[0m "subnet-0693d13fe9dad18f2",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m vpc_id                  = "vpc-01acb5236539e8fcb" [90m-> null[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-0f58ea501914d1e6e][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Destroying... [id=rtbassoc-0d2fe43d0e6046677][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-04fa69d7d5ea540ea][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Destroying... [id=rtbassoc-0db9d7faad5eccd66][0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Destroying... [id=sg-0f5620fbb1f233229][0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Destruction complete after 0s[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Destruction complete after 1s[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Destruction complete after 1s[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Destruction complete after 1s[0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Destroying... [id=subnet-0d76000d9f744e42d][0m[0m
+[0m[1mmodule.vpc.aws_route_table.private[1]: Destroying... [id=rtb-03e6e6379a540f364][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Destruction complete after 1s[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Destroying... [id=rtb-0be05b76c10033151][0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Destroying... [id=subnet-0a6e35a04b71e2aa5][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Destroying... [id=subnet-0affd93bb7b56e3d4][0m[0m
+[0m[1mmodule.vpc.aws_route_table.public: Destroying... [id=rtb-070c2b8e16b7a4b96][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Destroying... [id=subnet-0693d13fe9dad18f2][0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_route_table.private[1]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_route_table.public: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Destroying... [id=igw-0031671a5570ba55d][0m[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_vpc.this: Destroying... [id=vpc-01acb5236539e8fcb][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 14 destroyed.[0m

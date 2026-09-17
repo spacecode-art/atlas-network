@@ -1,0 +1,472 @@
+[0m[1mdata.terraform_remote_state.spoke_prod: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.hub: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Reading...[0m[0m
+[0m[1mdata.terraform_remote_state.hub: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.spoke_prod: Read complete after 0s[0m
+[0m[1mdata.terraform_remote_state.spoke_dev: Read complete after 0s[0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-a"]: Refreshing state... [id=eipalloc-0b159a39cb72a2f42][0m
+[0m[1mmodule.nat_dev.aws_eip.nat["single"]: Refreshing state... [id=eipalloc-01023fc19ab81d8d0][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Refreshing state... [id=tgw-045314b0c4564e0e7][0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-b"]: Refreshing state... [id=eipalloc-0b6b0df511840d7af][0m
+[0m[1mmodule.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Refreshing state... [id=vpce-051fceb35b495db09][0m
+[0m[1mmodule.privatelink.aws_security_group.endpoint: Refreshing state... [id=sg-0993137deb1235148][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Refreshing state... [id=tgw-rtb-0dfe8ac1fea1f180b][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Refreshing state... [id=tgw-attach-0863defabe828740e][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Refreshing state... [id=tgw-rtb-07c17647b09817af2][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Refreshing state... [id=tgw-rtb-06d0aed5952606634][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Refreshing state... [id=tgw-attach-08076484b394b4585][0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Refreshing state... [id=tgw-attach-02cac2ba270498b09][0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Refreshing state... [id=nat-0d369734a449b32fc][0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Refreshing state... [id=nat-0e78edb2d20dfb5b2][0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Refreshing state... [id=nat-07f0300af546c8b9f][0m
+[0m[1mmodule.nat_dev.aws_route.private_default["az_a"]: Refreshing state... [id=r-rtb-0d8e01b2f9fc273d81080289494][0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_a"]: Refreshing state... [id=r-rtb-0753079ea4f88c4bf1080289494][0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_b"]: Refreshing state... [id=r-rtb-092738aa1a1b885b71080289494][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.nat_dev.aws_eip.nat["single"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "nat" {
+      [31m-[0m[0m allocation_id            = "eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-0c13a7b0a9ebc9078" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-0a7d211ac82c0d062" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-10-101-0-108.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "10.101.0.108" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-44-208-98-42.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "44.208.98.42" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-dev-nat-eip-single"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-dev-nat-eip-single"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.nat_dev.aws_nat_gateway.this["single"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_nat_gateway" "this" {
+      [31m-[0m[0m allocation_id                      = "eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
+      [31m-[0m[0m association_id                     = "eipassoc-0c13a7b0a9ebc9078" [90m-> null[0m[0m
+      [31m-[0m[0m connectivity_type                  = "public" [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "nat-0e78edb2d20dfb5b2" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface_id               = "eni-0a7d211ac82c0d062" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                         = "10.101.0.108" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                          = "44.208.98.42" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_allocation_ids           = [] [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_address_count = 0 [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_addresses     = [] [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                          = "subnet-0736d14eca9ca94f9" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-dev-nat-single"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-dev-nat-single"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.nat_dev.aws_route.private_default["az_a"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route" "private_default" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0d8e01b2f9fc273d81080289494" [90m-> null[0m[0m
+      [31m-[0m[0m nat_gateway_id              = "nat-0e78edb2d20dfb5b2" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0d8e01b2f9fc273d8" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_eip.nat["az-a"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "nat" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-091ea1dfdf5fcb376" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-09f53c5d95629dcd5" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-10-102-0-122.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "10.102.0.122" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-52-2-247-39.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "52.2.247.39" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-eip-az-a"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-eip-az-a"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_eip.nat["az-b"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "nat" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-01d256bdcd16d9025" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-0976676099d299347" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-10-102-1-107.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "10.102.1.107" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-100-50-130-245.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "100.50.130.245" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-eip-az-b"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-eip-az-b"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_nat_gateway.this["az-a"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_nat_gateway" "this" {
+      [31m-[0m[0m allocation_id                      = "eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
+      [31m-[0m[0m association_id                     = "eipassoc-091ea1dfdf5fcb376" [90m-> null[0m[0m
+      [31m-[0m[0m connectivity_type                  = "public" [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "nat-0d369734a449b32fc" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface_id               = "eni-09f53c5d95629dcd5" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                         = "10.102.0.122" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                          = "52.2.247.39" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_allocation_ids           = [] [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_address_count = 0 [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_addresses     = [] [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                          = "subnet-04f98b85360477b2f" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-az-a"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-az-a"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_nat_gateway.this["az-b"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_nat_gateway" "this" {
+      [31m-[0m[0m allocation_id                      = "eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
+      [31m-[0m[0m association_id                     = "eipassoc-01d256bdcd16d9025" [90m-> null[0m[0m
+      [31m-[0m[0m connectivity_type                  = "public" [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "nat-07f0300af546c8b9f" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface_id               = "eni-0976676099d299347" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                         = "10.102.1.107" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                          = "100.50.130.245" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_allocation_ids           = [] [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_address_count = 0 [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_addresses     = [] [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                          = "subnet-0153d089b6df2c7e1" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-az-b"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-prod-nat-az-b"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_route.private_default["az_a"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route" "private_default" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0753079ea4f88c4bf1080289494" [90m-> null[0m[0m
+      [31m-[0m[0m nat_gateway_id              = "nat-0d369734a449b32fc" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0753079ea4f88c4bf" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.nat_prod.aws_route.private_default["az_b"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route" "private_default" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-092738aa1a1b885b71080289494" [90m-> null[0m[0m
+      [31m-[0m[0m nat_gateway_id              = "nat-07f0300af546c8b9f" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-092738aa1a1b885b7" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.privatelink.aws_security_group.endpoint[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_security_group" "endpoint" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:803347590852:security-group/sg-0993137deb1235148" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "Controls access to the com.amazonaws.us-east-1.s3 Interface Endpoint" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-0993137deb1235148" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "10.101.0.0/16",
+                ]
+              [31m-[0m[0m description      = "HTTPS from permitted CIDRs only"
+              [31m-[0m[0m from_port        = 443
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 443
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "atlas-network-privatelink-20260916104651900500000002" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix            = "atlas-network-privatelink-" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-privatelink-sg"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-privatelink-sg"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-0fa91ff84ac9de539" [90m-> null[0m[0m
+    }
+
+[1m  # module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_vpc_endpoint" "gateway_prerequisite" {
+      [31m-[0m[0m arn                        = "arn:aws:ec2:us-east-1:803347590852:vpc-endpoint/vpce-051fceb35b495db09" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_blocks                = [
+          [31m-[0m[0m "16.15.160.0/19",
+          [31m-[0m[0m "16.182.0.0/16",
+          [31m-[0m[0m "18.34.0.0/19",
+          [31m-[0m[0m "52.216.0.0/15",
+          [31m-[0m[0m "54.231.0.0/16",
+          [31m-[0m[0m "3.5.0.0/19",
+          [31m-[0m[0m "18.34.232.0/21",
+          [31m-[0m[0m "16.15.192.0/18",
+          [31m-[0m[0m "16.15.156.0/22",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m dns_entry                  = [] [90m-> null[0m[0m
+      [31m-[0m[0m id                         = "vpce-051fceb35b495db09" [90m-> null[0m[0m
+      [31m-[0m[0m ip_address_type            = "ipv4" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface_ids      = [] [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                   = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m policy                     = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "*"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = "*"
+                      [31m-[0m[0m Resource  = "*"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2008-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m prefix_list_id             = "pl-63a5400a" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_enabled        = false [90m-> null[0m[0m
+      [31m-[0m[0m requester_managed          = false [90m-> null[0m[0m
+      [31m-[0m[0m route_table_ids            = [
+          [31m-[0m[0m "rtb-0d8e01b2f9fc273d8",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m security_group_ids         = [] [90m-> null[0m[0m
+      [31m-[0m[0m service_name               = "com.amazonaws.us-east-1.s3" [90m-> null[0m[0m
+      [31m-[0m[0m service_region             = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m state                      = "available" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_ids                 = [] [90m-> null[0m[0m
+      [31m-[0m[0m tags                       = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-privatelink-gateway-prereq"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                   = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-privatelink-gateway-prereq"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_endpoint_type          = "Gateway" [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                     = "vpc-0fa91ff84ac9de539" [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m dns_options {
+          [31m-[0m[0m dns_record_ip_type                             = "service-defined" [90m-> null[0m[0m
+          [31m-[0m[0m private_dns_only_for_inbound_resolver_endpoint = false [90m-> null[0m[0m
+        }
+    }
+
+[1m  # module.transit_gateway.aws_ec2_transit_gateway.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_ec2_transit_gateway" "this" {
+      [31m-[0m[0m amazon_side_asn                    = 64512 [90m-> null[0m[0m
+      [31m-[0m[0m arn                                = "arn:aws:ec2:us-east-1:803347590852:transit-gateway/tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+      [31m-[0m[0m auto_accept_shared_attachments     = "disable" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_association    = "disable" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_propagation    = "disable" [90m-> null[0m[0m
+      [31m-[0m[0m description                        = "atlas-network hub-and-spoke Transit Gateway" [90m-> null[0m[0m
+      [31m-[0m[0m dns_support                        = "enable" [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+      [31m-[0m[0m multicast_support                  = "disable" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                           = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m security_group_referencing_support = "disable" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-tgw"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-tgw"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m transit_gateway_cidr_blocks        = [] [90m-> null[0m[0m
+      [31m-[0m[0m vpn_ecmp_support                   = "enable" [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.hub[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "hub" {
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-07c17647b09817af2" [90m-> null[0m[0m
+      [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m id                              = "tgw-rtb-07c17647b09817af2" [90m-> null[0m[0m
+      [31m-[0m[0m tags                            = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-hub"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                        = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-hub"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m transit_gateway_id              = "tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+    }
+
+[1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-06d0aed5952606634" [90m-> null[0m[0m
+      [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m id                              = "tgw-rtb-06d0aed5952606634" [90m-> null[0m[0m
+      [31m-[0m[0m tags                            = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-dev"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                        = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-dev"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m transit_gateway_id              = "tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+    }
+
+[1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-0dfe8ac1fea1f180b" [90m-> null[0m[0m
+      [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
+      [31m-[0m[0m id                              = "tgw-rtb-0dfe8ac1fea1f180b" [90m-> null[0m[0m
+      [31m-[0m[0m tags                            = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-prod"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                        = {
+          [31m-[0m[0m "ManagedBy" = "terraform"
+          [31m-[0m[0m "Name"      = "atlas-network-rtb-prod"
+          [31m-[0m[0m "Owner"     = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m transit_gateway_id              = "tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 15 to destroy.
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Destroying... [id=tgw-rtb-06d0aed5952606634][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Destroying... [id=tgw-rtb-07c17647b09817af2][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Destroying... [id=tgw-rtb-0dfe8ac1fea1f180b][0m[0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_a"]: Destroying... [id=r-rtb-0753079ea4f88c4bf1080289494][0m[0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_b"]: Destroying... [id=r-rtb-092738aa1a1b885b71080289494][0m[0m
+[0m[1mmodule.nat_dev.aws_route.private_default["az_a"]: Destroying... [id=r-rtb-0d8e01b2f9fc273d81080289494][0m[0m
+[0m[1mmodule.privatelink.aws_security_group.endpoint: Destroying... [id=sg-0993137deb1235148][0m[0m
+[0m[1mmodule.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Destroying... [id=vpce-051fceb35b495db09][0m[0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_b"]: Destruction complete after 2s[0m
+[0m[1mmodule.nat_dev.aws_route.private_default["az_a"]: Destruction complete after 2s[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Destroying... [id=nat-0e78edb2d20dfb5b2][0m[0m
+[0m[1mmodule.nat_prod.aws_route.private_default["az_a"]: Destruction complete after 2s[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Destroying... [id=nat-07f0300af546c8b9f][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Destroying... [id=nat-0d369734a449b32fc][0m[0m
+[0m[1mmodule.privatelink.aws_security_group.endpoint: Destruction complete after 3s[0m
+[0m[1mmodule.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Destruction complete after 7s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0dfe8ac1fea1f180b, 00m10s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still destroying... [id=tgw-rtb-07c17647b09817af2, 00m10s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-06d0aed5952606634, 00m10s elapsed][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 00m10s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 00m10s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0d369734a449b32fc, 00m10s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still destroying... [id=tgw-rtb-07c17647b09817af2, 00m20s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-06d0aed5952606634, 00m20s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0dfe8ac1fea1f180b, 00m20s elapsed][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 00m20s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 00m20s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0d369734a449b32fc, 00m20s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Destruction complete after 27s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0dfe8ac1fea1f180b, 00m30s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-06d0aed5952606634, 00m30s elapsed][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 00m30s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 00m30s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0d369734a449b32fc, 00m30s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Destruction complete after 37s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Destruction complete after 37s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Destroying... [id=tgw-045314b0c4564e0e7][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 00m40s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 00m40s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0d369734a449b32fc, 00m40s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-a"]: Destruction complete after 42s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 00m10s elapsed][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 00m50s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 00m50s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 00m20s elapsed][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0e78edb2d20dfb5b2, 01m00s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-07f0300af546c8b9f, 01m00s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_nat_gateway.this["az-b"]: Destruction complete after 1m2s[0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-a"]: Destroying... [id=eipalloc-0b159a39cb72a2f42][0m[0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-b"]: Destroying... [id=eipalloc-0b6b0df511840d7af][0m[0m
+[0m[1mmodule.nat_dev.aws_nat_gateway.this["single"]: Destruction complete after 1m2s[0m
+[0m[1mmodule.nat_dev.aws_eip.nat["single"]: Destroying... [id=eipalloc-01023fc19ab81d8d0][0m[0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-a"]: Destruction complete after 3s[0m
+[0m[1mmodule.nat_dev.aws_eip.nat["single"]: Destruction complete after 2s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 00m30s elapsed][0m[0m
+[0m[1mmodule.nat_prod.aws_eip.nat["az-b"]: Destruction complete after 3s[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 00m40s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 00m50s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-045314b0c4564e0e7, 01m00s elapsed][0m[0m
+[0m[1mmodule.transit_gateway.aws_ec2_transit_gateway.this: Destruction complete after 1m7s[0m
+[0m[1m[32m
+Destroy complete! Resources: 15 destroyed.[0m

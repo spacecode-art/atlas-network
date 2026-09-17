@@ -1,0 +1,382 @@
+[0m[1mmodule.vpc.aws_vpc.this: Refreshing state... [id=vpc-07f39a580596c651b][0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Refreshing state... [id=igw-07126b027e6bfb03e][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-088741f85aa8c78f1][0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Refreshing state... [id=sg-09a1331740e50ee78][0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-05a940cc9b6e763cd][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-05de3f1cb8eca6a5d][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0c1788347a0ca85dc][0m
+[0m[1mmodule.vpc.aws_route_table.public: Refreshing state... [id=rtb-0ea3af732aa24aee6][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0695e26c769fdb4b8][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.vpc.aws_default_security_group.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_default_security_group" "this" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:803347590852:security-group/sg-09a1331740e50ee78" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "default VPC security group" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-09a1331740e50ee78" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "default" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_internet_gateway.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_internet_gateway" "this" {
+      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:803347590852:internet-gateway/igw-07126b027e6bfb03e" [90m-> null[0m[0m
+      [31m-[0m[0m id       = "igw-07126b027e6bfb03e" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m tags     = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-igw"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-igw"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id   = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "private" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-05a940cc9b6e763cd" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-05a940cc9b6e763cd" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.public[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "public" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-0ea3af732aa24aee6" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-0ea3af732aa24aee6" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m gateway_id                 = "igw-07126b027e6bfb03e"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-public-rt"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-public-rt"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "private" {
+      [31m-[0m[0m id             = "rtbassoc-0c1788347a0ca85dc" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-05a940cc9b6e763cd" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-05de3f1cb8eca6a5d" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "public" {
+      [31m-[0m[0m id             = "rtbassoc-0695e26c769fdb4b8" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0ea3af732aa24aee6" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-088741f85aa8c78f1" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.private[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "private" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-05de3f1cb8eca6a5d" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.101.10.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-05de3f1cb8eca6a5d" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-private-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-private-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "private"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "public" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-088741f85aa8c78f1" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.101.0.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-088741f85aa8c78f1" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-public-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-public-0"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+          [31m-[0m[0m "Tier"        = "public"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_vpc.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_vpc" "this" {
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:803347590852:vpc/vpc-07f39a580596c651b" [90m-> null[0m[0m
+      [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                           = "10.101.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_id               = "rtb-0af0a5bffaf6a7fe8" [90m-> null[0m[0m
+      [31m-[0m[0m default_security_group_id            = "sg-09a1331740e50ee78" [90m-> null[0m[0m
+      [31m-[0m[0m dhcp_options_id                      = "dopt-05e015f27c458304d" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_hostnames                 = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_support                   = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_network_address_usage_metrics = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+      [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m main_route_table_id                  = "rtb-0af0a5bffaf6a7fe8" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-vpc"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Environment" = "network-spoke-dev"
+          [31m-[0m[0m "ManagedBy"   = "terraform"
+          [31m-[0m[0m "Name"        = "atlas-network-spoke-dev-vpc"
+          [31m-[0m[0m "Owner"       = "dennisk-atlas-portfolio"
+        } [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 9 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m private_route_table_ids = [
+      [31m-[0m[0m "rtb-05a940cc9b6e763cd",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m private_subnet_ids      = [
+      [31m-[0m[0m "subnet-05de3f1cb8eca6a5d",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m public_subnet_ids       = [
+      [31m-[0m[0m "subnet-088741f85aa8c78f1",
+    ] [90m-> null[0m[0m
+  [31m-[0m[0m vpc_id                  = "vpc-07f39a580596c651b" [90m-> null[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-0695e26c769fdb4b8][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-0c1788347a0ca85dc][0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Destroying... [id=sg-09a1331740e50ee78][0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this: Destruction complete after 0s[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Still destroying... [id=rtbassoc-0695e26c769fdb4b8, 00m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Still destroying... [id=rtbassoc-0c1788347a0ca85dc, 00m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Still destroying... [id=rtbassoc-0695e26c769fdb4b8, 00m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Still destroying... [id=rtbassoc-0c1788347a0ca85dc, 00m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Destruction complete after 27s[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Destroying... [id=rtb-05a940cc9b6e763cd][0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Destroying... [id=subnet-05de3f1cb8eca6a5d][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Destruction complete after 27s[0m
+[0m[1mmodule.vpc.aws_route_table.public: Destroying... [id=rtb-0ea3af732aa24aee6][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Destroying... [id=subnet-088741f85aa8c78f1][0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_route_table.public: Destruction complete after 2s[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Destroying... [id=igw-07126b027e6bfb03e][0m[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this: Destruction complete after 1s[0m
+[0m[1mmodule.vpc.aws_vpc.this: Destroying... [id=vpc-07f39a580596c651b][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 00m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 00m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 00m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 00m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 00m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 01m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 02m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 03m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 04m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 05m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 06m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 07m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 08m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 09m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 10m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 11m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 12m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 13m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 14m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 15m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 16m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 17m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 18m50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m00s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this: Still destroying... [id=vpc-07f39a580596c651b, 19m50s elapsed][0m[0m
