@@ -36,7 +36,7 @@ was supposedly already fixed — not a new bug, a sync failure. Confirmed via:
 
 ```bash
 aws iam get-policy --profile default \
-  --policy-arn arn:aws:iam::803347590852:policy/atlas-network-burst-deploy-policy \
+  --policy-arn arn:aws:iam::<ACCOUNT_ID>:policy/atlas-network-burst-deploy-policy \
   --query "Policy.DefaultVersionId"
 ```
 
