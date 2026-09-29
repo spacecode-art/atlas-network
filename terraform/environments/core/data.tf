@@ -4,12 +4,11 @@
 # own infrastructure independently, and core is the only place that needs
 # to know about all three at once.
 #
-# LOCAL-BACKEND LIMITATION: these paths only work when core is planned from
-# the same machine that ran each environment's terraform init/plan, since
-# they read local state files by relative path. A real burst-deploy needs
-# all four environments on a shared remote backend (S3+DynamoDB, same
-# pattern atlas-foundation already proved out) so this works regardless of
-# machine. Tracked as a prerequisite in ADR-0005, not silently assumed away.
+# LOCAL-BACKEND BY DESIGN (ADR-0005): these paths only work when core runs
+# from the same working tree that applied hub/spoke-dev/spoke-prod, in the
+# same session. That is the burst-deploy's exact scope (one operator, one
+# machine, full teardown). A second machine or persistent state needs a new
+# ADR, not a silent change.
 data "terraform_remote_state" "hub" {
   backend = "local"
   config = {

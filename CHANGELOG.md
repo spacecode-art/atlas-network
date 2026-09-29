@@ -4,7 +4,25 @@ All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
+- `environments/core`: VPC→TGW `aws_route` resources (spokes → hub CIDR only;
+  hub → each spoke CIDR) and `outputs.tf` (ADR-0009)
+- privatelink module: optional `endpoint_policy`; validation rejecting
+  `0.0.0.0/0` in `allowed_cidr_blocks`
+- Scripts: `preflight.sh`, `burst-apply.sh`, `capture-evidence.sh`,
+  `redact-evidence.sh`, `security-scan.sh`
+- CI: Checkov security-scan job, concurrency + timeouts, Dependabot
+- Docs: threat model, incident runbook, packet-flow diagrams, cost-actuals
+  template, ADR-0006 through ADR-0009, security-scan evidence
+- Burst-deploy evidence: 2026-09-15, 2026-09-16, 2026-09-22, 2026-09-25
 
+### Changed
+- `destroy-all.sh`: sweeps NAT gateways, endpoints and ENIs; exits non-zero on
+  leftovers; `-no-color`; owner resolved from tfvars instead of hard-coded
+- IAM policy: `tiros:*` for Reachability Analyzer; account ID templated
+  (`__ACCOUNT_ID__`)
+- Cost model corrected to 3 attachments / 3 NATs plus Reachability Analyzer
+  (~$0.61 per burst hour)
+- README status, diagram, ADR index, monitoring and postmortem sections
 ### Added
 - Repository governance files (`.editorconfig`, `.gitignore`, `LICENSE`,
   `CONTRIBUTING.md`) — present on disk since repo init but never committed

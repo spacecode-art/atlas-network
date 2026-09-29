@@ -30,3 +30,11 @@ terraform.rc
 # commit only .tfvars.example files as documentation
 *.tfvars
 !*.tfvars.example
+# Screen recordings — host externally (YouTube unlisted / GitHub Release), never in git
+*.mp4
+*.mkv
+*.mov
+
+# Terraform lock-info and redaction leftovers
+.terraform.tfstate.lock.info
+*.bak

@@ -2,7 +2,7 @@
 
 > Enterprise connectivity for the Atlas platform: Transit Gateway, PrivateLink, and NAT strategy — designed, validated, and burst-deployed once.
 
-**Status:** Design phase. Terraform modules and burst-deploy evidence are being added incrementally; this README documents the architecture and decisions first, per Atlas engineering standards (write the README before the code).
+**Status:** Modules and environments implemented and validated in CI. Three practice burst-deploys completed with clean teardown (ADR-0006/0007/0008/0009 document what broke). The final recorded burst-deploy with Reachability Analyzer evidence is the remaining item.
 
 ## Problem Statement
 
@@ -24,38 +24,33 @@ Two spoke VPCs are modeled — `spoke-dev` and `spoke-prod` — specifically so 
 
 ```mermaid
 graph TB
-    subgraph HUB["Hub VPC — 10.100.0.0/16 (design + single burst-deploy)"]
-        TGW[Transit Gateway]
-        PL_EP[PrivateLink Interface Endpoint<br/>internal-api.atlas.local]
-        PL_SVC[PrivateLink-fronted Service<br/>e.g. internal API in Hub]
+    subgraph HUB["Hub VPC — 10.100.0.0/16"]
+        HUB_VPC[VPC + private subnets]
+        HUB_RT[Private RT<br/>10.101.0.0/16 via TGW<br/>10.102.0.0/16 via TGW]
     end
+
+    TGW[Transit Gateway<br/>one route table per attachment<br/>default table unused]
 
     subgraph DEV["Spoke: atlas-network-dev — 10.101.0.0/16"]
         DEV_VPC[VPC]
-        DEV_RT[Route Table: dev-spoke<br/>0.0.0.0/0 via NAT<br/>10.100.0.0/16 via TGW]
-        DEV_NAT[NAT Gateway<br/>single-AZ — cost tradeoff, see ADR-0004]
+        DEV_RT[Private RT<br/>0.0.0.0/0 via NAT<br/>10.100.0.0/16 via TGW]
+        DEV_NAT[NAT Gateway<br/>single-AZ — ADR-0004]
+        DEV_EP[S3 Interface Endpoint<br/>SG: 443 from 10.101.0.0/16 only<br/>read-only endpoint policy]
     end
 
     subgraph PROD["Spoke: atlas-network-prod — 10.102.0.0/16"]
         PROD_VPC[VPC]
-        PROD_RT[Route Table: prod-spoke<br/>0.0.0.0/0 via NAT<br/>10.100.0.0/16 via TGW]
-        PROD_NAT[NAT Gateway<br/>per-AZ — availability tradeoff, see ADR-0004]
+        PROD_RT[Private RT<br/>0.0.0.0/0 via NAT<br/>10.100.0.0/16 via TGW]
+        PROD_NAT[NAT Gateway per-AZ — ADR-0004]
     end
 
-    DEV_VPC -- TGW attachment --> TGW
-    PROD_VPC -- TGW attachment --> TGW
-    TGW -- route: 10.101.0.0/16 only --> DEV_RT
-    TGW -- route: 10.102.0.0/16 only --> PROD_RT
-    DEV_VPC -.->|explicitly NOT routed to prod<br/>see ADR-0002| PROD_VPC
-
-    TGW --> PL_EP
-    PL_EP --> PL_SVC
+    HUB_VPC -- attachment --> TGW
+    DEV_VPC -- attachment --> TGW
+    PROD_VPC -- attachment --> TGW
+    DEV_VPC --- DEV_EP
+    DEV_VPC -.->|no route, no propagation<br/>ADR-0002| PROD_VPC
 ```
-
-**Read the dotted line carefully** — dev cannot reach prod through the hub. That's not an omission, it's a TGW route table decision (a separate route table per spoke, each with routes only to what it's allowed to see). Full reasoning in ADR-0002.
-
----
-
+Packet-flow walkthroughs (hub↔spoke, blocked dev→prod, NAT egress, S3 via endpoint): [`docs/diagrams/packet-flows.md`](docs/diagrams/packet-flows.md).
 ## Design Decisions (ADR)
 
 | ADR | Decision |
@@ -65,8 +60,10 @@ graph TB
 | [ADR-0003](docs/adr/ADR-0003-privatelink-over-vpc-peering.md) | PrivateLink chosen over VPC peering for the internal-API use case, and why peering is still the right call for the dev↔shared-services path |
 | [ADR-0004](docs/adr/ADR-0004-nat-strategy-per-environment.md) | Single-AZ NAT for dev (cost), per-AZ NAT for prod (availability) — and the exact dollar delta between them |
 | [ADR-0005](docs/adr/ADR-0005-burst-deploy-scope-and-budget.md) | Scope, time limit, and dollar ceiling for the one permitted live burst-deployment in this repo |
-
-*(ADRs are written before their corresponding Terraform, not after — this table will fill in as each is authored.)*
+| [ADR-0006](docs/adr/ADR-0006-iam-policy-gap-practice-burst.md) | IAM policy gap found during the first practice burst-deploy |
+| [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) | Destroy order, core module bug, manual cleanup |
+| [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) | Repo-vs-live IAM policy drift and a fourth Describe* gap |
+| [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) | Missing VPC→TGW routes, Reachability Analyzer permissions, preflight automation |
 
 ---
 
@@ -93,12 +90,13 @@ Designed cost if this topology ran continuously in `us-east-1` (approximate, at 
 
 | Resource | Unit Cost | Monthly (2 spokes, low traffic) |
 |---|---|---|
-| TGW attachment (×2) | $0.05/hr each | ~$73/mo |
+| TGW attachments (×3: hub + 2 spokes) | $0.05/hr each | ~$110/mo |
 | TGW data processing | $0.02/GB | traffic-dependent |
 | PrivateLink Interface Endpoint | $0.01/hr + $0.01/GB | ~$7/mo + traffic |
 | NAT Gateway, dev (single-AZ) | $0.045/hr | ~$33/mo |
 | NAT Gateway, prod (per-AZ, ×2) | $0.045/hr each | ~$66/mo |
-| **Total, always-on** | | **~$180–220/mo** |
+| Public IPv4 (×3 NAT EIPs) | $0.005/hr each | ~$11/mo |
+| **Total, always-on** | | **~$225–260/mo** |
 
 Actual cost incurred building this repo: the single burst-deploy window, budgeted and capped in ADR-0005 — see `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
 
@@ -119,7 +117,7 @@ GitHub Actions runs `terraform fmt -check`, `terraform validate`, and `terraform
 
 ## Security Review
 
-IaC scan results (Checkov / tfsec) committed as artifacts in `docs/evidence/`, generated the same way as `atlas-security`'s scanning pipeline, run against this repo's Terraform.
+Checkov runs on every PR (`scripts/security-scan.sh`, uploaded as a CI artifact). Trivy config-scan results are generated locally. Committed results: [`docs/evidence/security-scan/`](docs/evidence/security-scan/). Accepted findings are listed with justification in ADR-0009.
 
 ---
 
@@ -132,12 +130,13 @@ Post burst-deploy, the real (small) Cost Explorer/CUR line items for the deploym
 ## Testing Strategy
 
 Terratest suite validates module inputs/outputs and route table logic statically. Since MiniStack does not support Transit Gateway or PrivateLink (Community edition — verify current support before relying on this), these modules are validated via `terraform validate` + `plan` + manual review rather than an emulated `apply`. That gap is documented, not hidden — see ADR-0005.
+The VPC→TGW `aws_route` resources in `environments/core` depend on remote state, so they are covered by `terraform validate` and by the live burst-deploy (route table assertions in `scripts/capture-evidence.sh`), not by Terratest.
 
 ---
 
 ## Monitoring
 
-VPC Flow Logs enabled on both spokes during the burst-deploy window only, captured as evidence rather than run continuously.
+No continuous monitoring: the topology exists only for the burst window. Evidence is captured by API instead of Flow Logs — TGW route table contents, Reachability Analyzer analyses, and resource inventories (`scripts/capture-evidence.sh`). Flow Logs are intentionally out of scope (extra IAM surface, no traffic to observe).
 
 ---
 
@@ -149,7 +148,7 @@ Failure scenario: TGW route table misconfiguration causes a routing black hole b
 
 ## Postmortem Example
 
-To be added after the burst-deploy — any real issue hit during the live window (there is usually at least one) gets a blameless postmortem here, following the same format as `atlas-foundation`'s ADR-driven bug trail.
+Real incidents from the practice burst-deploys are written up as blameless ADR-postmortems: [ADR-0006](docs/adr/ADR-0006-iam-policy-gap-practice-burst.md) (IAM gap), [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) (destroy order, module bug, manual cleanup), [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) (policy drift), [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) (missing routes found in review).
 
 ---
 

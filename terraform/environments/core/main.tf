@@ -39,6 +39,17 @@ module "privatelink" {
   gateway_endpoint_route_table_ids = data.terraform_remote_state.spoke_dev.outputs.private_route_table_ids
 
   allowed_cidr_blocks = ["10.101.0.0/16"]
+
+  # Read-only via the endpoint. Default endpoint policy is full access.
+  endpoint_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = "*"
+      Action    = ["s3:GetObject", "s3:ListBucket"]
+      Resource  = "*"
+    }]
+  })
 }
 
 module "nat_dev" {
@@ -82,4 +93,53 @@ module "nat_prod" {
       nat_gateway_key = "az-b"
     }
   }
+}
+
+# ---------------------------------------------------------------------------
+# VPC-side routes into the Transit Gateway (ADR-0002, ADR-0009).
+# Without these, attachments + TGW route tables exist but no VPC subnet
+# actually sends traffic to the TGW.
+#   - spokes get a route to the HUB CIDR only, never to each other
+#   - hub gets routes to each spoke CIDR
+# ---------------------------------------------------------------------------
+locals {
+  hub_cidr    = "10.100.0.0/16"
+  spoke_cidrs = { dev = "10.101.0.0/16", prod = "10.102.0.0/16" }
+
+  spoke_to_hub_routes = merge([
+    for env, ids in {
+      dev  = data.terraform_remote_state.spoke_dev.outputs.private_route_table_ids
+      prod = data.terraform_remote_state.spoke_prod.outputs.private_route_table_ids
+    } : { for idx, id in ids : "${env}-${idx}" => id }
+  ]...)
+
+  hub_to_spoke_routes = merge([
+    for idx, rt_id in data.terraform_remote_state.hub.outputs.private_route_table_ids : {
+      for env, cidr in local.spoke_cidrs : "${idx}-${env}" => {
+        route_table_id = rt_id
+        cidr           = cidr
+      }
+    }
+  ]...)
+}
+
+resource "aws_route" "spoke_to_hub" {
+  for_each = local.spoke_to_hub_routes
+
+  route_table_id         = each.value
+  destination_cidr_block = local.hub_cidr
+  transit_gateway_id     = module.transit_gateway.transit_gateway_id
+
+  # Attachments must be "available" before a route can target the TGW.
+  depends_on = [module.transit_gateway]
+}
+
+resource "aws_route" "hub_to_spoke" {
+  for_each = local.hub_to_spoke_routes
+
+  route_table_id         = each.value.route_table_id
+  destination_cidr_block = each.value.cidr
+  transit_gateway_id     = module.transit_gateway.transit_gateway_id
+
+  depends_on = [module.transit_gateway]
 }
