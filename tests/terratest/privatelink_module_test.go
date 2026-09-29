@@ -31,6 +31,8 @@ func TestPrivateLinkModulePlanEnforcesInterfaceOnlyAndScopedIngress(t *testing.T
 	endpointAfter := endpoint.Change.After.(map[string]interface{})
 	assert.Equal(t, "Interface", endpointAfter["vpc_endpoint_type"],
 		"endpoint must be Interface type — Gateway endpoints are not PrivateLink, see ADR-0003")
+	assert.NotEmpty(t, endpointAfter["policy"],
+		"endpoint policy must be applied when endpoint_policy is provided")
 
 	// The security group must exist and must NOT default to 0.0.0.0/0.
 	// This is the assertion that actually matters: validate/fmt would

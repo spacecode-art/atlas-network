@@ -30,4 +30,14 @@ module "privatelink" {
   # noticing, the test catches it even though `terraform validate`
   # and `fmt` never would.
   allowed_cidr_blocks = ["10.101.0.0/16"]
+
+  endpoint_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = "*"
+      Action    = ["s3:GetObject", "s3:ListBucket"]
+      Resource  = "*"
+    }]
+  })
 }

@@ -1,0 +1,817 @@
+data.terraform_remote_state.hub: Reading...
+data.terraform_remote_state.spoke_dev: Reading...
+data.terraform_remote_state.spoke_prod: Reading...
+data.terraform_remote_state.spoke_dev: Read complete after 0s
+data.terraform_remote_state.spoke_prod: Read complete after 0s
+data.terraform_remote_state.hub: Read complete after 0s
+module.nat_prod.aws_eip.nat["az-a"]: Refreshing state... [id=eipalloc-0850a6302c0a97f17]
+module.transit_gateway.aws_ec2_transit_gateway.this: Refreshing state... [id=tgw-006a68ac3beb397b7]
+module.nat_dev.aws_eip.nat["single"]: Refreshing state... [id=eipalloc-07287145317884bcf]
+module.nat_prod.aws_eip.nat["az-b"]: Refreshing state... [id=eipalloc-032c9da9cdfcd7b71]
+module.privatelink.aws_security_group.endpoint: Refreshing state... [id=sg-0828ac7bdd4c1f390]
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Refreshing state... [id=vpce-0913faab0ca608c81]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Refreshing state... [id=tgw-rtb-0feb103dfb51bf1b9]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Refreshing state... [id=tgw-attach-0ac487b5f08489712]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Refreshing state... [id=tgw-rtb-0f5f2dcc42742637a]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Refreshing state... [id=tgw-rtb-0e77bd6082ad763d8]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Refreshing state... [id=tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Refreshing state... [id=tgw-attach-03f8da3fdeef3c0e5]
+module.privatelink.aws_vpc_endpoint.this: Refreshing state... [id=vpce-037aabb5582e95a0c]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Refreshing state... [id=nat-02e7c1d8bf21eec34]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Refreshing state... [id=nat-0de71e8660ac73dc7]
+module.nat_prod.aws_route.private_default["az_b"]: Refreshing state... [id=r-rtb-09a177f4cdc7714971080289494]
+module.nat_prod.aws_route.private_default["az_a"]: Refreshing state... [id=r-rtb-0a6c8f83fce3382521080289494]
+module.nat_dev.aws_nat_gateway.this["single"]: Refreshing state... [id=nat-0ae2a35390b0612b7]
+module.nat_dev.aws_route.private_default["az_a"]: Refreshing state... [id=r-rtb-01100bfee95db4b3e1080289494]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Refreshing state... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Refreshing state... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"]: Refreshing state... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-03f8da3fdeef3c0e5]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"]: Refreshing state... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Refreshing state... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"]: Refreshing state... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-0ac487b5f08489712]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"]: Refreshing state... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-0ac487b5f08489712]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # module.nat_dev.aws_eip.nat["single"] will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id            = "eipalloc-07287145317884bcf" -> null
+      - arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-07287145317884bcf" -> null
+      - association_id           = "eipassoc-090f3be2547ae6048" -> null
+      - domain                   = "vpc" -> null
+      - id                       = "eipalloc-07287145317884bcf" -> null
+      - network_border_group     = "us-east-1" -> null
+      - network_interface        = "eni-064f03d88c047abe9" -> null
+      - private_dns              = "ip-10-101-0-134.ec2.internal" -> null
+      - private_ip               = "10.101.0.134" -> null
+      - public_dns               = "ec2-32-198-159-51.compute-1.amazonaws.com" -> null
+      - public_ip                = "32.198.159.51" -> null
+      - public_ipv4_pool         = "amazon" -> null
+      - tags                     = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-dev-nat-eip-single"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                 = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-dev-nat-eip-single"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc                      = true -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.nat_dev.aws_nat_gateway.this["single"] will be destroyed
+  - resource "aws_nat_gateway" "this" {
+      - allocation_id                      = "eipalloc-07287145317884bcf" -> null
+      - association_id                     = "eipassoc-090f3be2547ae6048" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-0ae2a35390b0612b7" -> null
+      - network_interface_id               = "eni-064f03d88c047abe9" -> null
+      - private_ip                         = "10.101.0.134" -> null
+      - public_ip                          = "32.198.159.51" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-02dba8ff921fd8940" -> null
+      - tags                               = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-dev-nat-single"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                           = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-dev-nat-single"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+    }
+
+  # module.nat_dev.aws_route.private_default["az_a"] will be destroyed
+  - resource "aws_route" "private_default" {
+      - destination_cidr_block      = "0.0.0.0/0" -> null
+      - id                          = "r-rtb-01100bfee95db4b3e1080289494" -> null
+      - nat_gateway_id              = "nat-0ae2a35390b0612b7" -> null
+      - origin                      = "CreateRoute" -> null
+      - route_table_id              = "rtb-01100bfee95db4b3e" -> null
+      - state                       = "active" -> null
+        # (13 unchanged attributes hidden)
+    }
+
+  # module.nat_prod.aws_eip.nat["az-a"] will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id            = "eipalloc-0850a6302c0a97f17" -> null
+      - arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-0850a6302c0a97f17" -> null
+      - association_id           = "eipassoc-07f899f95bcbb90b9" -> null
+      - domain                   = "vpc" -> null
+      - id                       = "eipalloc-0850a6302c0a97f17" -> null
+      - network_border_group     = "us-east-1" -> null
+      - network_interface        = "eni-0be768d4f8b7c28a2" -> null
+      - private_dns              = "ip-10-102-0-50.ec2.internal" -> null
+      - private_ip               = "10.102.0.50" -> null
+      - public_dns               = "ec2-100-62-4-215.compute-1.amazonaws.com" -> null
+      - public_ip                = "100.62.4.215" -> null
+      - public_ipv4_pool         = "amazon" -> null
+      - tags                     = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-eip-az-a"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                 = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-eip-az-a"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc                      = true -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.nat_prod.aws_eip.nat["az-b"] will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id            = "eipalloc-032c9da9cdfcd7b71" -> null
+      - arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-032c9da9cdfcd7b71" -> null
+      - association_id           = "eipassoc-0c6e7bde74f7a22a5" -> null
+      - domain                   = "vpc" -> null
+      - id                       = "eipalloc-032c9da9cdfcd7b71" -> null
+      - network_border_group     = "us-east-1" -> null
+      - network_interface        = "eni-0bb607df7252b31a5" -> null
+      - private_dns              = "ip-10-102-1-127.ec2.internal" -> null
+      - private_ip               = "10.102.1.127" -> null
+      - public_dns               = "ec2-35-172-126-33.compute-1.amazonaws.com" -> null
+      - public_ip                = "35.172.126.33" -> null
+      - public_ipv4_pool         = "amazon" -> null
+      - tags                     = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-eip-az-b"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                 = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-eip-az-b"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc                      = true -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.nat_prod.aws_nat_gateway.this["az-a"] will be destroyed
+  - resource "aws_nat_gateway" "this" {
+      - allocation_id                      = "eipalloc-0850a6302c0a97f17" -> null
+      - association_id                     = "eipassoc-07f899f95bcbb90b9" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-0de71e8660ac73dc7" -> null
+      - network_interface_id               = "eni-0be768d4f8b7c28a2" -> null
+      - private_ip                         = "10.102.0.50" -> null
+      - public_ip                          = "100.62.4.215" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-04acf73ca14dd87dd" -> null
+      - tags                               = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-az-a"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                           = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-az-a"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+    }
+
+  # module.nat_prod.aws_nat_gateway.this["az-b"] will be destroyed
+  - resource "aws_nat_gateway" "this" {
+      - allocation_id                      = "eipalloc-032c9da9cdfcd7b71" -> null
+      - association_id                     = "eipassoc-0c6e7bde74f7a22a5" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-02e7c1d8bf21eec34" -> null
+      - network_interface_id               = "eni-0bb607df7252b31a5" -> null
+      - private_ip                         = "10.102.1.127" -> null
+      - public_ip                          = "35.172.126.33" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-04dfe5e26bf40dce8" -> null
+      - tags                               = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-az-b"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                           = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-prod-nat-az-b"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+    }
+
+  # module.nat_prod.aws_route.private_default["az_a"] will be destroyed
+  - resource "aws_route" "private_default" {
+      - destination_cidr_block      = "0.0.0.0/0" -> null
+      - id                          = "r-rtb-0a6c8f83fce3382521080289494" -> null
+      - nat_gateway_id              = "nat-0de71e8660ac73dc7" -> null
+      - origin                      = "CreateRoute" -> null
+      - route_table_id              = "rtb-0a6c8f83fce338252" -> null
+      - state                       = "active" -> null
+        # (13 unchanged attributes hidden)
+    }
+
+  # module.nat_prod.aws_route.private_default["az_b"] will be destroyed
+  - resource "aws_route" "private_default" {
+      - destination_cidr_block      = "0.0.0.0/0" -> null
+      - id                          = "r-rtb-09a177f4cdc7714971080289494" -> null
+      - nat_gateway_id              = "nat-02e7c1d8bf21eec34" -> null
+      - origin                      = "CreateRoute" -> null
+      - route_table_id              = "rtb-09a177f4cdc771497" -> null
+      - state                       = "active" -> null
+        # (13 unchanged attributes hidden)
+    }
+
+  # module.privatelink.aws_security_group.endpoint will be destroyed
+  - resource "aws_security_group" "endpoint" {
+      - arn                    = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:security-group/sg-0828ac7bdd4c1f390" -> null
+      - description            = "Controls access to the com.amazonaws.us-east-1.s3 Interface Endpoint" -> null
+      - egress                 = [] -> null
+      - id                     = "sg-0828ac7bdd4c1f390" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "10.101.0.0/16",
+                ]
+              - description      = "HTTPS from permitted CIDRs only"
+              - from_port        = 443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 443
+            },
+        ] -> null
+      - name                   = "atlas-network-privatelink-20260925123423404700000002" -> null
+      - name_prefix            = "atlas-network-privatelink-" -> null
+      - owner_id               = "<ACCOUNT_ID>" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-sg"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all               = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-sg"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_id                 = "vpc-07a9780d46635a821" -> null
+    }
+
+  # module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0] will be destroyed
+  - resource "aws_vpc_endpoint" "gateway_prerequisite" {
+      - arn                        = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc-endpoint/vpce-0913faab0ca608c81" -> null
+      - cidr_blocks                = [
+          - "16.15.160.0/19",
+          - "16.182.0.0/16",
+          - "18.34.0.0/19",
+          - "52.216.0.0/15",
+          - "54.231.0.0/16",
+          - "3.5.0.0/19",
+          - "18.34.232.0/21",
+          - "16.15.192.0/18",
+          - "16.15.156.0/22",
+        ] -> null
+      - dns_entry                  = [] -> null
+      - id                         = "vpce-0913faab0ca608c81" -> null
+      - ip_address_type            = "ipv4" -> null
+      - network_interface_ids      = [] -> null
+      - owner_id                   = "<ACCOUNT_ID>" -> null
+      - policy                     = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "*"
+                      - Effect    = "Allow"
+                      - Principal = "*"
+                      - Resource  = "*"
+                    },
+                ]
+              - Version   = "2008-10-17"
+            }
+        ) -> null
+      - prefix_list_id             = "pl-63a5400a" -> null
+      - private_dns_enabled        = false -> null
+      - requester_managed          = false -> null
+      - route_table_ids            = [
+          - "rtb-01100bfee95db4b3e",
+        ] -> null
+      - security_group_ids         = [] -> null
+      - service_name               = "com.amazonaws.us-east-1.s3" -> null
+      - service_region             = "us-east-1" -> null
+      - state                      = "available" -> null
+      - subnet_ids                 = [] -> null
+      - tags                       = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-gateway-prereq"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                   = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-gateway-prereq"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_endpoint_type          = "Gateway" -> null
+      - vpc_id                     = "vpc-07a9780d46635a821" -> null
+        # (2 unchanged attributes hidden)
+
+      - dns_options {
+          - dns_record_ip_type                             = "service-defined" -> null
+          - private_dns_only_for_inbound_resolver_endpoint = false -> null
+        }
+    }
+
+  # module.privatelink.aws_vpc_endpoint.this will be destroyed
+  - resource "aws_vpc_endpoint" "this" {
+      - arn                        = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc-endpoint/vpce-037aabb5582e95a0c" -> null
+      - cidr_blocks                = [
+          - "16.15.160.0/19",
+          - "16.182.0.0/16",
+          - "18.34.0.0/19",
+          - "52.216.0.0/15",
+          - "54.231.0.0/16",
+          - "3.5.0.0/19",
+          - "18.34.232.0/21",
+          - "16.15.192.0/18",
+          - "16.15.156.0/22",
+        ] -> null
+      - dns_entry                  = [
+          - {
+              - dns_name       = "*.vpce-037aabb5582e95a0c-fwmdfcea.s3.us-east-1.vpce.amazonaws.com"
+              - hosted_zone_id = "Z7HUB22UULQXV"
+            },
+          - {
+              - dns_name       = "*.vpce-037aabb5582e95a0c-fwmdfcea-us-east-1a.s3.us-east-1.vpce.amazonaws.com"
+              - hosted_zone_id = "Z7HUB22UULQXV"
+            },
+          - {
+              - dns_name       = "s3.us-east-1.amazonaws.com"
+              - hosted_zone_id = "Z08383063QHIJZMBTLPDI"
+            },
+          - {
+              - dns_name       = "*.s3.us-east-1.amazonaws.com"
+              - hosted_zone_id = "Z08383063QHIJZMBTLPDI"
+            },
+          - {
+              - dns_name       = "*.s3-accesspoint.us-east-1.amazonaws.com"
+              - hosted_zone_id = "Z04887753DUS1CTDZYTSK"
+            },
+          - {
+              - dns_name       = "*.s3-control.us-east-1.amazonaws.com"
+              - hosted_zone_id = "Z04640493I2X5CNQO01A1"
+            },
+        ] -> null
+      - id                         = "vpce-037aabb5582e95a0c" -> null
+      - ip_address_type            = "ipv4" -> null
+      - network_interface_ids      = [
+          - "eni-0d398c919e2242b3a",
+        ] -> null
+      - owner_id                   = "<ACCOUNT_ID>" -> null
+      - policy                     = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "*"
+                      - Effect    = "Allow"
+                      - Principal = "*"
+                      - Resource  = "*"
+                    },
+                ]
+            }
+        ) -> null
+      - prefix_list_id             = "pl-63a5400a" -> null
+      - private_dns_enabled        = true -> null
+      - requester_managed          = false -> null
+      - route_table_ids            = [] -> null
+      - security_group_ids         = [
+          - "sg-0828ac7bdd4c1f390",
+        ] -> null
+      - service_name               = "com.amazonaws.us-east-1.s3" -> null
+      - service_region             = "us-east-1" -> null
+      - state                      = "available" -> null
+      - subnet_ids                 = [
+          - "subnet-07b08eb20088e7fac",
+        ] -> null
+      - tags                       = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-endpoint"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                   = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-privatelink-endpoint"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_endpoint_type          = "Interface" -> null
+      - vpc_id                     = "vpc-07a9780d46635a821" -> null
+        # (2 unchanged attributes hidden)
+
+      - dns_options {
+          - dns_record_ip_type                             = "ipv4" -> null
+          - private_dns_only_for_inbound_resolver_endpoint = true -> null
+        }
+
+      - subnet_configuration {
+          - ipv4      = "10.101.10.42" -> null
+          - subnet_id = "subnet-07b08eb20088e7fac" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway.this will be destroyed
+  - resource "aws_ec2_transit_gateway" "this" {
+      - amazon_side_asn                    = 64512 -> null
+      - arn                                = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-006a68ac3beb397b7" -> null
+      - auto_accept_shared_attachments     = "disable" -> null
+      - default_route_table_association    = "disable" -> null
+      - default_route_table_propagation    = "disable" -> null
+      - description                        = "atlas-network hub-and-spoke Transit Gateway" -> null
+      - dns_support                        = "enable" -> null
+      - id                                 = "tgw-006a68ac3beb397b7" -> null
+      - multicast_support                  = "disable" -> null
+      - owner_id                           = "<ACCOUNT_ID>" -> null
+      - security_group_referencing_support = "disable" -> null
+      - tags                               = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-tgw"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                           = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-tgw"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_cidr_blocks        = [] -> null
+      - vpn_ecmp_support                   = "enable" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.hub will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table" "hub" {
+      - arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-0feb103dfb51bf1b9" -> null
+      - default_association_route_table = false -> null
+      - default_propagation_route_table = false -> null
+      - id                              = "tgw-rtb-0feb103dfb51bf1b9" -> null
+      - tags                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-hub"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-hub"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_id              = "tgw-006a68ac3beb397b7" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      - arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-0f5f2dcc42742637a" -> null
+      - default_association_route_table = false -> null
+      - default_propagation_route_table = false -> null
+      - id                              = "tgw-rtb-0f5f2dcc42742637a" -> null
+      - tags                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-dev"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-dev"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_id              = "tgw-006a68ac3beb397b7" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      - arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-0e77bd6082ad763d8" -> null
+      - default_association_route_table = false -> null
+      - default_propagation_route_table = false -> null
+      - id                              = "tgw-rtb-0e77bd6082ad763d8" -> null
+      - tags                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-prod"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-rtb-prod"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_id              = "tgw-006a68ac3beb397b7" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_association" "hub" {
+      - id                             = "tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712" -> null
+      - replace_existing_association   = false -> null
+      - resource_id                    = "vpc-00fe7970b73ee12d2" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-0ac487b5f08489712" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0feb103dfb51bf1b9" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_association" "spoke" {
+      - id                             = "tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d" -> null
+      - replace_existing_association   = false -> null
+      - resource_id                    = "vpc-07a9780d46635a821" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-09ba8761f9486b15d" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0f5f2dcc42742637a" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_association" "spoke" {
+      - id                             = "tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5" -> null
+      - replace_existing_association   = false -> null
+      - resource_id                    = "vpc-06e56dceb9b080cce" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-03f8da3fdeef3c0e5" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0e77bd6082ad763d8" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_propagation" "hub_learns_spokes" {
+      - id                             = "tgw-rtb-0feb103dfb51bf1b9_tgw-attach-09ba8761f9486b15d" -> null
+      - resource_id                    = "vpc-07a9780d46635a821" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-09ba8761f9486b15d" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0feb103dfb51bf1b9" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_propagation" "hub_learns_spokes" {
+      - id                             = "tgw-rtb-0feb103dfb51bf1b9_tgw-attach-03f8da3fdeef3c0e5" -> null
+      - resource_id                    = "vpc-06e56dceb9b080cce" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-03f8da3fdeef3c0e5" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0feb103dfb51bf1b9" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_propagation" "spoke_learns_hub" {
+      - id                             = "tgw-rtb-0f5f2dcc42742637a_tgw-attach-0ac487b5f08489712" -> null
+      - resource_id                    = "vpc-00fe7970b73ee12d2" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-0ac487b5f08489712" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0f5f2dcc42742637a" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"] will be destroyed
+  - resource "aws_ec2_transit_gateway_route_table_propagation" "spoke_learns_hub" {
+      - id                             = "tgw-rtb-0e77bd6082ad763d8_tgw-attach-0ac487b5f08489712" -> null
+      - resource_id                    = "vpc-00fe7970b73ee12d2" -> null
+      - resource_type                  = "vpc" -> null
+      - transit_gateway_attachment_id  = "tgw-attach-0ac487b5f08489712" -> null
+      - transit_gateway_route_table_id = "tgw-rtb-0e77bd6082ad763d8" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub will be destroyed
+  - resource "aws_ec2_transit_gateway_vpc_attachment" "hub" {
+      - appliance_mode_support                          = "disable" -> null
+      - arn                                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0ac487b5f08489712" -> null
+      - dns_support                                     = "enable" -> null
+      - id                                              = "tgw-attach-0ac487b5f08489712" -> null
+      - ipv6_support                                    = "disable" -> null
+      - security_group_referencing_support              = "enable" -> null
+      - subnet_ids                                      = [
+          - "subnet-021626f77d900e0bf",
+          - "subnet-072faaa53f8263bc2",
+        ] -> null
+      - tags                                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-hub"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-hub"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_default_route_table_association = false -> null
+      - transit_gateway_default_route_table_propagation = false -> null
+      - transit_gateway_id                              = "tgw-006a68ac3beb397b7" -> null
+      - vpc_id                                          = "vpc-00fe7970b73ee12d2" -> null
+      - vpc_owner_id                                    = "<ACCOUNT_ID>" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"] will be destroyed
+  - resource "aws_ec2_transit_gateway_vpc_attachment" "spoke" {
+      - appliance_mode_support                          = "disable" -> null
+      - arn                                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-09ba8761f9486b15d" -> null
+      - dns_support                                     = "enable" -> null
+      - id                                              = "tgw-attach-09ba8761f9486b15d" -> null
+      - ipv6_support                                    = "disable" -> null
+      - security_group_referencing_support              = "enable" -> null
+      - subnet_ids                                      = [
+          - "subnet-07b08eb20088e7fac",
+        ] -> null
+      - tags                                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-dev"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-dev"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_default_route_table_association = false -> null
+      - transit_gateway_default_route_table_propagation = false -> null
+      - transit_gateway_id                              = "tgw-006a68ac3beb397b7" -> null
+      - vpc_id                                          = "vpc-07a9780d46635a821" -> null
+      - vpc_owner_id                                    = "<ACCOUNT_ID>" -> null
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"] will be destroyed
+  - resource "aws_ec2_transit_gateway_vpc_attachment" "spoke" {
+      - appliance_mode_support                          = "disable" -> null
+      - arn                                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-03f8da3fdeef3c0e5" -> null
+      - dns_support                                     = "enable" -> null
+      - id                                              = "tgw-attach-03f8da3fdeef3c0e5" -> null
+      - ipv6_support                                    = "disable" -> null
+      - security_group_referencing_support              = "enable" -> null
+      - subnet_ids                                      = [
+          - "subnet-07c273c2500148ab2",
+          - "subnet-0d5adee3639ff3854",
+        ] -> null
+      - tags                                            = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-prod"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                                        = {
+          - "ManagedBy" = "terraform"
+          - "Name"      = "atlas-network-attach-prod"
+          - "Owner"     = "dennisk-atlas-portfolio"
+        } -> null
+      - transit_gateway_default_route_table_association = false -> null
+      - transit_gateway_default_route_table_propagation = false -> null
+      - transit_gateway_id                              = "tgw-006a68ac3beb397b7" -> null
+      - vpc_id                                          = "vpc-06e56dceb9b080cce" -> null
+      - vpc_owner_id                                    = "<ACCOUNT_ID>" -> null
+    }
+
+Plan: 0 to add, 0 to change, 26 to destroy.
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"]: Destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"]: Destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-03f8da3fdeef3c0e5]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"]: Destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-0ac487b5f08489712]
+module.nat_prod.aws_route.private_default["az_b"]: Destroying... [id=r-rtb-09a177f4cdc7714971080289494]
+module.nat_dev.aws_route.private_default["az_a"]: Destroying... [id=r-rtb-01100bfee95db4b3e1080289494]
+module.nat_prod.aws_route.private_default["az_a"]: Destroying... [id=r-rtb-0a6c8f83fce3382521080289494]
+module.privatelink.aws_vpc_endpoint.this: Destroying... [id=vpce-037aabb5582e95a0c]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"]: Destruction complete after 4s
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"]: Destruction complete after 4s
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"]: Destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-0ac487b5f08489712]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"]: Destruction complete after 4s
+module.nat_prod.aws_route.private_default["az_b"]: Destruction complete after 4s
+module.nat_dev.aws_route.private_default["az_a"]: Destruction complete after 4s
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"]: Destruction complete after 1s
+module.nat_dev.aws_nat_gateway.this["single"]: Destroying... [id=nat-0ae2a35390b0612b7]
+module.nat_prod.aws_route.private_default["az_a"]: Destruction complete after 6s
+module.nat_prod.aws_nat_gateway.this["az-b"]: Destroying... [id=nat-02e7c1d8bf21eec34]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Destroying... [id=nat-0de71e8660ac73dc7]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712, 00m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 00m10s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0ae2a35390b0612b7, 00m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 00m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0de71e8660ac73dc7, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d, 00m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 00m20s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0ae2a35390b0612b7, 00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0de71e8660ac73dc7, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d, 00m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 00m30s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0ae2a35390b0612b7, 00m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 00m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0de71e8660ac73dc7, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9_tgw-attach-0ac487b5f08489712, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a_tgw-attach-09ba8761f9486b15d, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8_tgw-attach-03f8da3fdeef3c0e5, 00m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Destruction complete after 43s
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Destruction complete after 44s
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Destroying... [id=tgw-rtb-0feb103dfb51bf1b9]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Destroying... [id=tgw-attach-0ac487b5f08489712]
+module.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0ae2a35390b0612b7, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Destruction complete after 45s
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Destroying... [id=tgw-rtb-0f5f2dcc42742637a]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Destroying... [id=tgw-rtb-0e77bd6082ad763d8]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Destroying... [id=tgw-attach-09ba8761f9486b15d]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Destroying... [id=tgw-attach-03f8da3fdeef3c0e5]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still destroying... [id=nat-0de71e8660ac73dc7, 00m40s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 00m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 00m50s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Destruction complete after 45s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9, 00m10s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still destroying... [id=nat-0ae2a35390b0612b7, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 00m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 00m50s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Destruction complete after 54s
+module.nat_dev.aws_eip.nat["single"]: Destroying... [id=eipalloc-07287145317884bcf]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 01m00s elapsed]
+module.nat_dev.aws_eip.nat["single"]: Destruction complete after 4s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still destroying... [id=tgw-rtb-0feb103dfb51bf1b9, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still destroying... [id=nat-02e7c1d8bf21eec34, 01m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 01m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Destruction complete after 1m5s
+module.nat_prod.aws_eip.nat["az-a"]: Destroying... [id=eipalloc-0850a6302c0a97f17]
+module.nat_prod.aws_eip.nat["az-b"]: Destroying... [id=eipalloc-032c9da9cdfcd7b71]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Destruction complete after 28s
+module.nat_prod.aws_eip.nat["az-b"]: Destruction complete after 1s
+module.nat_prod.aws_eip.nat["az-a"]: Destruction complete after 2s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 00m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 00m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 00m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still destroying... [id=vpce-037aabb5582e95a0c, 01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still destroying... [id=tgw-rtb-0f5f2dcc42742637a, 01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Destruction complete after 1m50s
+module.privatelink.aws_security_group.endpoint: Destroying... [id=sg-0828ac7bdd4c1f390]
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Destroying... [id=vpce-0913faab0ca608c81]
+module.privatelink.aws_security_group.endpoint: Destruction complete after 2s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Destruction complete after 1m9s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still destroying... [id=tgw-rtb-0e77bd6082ad763d8, 01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Destruction complete after 1m11s
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Destruction complete after 6s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still destroying... [id=tgw-attach-0ac487b5f08489712, 01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Destruction complete after 1m33s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 01m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 01m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 02m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still destroying... [id=tgw-attach-03f8da3fdeef3c0e5, 02m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Destruction complete after 2m4s
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 02m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still destroying... [id=tgw-attach-09ba8761f9486b15d, 02m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Destruction complete after 2m25s
+module.transit_gateway.aws_ec2_transit_gateway.this: Destroying... [id=tgw-006a68ac3beb397b7]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still destroying... [id=tgw-006a68ac3beb397b7, 01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Destruction complete after 1m35s
+
+Destroy complete! Resources: 26 destroyed.

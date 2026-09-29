@@ -1,4 +1,4 @@
-# Pinned to atlas-foundation v1.0.0 — see terraform/environments/hub/main.tf
+# Pinned to atlas-foundation v1.1.0
 # for why this is a Git ref, not a relative path.
 module "vpc" {
   source = "git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0"

@@ -99,12 +99,14 @@ modeled cost of the window itself:
 
 | Resource | Rate | ~1 hour |
 |---|---|---|
-| TGW attachments (×2) | $0.05/hr each | $0.10 |
+| TGW attachments (×3: hub + 2 spokes) | $0.05/hr each | $0.15 |
 | PrivateLink endpoint | $0.01/hr | $0.01 |
-| NAT Gateways (×2, dev+prod-AZ-a) + EIPs | ~$0.045/hr + $0.005/hr each | ~$0.10 |
-| Data processing | usage-based | negligible — no real traffic beyond Reachability Analyzer probes |
-| **Total, ~1 hour** | | **~$0.25** |
+| NAT Gateways (×3: dev + prod az-a + az-b) + EIPs | $0.045/hr + $0.005/hr each | ~$0.15 |
+| Reachability Analyzer (×3 analyses) | ~$0.10 per analysis | ~$0.30 |
+| Data processing | usage-based | negligible |
+| **Total, ~1 hour** | | **~$0.61** |
 
+*Corrected 2026-09-29: original table counted 2 attachments and 2 NATs and omitted Reachability Analyzer. See ADR-0009.*
 The $5 ceiling isn't because $0.25 is a real risk — it's the threshold
 that triggers the billing alert below, leaving margin for something going
 wrong (a forgotten resource, a longer-than-planned window) without a slow

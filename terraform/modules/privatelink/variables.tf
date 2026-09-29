@@ -32,6 +32,11 @@ variable "service_name" {
 variable "allowed_cidr_blocks" {
   description = "CIDR blocks permitted to reach the endpoint on 443 — scope this to the consuming spoke's CIDR, not 0.0.0.0/0"
   type        = list(string)
+
+  validation {
+    condition     = !contains(var.allowed_cidr_blocks, "0.0.0.0/0")
+    error_message = "allowed_cidr_blocks must not contain 0.0.0.0/0 (ADR-0003)."
+  }
 }
 
 variable "private_dns_enabled" {
@@ -55,4 +60,10 @@ variable "gateway_endpoint_route_table_ids" {
   description = "Route table IDs to associate the Gateway endpoint with — required if create_gateway_endpoint is true"
   type        = list(string)
   default     = []
+}
+
+variable "endpoint_policy" {
+  description = "Optional JSON endpoint policy. null keeps the AWS default (full access) — set a least-privilege policy for anything beyond a demo."
+  type        = string
+  default     = null
 }

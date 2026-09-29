@@ -1,0 +1,262 @@
+module.vpc.aws_vpc.this: Refreshing state... [id=vpc-07a9780d46635a821]
+module.vpc.aws_default_security_group.this: Refreshing state... [id=sg-092cd7974817cef73]
+module.vpc.aws_internet_gateway.this: Refreshing state... [id=igw-0e81e102e92832593]
+module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-01100bfee95db4b3e]
+module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-02dba8ff921fd8940]
+module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-07b08eb20088e7fac]
+module.vpc.aws_route_table.public: Refreshing state... [id=rtb-0af111253a0318ac5]
+module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0ab30b76fce049d0a]
+module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-06cc02ac309ce6462]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # module.vpc.aws_default_security_group.this will be destroyed
+  - resource "aws_default_security_group" "this" {
+      - arn                    = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:security-group/sg-092cd7974817cef73" -> null
+      - description            = "default VPC security group" -> null
+      - egress                 = [] -> null
+      - id                     = "sg-092cd7974817cef73" -> null
+      - ingress                = [] -> null
+      - name                   = "default" -> null
+      - owner_id               = "<ACCOUNT_ID>" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all               = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_id                 = "vpc-07a9780d46635a821" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.vpc.aws_internet_gateway.this will be destroyed
+  - resource "aws_internet_gateway" "this" {
+      - arn      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:internet-gateway/igw-0e81e102e92832593" -> null
+      - id       = "igw-0e81e102e92832593" -> null
+      - owner_id = "<ACCOUNT_ID>" -> null
+      - tags     = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-igw"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-igw"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_id   = "vpc-07a9780d46635a821" -> null
+    }
+
+  # module.vpc.aws_route_table.private[0] will be destroyed
+  - resource "aws_route_table" "private" {
+      - arn              = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-01100bfee95db4b3e" -> null
+      - id               = "rtb-01100bfee95db4b3e" -> null
+      - owner_id         = "<ACCOUNT_ID>" -> null
+      - propagating_vgws = [] -> null
+      - route            = [] -> null
+      - tags             = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all         = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_id           = "vpc-07a9780d46635a821" -> null
+    }
+
+  # module.vpc.aws_route_table.public will be destroyed
+  - resource "aws_route_table" "public" {
+      - arn              = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-0af111253a0318ac5" -> null
+      - id               = "rtb-0af111253a0318ac5" -> null
+      - owner_id         = "<ACCOUNT_ID>" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - cidr_block                 = "0.0.0.0/0"
+              - gateway_id                 = "igw-0e81e102e92832593"
+                # (11 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags             = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-public-rt"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all         = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-public-rt"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - vpc_id           = "vpc-07a9780d46635a821" -> null
+    }
+
+  # module.vpc.aws_route_table_association.private[0] will be destroyed
+  - resource "aws_route_table_association" "private" {
+      - id             = "rtbassoc-06cc02ac309ce6462" -> null
+      - route_table_id = "rtb-01100bfee95db4b3e" -> null
+      - subnet_id      = "subnet-07b08eb20088e7fac" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.vpc.aws_route_table_association.public[0] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0ab30b76fce049d0a" -> null
+      - route_table_id = "rtb-0af111253a0318ac5" -> null
+      - subnet_id      = "subnet-02dba8ff921fd8940" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.vpc.aws_subnet.private[0] will be destroyed
+  - resource "aws_subnet" "private" {
+      - arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-07b08eb20088e7fac" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.101.10.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-07b08eb20088e7fac" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "<ACCOUNT_ID>" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-private-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+          - "Tier"        = "private"
+        } -> null
+      - tags_all                                       = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-private-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+          - "Tier"        = "private"
+        } -> null
+      - vpc_id                                         = "vpc-07a9780d46635a821" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.vpc.aws_subnet.public[0] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-02dba8ff921fd8940" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.101.0.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-02dba8ff921fd8940" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = true -> null
+      - owner_id                                       = "<ACCOUNT_ID>" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-public-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+          - "Tier"        = "public"
+        } -> null
+      - tags_all                                       = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-public-0"
+          - "Owner"       = "dennisk-atlas-portfolio"
+          - "Tier"        = "public"
+        } -> null
+      - vpc_id                                         = "vpc-07a9780d46635a821" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.vpc.aws_vpc.this will be destroyed
+  - resource "aws_vpc" "this" {
+      - arn                                  = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc/vpc-07a9780d46635a821" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.101.0.0/16" -> null
+      - default_route_table_id               = "rtb-050098f46ea9ccc41" -> null
+      - default_security_group_id            = "sg-092cd7974817cef73" -> null
+      - dhcp_options_id                      = "dopt-05e015f27c458304d" -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-07a9780d46635a821" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-050098f46ea9ccc41" -> null
+      - owner_id                             = "<ACCOUNT_ID>" -> null
+      - tags                                 = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-vpc"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+      - tags_all                             = {
+          - "Environment" = "network-spoke-dev"
+          - "ManagedBy"   = "terraform"
+          - "Name"        = "atlas-network-spoke-dev-vpc"
+          - "Owner"       = "dennisk-atlas-portfolio"
+        } -> null
+        # (4 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 0 to change, 9 to destroy.
+
+Changes to Outputs:
+  - private_route_table_ids = [
+      - "rtb-01100bfee95db4b3e",
+    ] -> null
+  - private_subnet_ids      = [
+      - "subnet-07b08eb20088e7fac",
+    ] -> null
+  - public_subnet_ids       = [
+      - "subnet-02dba8ff921fd8940",
+    ] -> null
+  - vpc_id                  = "vpc-07a9780d46635a821" -> null
+module.vpc.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-0ab30b76fce049d0a]
+module.vpc.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-06cc02ac309ce6462]
+module.vpc.aws_default_security_group.this: Destroying... [id=sg-092cd7974817cef73]
+module.vpc.aws_default_security_group.this: Destruction complete after 0s
+module.vpc.aws_route_table_association.public[0]: Destruction complete after 4s
+module.vpc.aws_subnet.public[0]: Destroying... [id=subnet-02dba8ff921fd8940]
+module.vpc.aws_route_table.public: Destroying... [id=rtb-0af111253a0318ac5]
+module.vpc.aws_route_table_association.private[0]: Destruction complete after 4s
+module.vpc.aws_route_table.private[0]: Destroying... [id=rtb-01100bfee95db4b3e]
+module.vpc.aws_subnet.private[0]: Destroying... [id=subnet-07b08eb20088e7fac]
+module.vpc.aws_subnet.private[0]: Destruction complete after 1s
+module.vpc.aws_subnet.public[0]: Destruction complete after 1s
+module.vpc.aws_route_table.public: Destruction complete after 2s
+module.vpc.aws_internet_gateway.this: Destroying... [id=igw-0e81e102e92832593]
+module.vpc.aws_route_table.private[0]: Destruction complete after 2s
+module.vpc.aws_internet_gateway.this: Destruction complete after 2s
+module.vpc.aws_vpc.this: Destroying... [id=vpc-07a9780d46635a821]
+module.vpc.aws_vpc.this: Destruction complete after 1s
+
+Destroy complete! Resources: 9 destroyed.

@@ -1,4 +1,4 @@
-# Pinned to atlas-foundation v1.0.0 — a Git ref, not a relative path, so a
+# Pinned to atlas-foundation v1.1.0 — a Git ref, not a relative path, so a
 # future breaking change to foundation's networking module can't silently
 # break this environment. See the commit message on that tag for why.
 module "vpc" {

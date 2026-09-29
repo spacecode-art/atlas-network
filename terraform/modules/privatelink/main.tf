@@ -7,7 +7,7 @@ locals {
 
 # ---------------------------------------------------------------------------
 # Security group for the endpoint ENI. PrivateLink's actual access control
-# lives here (and in the endpoint policy, not modeled yet) — this is the
+# lives here (and in the endpoint policy, see var.endpoint_policy) — this is the
 # layer VPC Peering can't give you: scoped to one service, one CIDR, one
 # port, not an entire VPC's routing table. See ADR-0003.
 # ---------------------------------------------------------------------------
@@ -62,6 +62,7 @@ resource "aws_vpc_endpoint" "this" {
   subnet_ids          = var.subnet_ids
   security_group_ids  = [aws_security_group.endpoint.id]
   private_dns_enabled = var.private_dns_enabled
+  policy              = var.endpoint_policy
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-privatelink-endpoint"

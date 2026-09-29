@@ -1,34 +1,43 @@
 name: Terraform Plan
 
 # Plan-only, by design. There is no apply workflow in this repository —
-# see README "CI/CD" section. This gate proves every environment's
-# Terraform is well-formatted, valid, and (for the three leaf
-# environments) produces a real plan graph, on every PR that touches
-# Terraform.
+# see README "CI/CD" section.
+#
+# Before merging: pin every `uses:` to a full commit SHA:
+#   npx pin-github-action .github/workflows/terraform-plan.yml
 
 on:
   pull_request:
     paths:
       - "terraform/**"
       - "scripts/tf-check.sh"
+      - "scripts/security-scan.sh"
       - ".github/workflows/terraform-plan.yml"
   push:
     branches: [main]
     paths:
       - "terraform/**"
       - "scripts/tf-check.sh"
+      - "scripts/security-scan.sh"
       - ".github/workflows/terraform-plan.yml"
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   plan:
     name: fmt / validate / plan
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
@@ -36,8 +45,35 @@ jobs:
           terraform_version: "1.11.4"
           terraform_wrapper: false
 
-      - name: Make check script executable
-        run: chmod +x scripts/tf-check.sh
-
       - name: Run fmt / validate / plan
-        run: ./scripts/tf-check.sh
+        run: bash ./scripts/tf-check.sh
+
+  security-scan:
+    name: checkov
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install checkov
+        run: pip install "checkov>=3,<4"
+
+      - name: Scan Terraform
+        env:
+          SOFT_FAIL: "1" # remove after the first triage pass
+        run: bash ./scripts/security-scan.sh
+
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan
+          path: docs/evidence/security-scan/

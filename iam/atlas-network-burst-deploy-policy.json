@@ -125,7 +125,10 @@
         "ec2:DescribeNetworkInsightsPaths",
         "ec2:StartNetworkInsightsAnalysis",
         "ec2:DescribeNetworkInsightsAnalyses",
-        "ec2:DeleteNetworkInsightsAnalysis"
+        "ec2:DeleteNetworkInsightsAnalysis",
+        "tiros:CreateQuery",
+        "tiros:GetQueryAnswer",
+        "tiros:GetQueryExplanations"
       ],
       "Resource": "*"
     },
@@ -138,6 +141,18 @@
         "ec2:DescribeTags"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "TgwServiceLinkedRole",
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "arn:aws:iam::__ACCOUNT_ID__:role/aws-service-role/transitgateway.amazonaws.com/AWSServiceRoleForVPCTransitGateway",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": "transitgateway.amazonaws.com"
+        }
+      }
     }
   ]
 }
+

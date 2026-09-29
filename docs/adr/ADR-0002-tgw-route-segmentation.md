@@ -92,3 +92,10 @@ here, not the SG.
   "not reachable." A benchmark that only proves the *allowed* paths work is
   an incomplete proof — the denied path is the actual point of this ADR, and
   it needs the same evidence standard as everything that does get built.
+## Addendum (2026-09-29)
+
+Segmentation at the TGW route-table layer is necessary but not sufficient:
+VPC subnets must also route to the TGW. `environments/core` now creates
+`aws_route.spoke_to_hub` (hub CIDR only) and `aws_route.hub_to_spoke`
+(each spoke CIDR). Spoke route tables deliberately have no route to the
+other spoke's CIDR. See ADR-0009.
