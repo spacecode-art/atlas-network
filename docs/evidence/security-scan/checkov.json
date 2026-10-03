@@ -1028,6 +1028,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -1056,14 +1078,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1074,20 +1088,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1239,6 +1239,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -1267,14 +1289,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1285,20 +1299,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1450,6 +1450,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -1478,14 +1500,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1496,20 +1510,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1661,6 +1661,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -1689,14 +1711,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1707,20 +1721,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1872,6 +1872,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -1900,14 +1922,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1918,20 +1932,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -2085,6 +2085,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -2113,14 +2135,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -2131,20 +2145,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -2262,14 +2262,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -2281,6 +2273,14 @@
                             "type": "variable",
                             "name": "name_prefix",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -2332,12 +2332,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2468,12 +2468,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2622,12 +2622,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2758,12 +2758,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2880,12 +2880,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2981,12 +2981,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -3084,12 +3084,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -3230,12 +3230,12 @@
                         }
                     },
                     "evaluated_keys": [
-                        "vpc_peering_connection_id",
-                        "destination_ipv6_cidr_block",
-                        "route/*/ipv6_cidr_block",
                         "route/*/cidr_block",
+                        "destination_ipv6_cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block"
+                        "vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/ipv6_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -3360,8 +3360,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "networking",
-                        "resource_type"
+                        "resource_type",
+                        "networking"
                     ]
                 },
                 "code_block": [
@@ -3489,6 +3489,28 @@
                 "check_len": null,
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
                 "breadcrumbs": {
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_cidr_blocks",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "name_prefix": [
                         {
                             "type": "module",
@@ -3517,14 +3539,6 @@
                             "module_connection": false
                         }
                     ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "description": [
                         {
                             "type": "module",
@@ -3535,20 +3549,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "ingress.cidr_blocks": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "allowed_cidr_blocks",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -3601,8 +3601,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -3735,8 +3735,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -3887,8 +3887,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4021,8 +4021,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4141,8 +4141,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4240,8 +4240,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4341,8 +4341,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4485,8 +4485,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "route/*/cidr_block",
                         "instance_id",
+                        "route/*/cidr_block",
                         "destination_cidr_block",
                         "route/*/instance_id"
                     ]
@@ -4585,11 +4585,11 @@
                         }
                     },
                     "evaluated_keys": [
-                        "domain",
-                        "vpc",
                         "instance_id",
-                        "instance",
-                        "resource_type"
+                        "domain",
+                        "resource_type",
+                        "vpc",
+                        "instance"
                     ]
                 },
                 "code_block": [
@@ -4706,11 +4706,11 @@
                         }
                     },
                     "evaluated_keys": [
-                        "domain",
-                        "vpc",
                         "instance_id",
-                        "instance",
-                        "resource_type"
+                        "domain",
+                        "resource_type",
+                        "vpc",
+                        "instance"
                     ]
                 },
                 "code_block": [
@@ -4827,11 +4827,11 @@
                         }
                     },
                     "evaluated_keys": [
-                        "domain",
-                        "vpc",
                         "instance_id",
-                        "instance",
-                        "resource_type"
+                        "domain",
+                        "resource_type",
+                        "vpc",
+                        "instance"
                     ]
                 },
                 "code_block": [
@@ -4956,12 +4956,12 @@
                     },
                     "evaluated_keys": [
                         "ingress/from_port",
-                        "egress/cidr_blocks",
                         "egress/to_port",
-                        "ingress/self",
-                        "egress/from_port",
                         "egress/protocol",
                         "ingress/protocol",
+                        "egress/from_port",
+                        "egress/cidr_blocks",
+                        "ingress/self",
                         "resource_type",
                         "ingress/to_port"
                     ]

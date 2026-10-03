@@ -21,7 +21,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_default_security_group.this[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_default_security_group" "this" {
-      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:803347590852:security-group/sg-0d6307d8e845fe520" [90m-> null[0m[0m
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:security-group/sg-0d6307d8e845fe520" [90m-> null[0m[0m
       [31m-[0m[0m description            = "default VPC security group" [90m-> null[0m[0m
       [31m-[0m[0m egress                 = [
           [31m-[0m[0m {
@@ -53,7 +53,7 @@ Terraform will perform the following actions:
             },
         ] [90m-> null[0m[0m
       [31m-[0m[0m name                   = "default" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id               = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
       [31m-[0m[0m tags                   = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -73,9 +73,9 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_internet_gateway.this[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_internet_gateway" "this" {
-      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:803347590852:internet-gateway/igw-02a2bef1db7e5277f" [90m-> null[0m[0m
+      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:internet-gateway/igw-02a2bef1db7e5277f" [90m-> null[0m[0m
       [31m-[0m[0m id       = "igw-02a2bef1db7e5277f" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m tags     = {
           [31m-[0m[0m "Environment" = "network-hub"
           [31m-[0m[0m "ManagedBy"   = "terraform"
@@ -93,9 +93,9 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_route_table.private[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_route_table" "private" {
-      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-07b23fba3cc9369a7" [90m-> null[0m[0m
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-07b23fba3cc9369a7" [90m-> null[0m[0m
       [31m-[0m[0m id               = "rtb-07b23fba3cc9369a7" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
       [31m-[0m[0m route            = [] [90m-> null[0m[0m
       [31m-[0m[0m tags             = {
@@ -115,9 +115,9 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_route_table.private[1][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_route_table" "private" {
-      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-0efbf7d0c2f1b880a" [90m-> null[0m[0m
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-0efbf7d0c2f1b880a" [90m-> null[0m[0m
       [31m-[0m[0m id               = "rtb-0efbf7d0c2f1b880a" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
       [31m-[0m[0m route            = [] [90m-> null[0m[0m
       [31m-[0m[0m tags             = {
@@ -137,9 +137,9 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_route_table.public[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_route_table" "public" {
-      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:803347590852:route-table/rtb-0f702ba8baecbd96d" [90m-> null[0m[0m
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-0f702ba8baecbd96d" [90m-> null[0m[0m
       [31m-[0m[0m id               = "rtb-0f702ba8baecbd96d" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id         = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
       [31m-[0m[0m route            = [
           [31m-[0m[0m {
@@ -197,7 +197,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.private[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "private" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0e719235a38f6f278" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-0e719235a38f6f278" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
@@ -210,7 +210,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -232,7 +232,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.private[1][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "private" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-06f3c80296990fd7a" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-06f3c80296990fd7a" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
@@ -245,7 +245,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -267,7 +267,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.public[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "public" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-088680158e19583db" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-088680158e19583db" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
@@ -280,7 +280,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -302,7 +302,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.public[1][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "public" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-00e6e38a6d6920528" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-00e6e38a6d6920528" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
@@ -315,7 +315,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -337,7 +337,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_vpc.this[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_vpc" "this" {
-      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:803347590852:vpc/vpc-0db08e3b7a59a7d1f" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc/vpc-0db08e3b7a59a7d1f" [90m-> null[0m[0m
       [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
       [31m-[0m[0m cidr_block                           = "10.100.0.0/16" [90m-> null[0m[0m
       [31m-[0m[0m default_route_table_id               = "rtb-0217482c08e18183d" [90m-> null[0m[0m
@@ -350,7 +350,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
       [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
       [31m-[0m[0m main_route_table_id                  = "rtb-0217482c08e18183d" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                             = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m tags                                 = {
           [31m-[0m[0m "Environment" = "network-hub"
           [31m-[0m[0m "ManagedBy"   = "terraform"
@@ -414,7 +414,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.private[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "private" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-0e719235a38f6f278" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-0e719235a38f6f278" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
@@ -427,7 +427,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -449,7 +449,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.private[1][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "private" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-06f3c80296990fd7a" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-06f3c80296990fd7a" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
@@ -462,7 +462,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -484,7 +484,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.public[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "public" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-088680158e19583db" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-088680158e19583db" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
@@ -497,7 +497,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -519,7 +519,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_subnet.public[1][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "public" {
-      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:803347590852:subnet/subnet-00e6e38a6d6920528" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-00e6e38a6d6920528" [90m-> null[0m[0m
       [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
       [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
       [31m-[0m[0m availability_zone_id                           = "use1-az2" [90m-> null[0m[0m
@@ -532,7 +532,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
       [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
       [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                                       = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
       [31m-[0m[0m tags                                           = {
           [31m-[0m[0m "Environment" = "network-hub"
@@ -554,7 +554,7 @@ Terraform will perform the following actions:
 
 [1m  # module.vpc.aws_vpc.this[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_vpc" "this" {
-      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:803347590852:vpc/vpc-0db08e3b7a59a7d1f" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc/vpc-0db08e3b7a59a7d1f" [90m-> null[0m[0m
       [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
       [31m-[0m[0m cidr_block                           = "10.100.0.0/16" [90m-> null[0m[0m
       [31m-[0m[0m default_route_table_id               = "rtb-0217482c08e18183d" [90m-> null[0m[0m
@@ -567,7 +567,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
       [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
       [31m-[0m[0m main_route_table_id                  = "rtb-0217482c08e18183d" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                             = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m tags                                 = {
           [31m-[0m[0m "Environment" = "network-hub"
           [31m-[0m[0m "ManagedBy"   = "terraform"
