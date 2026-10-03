@@ -38,3 +38,5 @@ terraform.rc
 # Terraform lock-info and redaction leftovers
 .terraform.tfstate.lock.info
 *.bak
+# Checkov external module cache
+.external_modules/
