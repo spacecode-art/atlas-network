@@ -12,6 +12,7 @@ cd "$ROOT"
 EVIDENCE_DIR="${EVIDENCE_DIR:-docs/evidence/burst-deploy/$(date -u +%Y-%m-%d)}"
 mkdir -p "$EVIDENCE_DIR"
 start="$(date +%s)"
+echo "window start $(date -u +%FT%TZ)" | tee -a "${EVIDENCE_DIR}/timeline.txt"
 
 trap 'echo "APPLY FAILED — run ./scripts/destroy-all.sh NOW, debug from logs afterward." >&2' ERR
 

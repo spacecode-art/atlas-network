@@ -31,8 +31,9 @@ trap 'echo "DESTROY FAILED during: ${CURRENT_STEP}. Fix the cause and re-run thi
 # ---------------------------------------------------------------------------
 CURRENT_STEP="reachability analyzer cleanup"
 echo "=== Cleaning up Reachability Analyzer analyses and paths ==="
-ra_paths="$(aws ec2 describe-network-insights-paths --profile "$AWS_PROFILE" \
-  --query 'NetworkInsightsPaths[].NetworkInsightsPathId' --output text)"
+RA_IDS_FILE="${EVIDENCE_DIR}/ra-path-ids.txt"
+ra_paths=""
+[[ -f "$RA_IDS_FILE" ]] && ra_paths="$(sort -u "$RA_IDS_FILE")"
 if [[ -n "$ra_paths" && "$ra_paths" != "None" ]]; then
   for p in $ra_paths; do
     analyses="$(aws ec2 describe-network-insights-analyses --network-insights-path-id "$p" \
@@ -92,7 +93,7 @@ sweep ra   ec2 describe-network-insights-paths --query "NetworkInsightsPaths[].N
 
 echo ""
 if [[ ${#leftovers[@]} -eq 0 ]]; then
-  echo "CLEAN: burst-deploy fully torn down."
+  echo "CLEAN: burst-deploy fully torn down @ $(date -u +%FT%TZ)" | tee -a "${EVIDENCE_DIR}/timeline.txt"
 else
   echo "LEFTOVERS: ${leftovers[*]}. STOP. Do not re-run blind. Investigate per ADR-0005/0007." >&2
   exit 1
