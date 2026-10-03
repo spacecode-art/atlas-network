@@ -128,7 +128,7 @@
         "ec2:DeleteNetworkInsightsAnalysis",
         "tiros:CreateQuery",
         "tiros:GetQueryAnswer",
-        "tiros:GetQueryExplanations"
+        "tiros:GetQueryExplanation"
       ],
       "Resource": "*"
     },
