@@ -38,3 +38,4 @@ terraform.rc
 # Terraform lock-info and redaction leftovers
 .terraform.tfstate.lock.info
 *.bak
+.external_modules
