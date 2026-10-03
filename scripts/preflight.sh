@@ -58,7 +58,7 @@ required=(
   ec2:CreateNetworkInsightsPath ec2:StartNetworkInsightsAnalysis
   ec2:DescribeNetworkInsightsAnalyses ec2:DeleteNetworkInsightsPath
   ec2:DescribeNatGateways ec2:DescribeVpcEndpoints ec2:DescribeAddresses
-  tiros:CreateQuery tiros:GetQueryAnswer tiros:GetQueryExplanations
+  tiros:CreateQuery tiros:GetQueryAnswer tiros:GetQueryExplanation
 )
 denied="$(aws iam simulate-principal-policy \
   --policy-source-arn "arn:aws:iam::${acct}:user/${IAM_USER}" \

@@ -32,7 +32,7 @@ Terraform will perform the following actions:
 [1m  # module.nat_dev.aws_eip.nat["single"][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_eip" "nat" {
       [31m-[0m[0m allocation_id            = "eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
-      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
       [31m-[0m[0m association_id           = "eipassoc-0c13a7b0a9ebc9078" [90m-> null[0m[0m
       [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
       [31m-[0m[0m id                       = "eipalloc-01023fc19ab81d8d0" [90m-> null[0m[0m
@@ -96,7 +96,7 @@ Terraform will perform the following actions:
 [1m  # module.nat_prod.aws_eip.nat["az-a"][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_eip" "nat" {
       [31m-[0m[0m allocation_id            = "eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
-      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
       [31m-[0m[0m association_id           = "eipassoc-091ea1dfdf5fcb376" [90m-> null[0m[0m
       [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
       [31m-[0m[0m id                       = "eipalloc-0b159a39cb72a2f42" [90m-> null[0m[0m
@@ -124,7 +124,7 @@ Terraform will perform the following actions:
 [1m  # module.nat_prod.aws_eip.nat["az-b"][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_eip" "nat" {
       [31m-[0m[0m allocation_id            = "eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
-      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:803347590852:elastic-ip/eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:elastic-ip/eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
       [31m-[0m[0m association_id           = "eipassoc-01d256bdcd16d9025" [90m-> null[0m[0m
       [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
       [31m-[0m[0m id                       = "eipalloc-0b6b0df511840d7af" [90m-> null[0m[0m
@@ -223,7 +223,7 @@ Terraform will perform the following actions:
 
 [1m  # module.privatelink.aws_security_group.endpoint[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_security_group" "endpoint" {
-      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:803347590852:security-group/sg-0993137deb1235148" [90m-> null[0m[0m
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:security-group/sg-0993137deb1235148" [90m-> null[0m[0m
       [31m-[0m[0m description            = "Controls access to the com.amazonaws.us-east-1.s3 Interface Endpoint" [90m-> null[0m[0m
       [31m-[0m[0m egress                 = [] [90m-> null[0m[0m
       [31m-[0m[0m id                     = "sg-0993137deb1235148" [90m-> null[0m[0m
@@ -244,7 +244,7 @@ Terraform will perform the following actions:
         ] [90m-> null[0m[0m
       [31m-[0m[0m name                   = "atlas-network-privatelink-20260916104651900500000002" [90m-> null[0m[0m
       [31m-[0m[0m name_prefix            = "atlas-network-privatelink-" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id               = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
       [31m-[0m[0m tags                   = {
           [31m-[0m[0m "ManagedBy" = "terraform"
@@ -261,7 +261,7 @@ Terraform will perform the following actions:
 
 [1m  # module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_vpc_endpoint" "gateway_prerequisite" {
-      [31m-[0m[0m arn                        = "arn:aws:ec2:us-east-1:803347590852:vpc-endpoint/vpce-051fceb35b495db09" [90m-> null[0m[0m
+      [31m-[0m[0m arn                        = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc-endpoint/vpce-051fceb35b495db09" [90m-> null[0m[0m
       [31m-[0m[0m cidr_blocks                = [
           [31m-[0m[0m "16.15.160.0/19",
           [31m-[0m[0m "16.182.0.0/16",
@@ -277,7 +277,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m id                         = "vpce-051fceb35b495db09" [90m-> null[0m[0m
       [31m-[0m[0m ip_address_type            = "ipv4" [90m-> null[0m[0m
       [31m-[0m[0m network_interface_ids      = [] [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                   = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                   = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m policy                     = jsonencode(
             {
               [31m-[0m[0m Statement = [
@@ -325,7 +325,7 @@ Terraform will perform the following actions:
 [1m  # module.transit_gateway.aws_ec2_transit_gateway.this[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_ec2_transit_gateway" "this" {
       [31m-[0m[0m amazon_side_asn                    = 64512 [90m-> null[0m[0m
-      [31m-[0m[0m arn                                = "arn:aws:ec2:us-east-1:803347590852:transit-gateway/tgw-045314b0c4564e0e7" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-045314b0c4564e0e7" [90m-> null[0m[0m
       [31m-[0m[0m auto_accept_shared_attachments     = "disable" [90m-> null[0m[0m
       [31m-[0m[0m default_route_table_association    = "disable" [90m-> null[0m[0m
       [31m-[0m[0m default_route_table_propagation    = "disable" [90m-> null[0m[0m
@@ -333,7 +333,7 @@ Terraform will perform the following actions:
       [31m-[0m[0m dns_support                        = "enable" [90m-> null[0m[0m
       [31m-[0m[0m id                                 = "tgw-045314b0c4564e0e7" [90m-> null[0m[0m
       [31m-[0m[0m multicast_support                  = "disable" [90m-> null[0m[0m
-      [31m-[0m[0m owner_id                           = "803347590852" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                           = "<ACCOUNT_ID>" [90m-> null[0m[0m
       [31m-[0m[0m security_group_referencing_support = "disable" [90m-> null[0m[0m
       [31m-[0m[0m tags                               = {
           [31m-[0m[0m "ManagedBy" = "terraform"
@@ -352,7 +352,7 @@ Terraform will perform the following actions:
 
 [1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.hub[0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "hub" {
-      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-07c17647b09817af2" [90m-> null[0m[0m
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-07c17647b09817af2" [90m-> null[0m[0m
       [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m id                              = "tgw-rtb-07c17647b09817af2" [90m-> null[0m[0m
@@ -371,7 +371,7 @@ Terraform will perform the following actions:
 
 [1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "spoke" {
-      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-06d0aed5952606634" [90m-> null[0m[0m
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-06d0aed5952606634" [90m-> null[0m[0m
       [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m id                              = "tgw-rtb-06d0aed5952606634" [90m-> null[0m[0m
@@ -390,7 +390,7 @@ Terraform will perform the following actions:
 
 [1m  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"][0m will be [1m[31mdestroyed[0m
 [0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_route_table" "spoke" {
-      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:803347590852:transit-gateway-route-table/tgw-rtb-0dfe8ac1fea1f180b" [90m-> null[0m[0m
+      [31m-[0m[0m arn                             = "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-0dfe8ac1fea1f180b" [90m-> null[0m[0m
       [31m-[0m[0m default_association_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m default_propagation_route_table = false [90m-> null[0m[0m
       [31m-[0m[0m id                              = "tgw-rtb-0dfe8ac1fea1f180b" [90m-> null[0m[0m

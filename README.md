@@ -20,7 +20,7 @@ Two spoke VPCs are modeled — `spoke-dev` and `spoke-prod` — specifically so 
 
 ## Designed & Validated
 
-Terraform modules and environments pass `fmt`, `validate` and `plan` in CI, Terratest suites run on every change, Checkov results are archived as CI artifacts, and the architecture, packet flows, threat model and ADRs live in `docs/`.
+Terraform modules and environments pass `fmt`, `validate` and `plan` in CI, Terratest suites run locally (`go test ./...` in `tests/terratest`; not yet wired into CI), Checkov results are archived as CI artifacts, and the architecture, packet flows, threat model and ADRs live in `docs/`.
 
 ## Live Demo
 
@@ -112,7 +112,7 @@ Designed cost if this topology ran continuously in `us-east-1` (approximate, at 
 | Public IPv4 (×3 NAT EIPs) | $0.005/hr each | ~$11/mo |
 | **Total, always-on** | | **~$225–260/mo** |
 
-Actual cost incurred building this repo: the single burst-deploy window, budgeted and capped in ADR-0005. See `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
+Actual cost incurred building this repo: at least 8 burst-deploys (4 earlier practice runs plus 4 on 2026-10-03), each time-boxed per budgeted and capped in ADR-0005. See `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
 
 ---
 
@@ -215,4 +215,4 @@ Console screenshots taken while the stack was live: [hub route table](docs/evide
 
 [![Burst-deploy preview: evidence capture and teardown](docs/media/burst-deploy-preview.gif)](https://drive.google.com/file/d/1yjww9BCNU8GPGmnQmeDtHjTMlDnftsHp/view)
 
-▶ [Full recording (Google Drive, view-only)](https://drive.google.com/file/d/1yjww9BCNU8GPGmnQmeDtHjTMlDnftsHp/view) — 2026-10-03, commit `abc1234`. Apply and teardown are sped up; the clock in the terminal status bar is real UTC time.
+▶ [Full recording (Google Drive, view-only)](https://drive.google.com/file/d/1yjww9BCNU8GPGmnQmeDtHjTMlDnftsHp/view) — 2026-10-03, commit `238034a`. Apply and teardown are sped up; the clock in the terminal status bar is real UTC time.
