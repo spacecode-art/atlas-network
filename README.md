@@ -2,7 +2,7 @@
 
 > Enterprise connectivity for the Atlas platform: Transit Gateway, PrivateLink, and NAT strategy — designed, validated, and burst-deployed once.
 
-**Status:** Modules and environments implemented and validated in CI. Three practice burst-deploys completed with clean teardown (ADR-0006/0007/0008/0009 document what broke). The final recorded burst-deploy with Reachability Analyzer evidence is the remaining item.
+**Status:** Complete. The final burst-deploy ran on 2026-10-03 and was fully torn down: Transit Gateway segmentation is proven on real AWS, with one Reachability Analyzer analysis documented as an open finding (ADR-0011). Several practice burst-deploys came first; ADR-0006 through ADR-0010 document what broke and why.
 
 ## Problem Statement
 
@@ -17,6 +17,14 @@ This repo is also a deliberate exercise in discipline: Transit Gateway, PrivateL
 Atlas Network builds on top of `atlas-foundation`'s account structure and base VPC module. It does not redefine VPCs, subnets, or route tables from scratch — it consumes the foundation module for that, and adds the layer above it: cross-VPC routing (Transit Gateway), private service exposure (PrivateLink), and internet egress strategy (NAT).
 
 Two spoke VPCs are modeled — `spoke-dev` and `spoke-prod` — specifically so the design has to answer a question a single-spoke demo never forces: **should dev and prod be able to route to each other through the hub by default?** (Answer, and reasoning, in ADR-0002.)
+
+## Designed & Validated
+
+Terraform modules and environments pass `fmt`, `validate` and `plan` in CI, Terratest suites run on every change, Checkov results are archived as CI artifacts, and the architecture, packet flows, threat model and ADRs live in `docs/`.
+
+## Live Demo
+
+Burst-deployed once for validation and torn down (ADR-0005). See [Burst-Deploy Results](#burst-deploy-results-2026-10-03) and the [Demo Video](#demo-video).
 
 ---
 
@@ -50,7 +58,11 @@ graph TB
     DEV_VPC --- DEV_EP
     DEV_VPC -.->|no route, no propagation<br/>ADR-0002| PROD_VPC
 ```
+
 Packet-flow walkthroughs (hub↔spoke, blocked dev→prod, NAT egress, S3 via endpoint): [`docs/diagrams/packet-flows.md`](docs/diagrams/packet-flows.md).
+
+---
+
 ## Design Decisions (ADR)
 
 | ADR | Decision |
@@ -63,8 +75,9 @@ Packet-flow walkthroughs (hub↔spoke, blocked dev→prod, NAT egress, S3 via en
 | [ADR-0006](docs/adr/ADR-0006-iam-policy-gap-practice-burst.md) | IAM policy gap found during the first practice burst-deploy |
 | [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) | Destroy order, core module bug, manual cleanup |
 | [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) | Repo-vs-live IAM policy drift and a fourth Describe* gap |
-| [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) | Missing VPC→TGW routes, Reachability Analyzer permissions, preflight automation |
+| [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) | Missing VPC→TGW routes, Reachability Analyzer permissions, preflight automation, Checkov triage |
 | [ADR-0010](docs/adr/ADR-0010-reachability-analyzer-permissions.md) | Reachability Analyzer failed on insufficient permissions; leftover RA paths at teardown |
+| [ADR-0011](docs/adr/ADR-0011-reachability-analyzer-dev-to-prod-open-finding.md) | Reachability Analyzer dev→prod analysis failed after the permission fix; cause undetermined, route tables used as segmentation proof |
 
 ---
 
@@ -99,20 +112,20 @@ Designed cost if this topology ran continuously in `us-east-1` (approximate, at 
 | Public IPv4 (×3 NAT EIPs) | $0.005/hr each | ~$11/mo |
 | **Total, always-on** | | **~$225–260/mo** |
 
-Actual cost incurred building this repo: the single burst-deploy window, budgeted and capped in ADR-0005 — see `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
+Actual cost incurred building this repo: the single burst-deploy window, budgeted and capped in ADR-0005. See `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
 
 ---
 
 ## Deployment Guide
 
 - **Design validation (free, repeatable):** `terraform plan` against each environment in `terraform/environments/`. No `apply` runs in CI, ever — see CI/CD below.
-- **Live burst-deploy (one-time, budgeted):** manual, following the runbook in `docs/evidence/burst-deploy/README.md`, executed within the time/dollar ceiling set in ADR-0005, ending in `terraform destroy` with the confirmation output captured.
+- **Live burst-deploy (one-time, budgeted):** scripted, following the runbook in `docs/evidence/burst-deploy/README.md`, within the time and dollar ceiling set in ADR-0005: `scripts/preflight.sh` → `scripts/burst-apply.sh` → `scripts/capture-evidence.sh` → `scripts/destroy-all.sh`, which verifies teardown and exits non-zero on any leftover.
 
 ---
 
 ## CI/CD
 
-GitHub Actions runs `terraform fmt -check`, `terraform validate`, and `terraform plan` on every PR across `terraform/environments/*`. There is no `apply` workflow in this repository, by design — matching the same plan-only gate used in `atlas-foundation`.
+GitHub Actions runs `terraform fmt -check`, `terraform validate` and `terraform plan` on every PR across `terraform/environments/*`, plus a Checkov IaC scan that fails the build on new findings. Actions are pinned to commit SHAs and kept current by Dependabot. There is no `apply` workflow in this repository, by design — matching the same plan-only gate used in `atlas-foundation`.
 
 ---
 
@@ -131,6 +144,7 @@ Post burst-deploy, the real (small) Cost Explorer/CUR line items for the deploym
 ## Testing Strategy
 
 Terratest suite validates module inputs/outputs and route table logic statically. Since MiniStack does not support Transit Gateway or PrivateLink (Community edition — verify current support before relying on this), these modules are validated via `terraform validate` + `plan` + manual review rather than an emulated `apply`. That gap is documented, not hidden — see ADR-0005.
+
 The VPC→TGW `aws_route` resources in `environments/core` depend on remote state, so they are covered by `terraform validate` and by the live burst-deploy (route table assertions in `scripts/capture-evidence.sh`), not by Terratest.
 
 ---
@@ -143,19 +157,29 @@ No continuous monitoring: the topology exists only for the burst window. Evidenc
 
 ## Incident Runbook
 
-Failure scenario: TGW route table misconfiguration causes a routing black hole between a spoke and the hub. Detection, diagnosis (via Flow Logs / Reachability Analyzer), and rollback steps documented in `docs/incident-runbook.md`.
+Failure scenario: TGW route table misconfiguration causes a routing black hole between a spoke and the hub. Detection, diagnosis (via TGW route tables, attachment state and Reachability Analyzer; Flow Logs are not enabled), and rollback steps documented in [`docs/incident-runbook.md`](docs/incident-runbook.md).
 
 ---
 
 ## Postmortem Example
 
-Real incidents from the practice burst-deploys are written up as blameless ADR-postmortems: [ADR-0006](docs/adr/ADR-0006-iam-policy-gap-practice-burst.md) (IAM gap), [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) (destroy order, module bug, manual cleanup), [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) (policy drift), [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) (missing routes found in review).
+Real incidents from the practice and final burst-deploys are written up as blameless ADR-postmortems: [ADR-0006](docs/adr/ADR-0006-iam-policy-gap-practice-burst.md) (IAM gap), [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) (destroy order, module bug, manual cleanup), [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) (policy drift), [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) (missing routes found in review), [ADR-0010](docs/adr/ADR-0010-reachability-analyzer-permissions.md) (Reachability Analyzer permissions, leftover paths), [ADR-0011](docs/adr/ADR-0011-reachability-analyzer-dev-to-prod-open-finding.md) (open finding).
 
 ---
 
 ## Benchmarks
 
-AWS Reachability Analyzer output from the burst-deploy window, confirming actual path reachability hub↔spoke and the absence of a path spoke-dev↔spoke-prod (i.e., proving the route segmentation in ADR-0002 actually holds at the network layer, not just on paper).
+Measured on the 2026-10-03 burst-deploy (`docs/evidence/burst-deploy/2026-10-03/apply-log.txt`):
+
+| Resource | Creation time |
+|---|---|
+| Transit gateway | 40 s |
+| NAT gateways (×3, created in parallel) | 1 m 49 s – 1 m 56 s |
+| TGW VPC attachments (×3, created in parallel) | 2 m 13 s – 2 m 23 s |
+| S3 Interface Endpoint | 6 m 26 s |
+| Full apply, all four environments (`burst-apply.sh`) | 9 min |
+
+The interface endpoint is the slowest resource by a wide margin and sets the length of the `core` apply. Reachability Analyzer confirmed hub→dev and hub→prod are reachable; the dev→prod analysis failed (ADR-0011), so the absence of a dev↔prod path is evidenced by the TGW route tables, not by Reachability Analyzer.
 
 ---
 
@@ -164,7 +188,31 @@ AWS Reachability Analyzer output from the burst-deploy window, confirming actual
 - Add a third spoke (`shared-services`) to demonstrate a hub with an asymmetric routing policy (all spokes → shared, shared → nothing back)
 - Evaluate CloudFront + PrivateLink origin pattern once Phase 4 core topology is proven
 - Revisit MiniStack/emulator TGW support periodically (see the tooling-churn note in the master plan) — document any switch as an ADR if support appears
+- Re-run the dev→prod Reachability Analyzer analysis with CloudTrail enabled for the window, to identify the denied action (ADR-0011)
+
+---
+
+## Burst-Deploy Results (2026-10-03)
+
+Final design applied to real AWS (us-east-1), evidence captured, then fully torn down. Raw evidence: [`docs/evidence/burst-deploy/2026-10-03/`](docs/evidence/burst-deploy/2026-10-03/).
+
+| Check | Result | Evidence |
+|---|---|---|
+| Hub TGW RT learns both spoke CIDRs | ✅ | `tgw-routes-hub.json` |
+| Dev RT sees only the hub CIDR (no prod) | ✅ | `tgw-routes-dev.json` |
+| Prod RT sees only the hub CIDR (no dev) | ✅ | `tgw-routes-prod.json` |
+| Reachability Analyzer hub→dev, hub→prod | ✅ reachable | `reachability-hub-to-*.json` |
+| Reachability Analyzer dev→prod | ⚠️ analysis failed, not used as proof | [ADR-0011](docs/adr/ADR-0011-reachability-analyzer-dev-to-prod-open-finding.md) |
+| Teardown verified (VPC, TGW, EIP, NAT, endpoint, ENI, RA) | ✅ all empty | `final-*-check.txt` |
+
+Segmentation is proven by the TGW route tables themselves. The one failed analysis and its handling are documented rather than hidden. Earlier attempts and their root causes: ADR-0006 through ADR-0010.
+
+Console screenshots taken while the stack was live: [hub route table](docs/evidence/burst-deploy/2026-10-03/tgw-route-table-hub.png) · [dev route table](docs/evidence/burst-deploy/2026-10-03/tgw-route-table-dev.png) · [prod route table](docs/evidence/burst-deploy/2026-10-03/tgw-route-table-prod.png) · [endpoint](docs/evidence/burst-deploy/2026-10-03/privatelink-endpoint-status.png) · [NAT gateways](docs/evidence/burst-deploy/2026-10-03/nat-gateways.png).
+
+---
 
 ## Demo Video
 
-Screen recording of the burst-deploy window — `terraform apply`, Reachability Analyzer run, `terraform destroy` confirmation — to be linked here once captured.
+[![Burst-deploy preview: evidence capture and teardown](docs/media/burst-deploy-preview.gif)](https://drive.google.com/file/d/1yjww9BCNU8GPGmnQmeDtHjTMlDnftsHp/view)
+
+▶ [Full recording (Google Drive, view-only)](https://drive.google.com/file/d/1yjww9BCNU8GPGmnQmeDtHjTMlDnftsHp/view) — 2026-10-03, commit `abc1234`. Apply and teardown are sped up; the clock in the terminal status bar is real UTC time.
