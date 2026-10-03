@@ -1,0 +1,1932 @@
+=== applying hub @ 10:31:55Z ===
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vpc.aws_default_security_group.this will be created
+  + resource "aws_default_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = (known after apply)
+      + egress                 = []
+      + id                     = (known after apply)
+      + ingress                = []
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all               = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.vpc.aws_internet_gateway.this will be created
+  + resource "aws_internet_gateway" "this" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.private[1] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-rt-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-rt-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + cidr_block                 = "0.0.0.0/0"
+              + gateway_id                 = (known after apply)
+                # (11 unchanged attributes hidden)
+            },
+        ]
+      + tags             = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.100.10.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.100.11.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-private-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.100.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.100.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-public-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_vpc.this will be created
+  + resource "aws_vpc" "this" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.100.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all                             = {
+          + "Environment" = "network-hub"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-hub-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+    }
+
+Plan: 14 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + private_route_table_ids = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + private_subnet_ids      = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + vpc_id                  = (known after apply)
+module.vpc.aws_vpc.this: Creating...
+module.vpc.aws_vpc.this: Still creating... [00m10s elapsed]
+module.vpc.aws_vpc.this: Still creating... [00m20s elapsed]
+module.vpc.aws_vpc.this: Creation complete after 27s [id=vpc-04534c90d9a303c48]
+module.vpc.aws_internet_gateway.this: Creating...
+module.vpc.aws_route_table.private[0]: Creating...
+module.vpc.aws_route_table.private[1]: Creating...
+module.vpc.aws_subnet.private[1]: Creating...
+module.vpc.aws_subnet.private[0]: Creating...
+module.vpc.aws_subnet.public[0]: Creating...
+module.vpc.aws_default_security_group.this: Creating...
+module.vpc.aws_subnet.public[1]: Creating...
+module.vpc.aws_subnet.private[1]: Creation complete after 3s [id=subnet-0024c835b7787f52d]
+module.vpc.aws_internet_gateway.this: Creation complete after 4s [id=igw-01325fcf068d0b585]
+module.vpc.aws_route_table.public: Creating...
+module.vpc.aws_route_table.private[1]: Creation complete after 4s [id=rtb-0d4b496b8b9395d88]
+module.vpc.aws_route_table.private[0]: Creation complete after 4s [id=rtb-0aa02f2716fd258cb]
+module.vpc.aws_subnet.private[0]: Creation complete after 4s [id=subnet-03beac8e6bde86b85]
+module.vpc.aws_route_table_association.private[1]: Creating...
+module.vpc.aws_route_table_association.private[0]: Creating...
+module.vpc.aws_route_table_association.private[1]: Creation complete after 1s [id=rtbassoc-02431dd4720ea27d2]
+module.vpc.aws_route_table_association.private[0]: Creation complete after 1s [id=rtbassoc-0395bb5f3107a74bf]
+module.vpc.aws_default_security_group.this: Creation complete after 6s [id=sg-03705039ba1380d91]
+module.vpc.aws_route_table.public: Creation complete after 3s [id=rtb-0d3e198e2b4f3324a]
+module.vpc.aws_subnet.public[0]: Still creating... [00m10s elapsed]
+module.vpc.aws_subnet.public[1]: Still creating... [00m10s elapsed]
+module.vpc.aws_subnet.public[1]: Creation complete after 16s [id=subnet-0f556ceb5a624a50d]
+module.vpc.aws_subnet.public[0]: Creation complete after 16s [id=subnet-05ef0d5349e5264c8]
+module.vpc.aws_route_table_association.public[1]: Creating...
+module.vpc.aws_route_table_association.public[0]: Creating...
+module.vpc.aws_route_table_association.public[0]: Creation complete after 4s [id=rtbassoc-0821e3b3f423f3b1d]
+module.vpc.aws_route_table_association.public[1]: Creation complete after 4s [id=rtbassoc-0216034b051f32d54]
+
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+private_route_table_ids = [
+  "rtb-0aa02f2716fd258cb",
+  "rtb-0d4b496b8b9395d88",
+]
+private_subnet_ids = [
+  "subnet-03beac8e6bde86b85",
+  "subnet-0024c835b7787f52d",
+]
+vpc_id = "vpc-04534c90d9a303c48"
+=== applying spoke-dev @ 10:32:49Z ===
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vpc.aws_default_security_group.this will be created
+  + resource "aws_default_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = (known after apply)
+      + egress                 = []
+      + id                     = (known after apply)
+      + ingress                = []
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all               = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.vpc.aws_internet_gateway.this will be created
+  + resource "aws_internet_gateway" "this" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + cidr_block                 = "0.0.0.0/0"
+              + gateway_id                 = (known after apply)
+                # (11 unchanged attributes hidden)
+            },
+        ]
+      + tags             = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.101.10.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.101.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_vpc.this will be created
+  + resource "aws_vpc" "this" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.101.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all                             = {
+          + "Environment" = "network-spoke-dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-dev-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+    }
+
+Plan: 9 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + private_route_table_ids = [
+      + (known after apply),
+    ]
+  + private_subnet_ids      = [
+      + (known after apply),
+    ]
+  + public_subnet_ids       = [
+      + (known after apply),
+    ]
+  + vpc_id                  = (known after apply)
+module.vpc.aws_vpc.this: Creating...
+module.vpc.aws_vpc.this: Still creating... [00m10s elapsed]
+module.vpc.aws_vpc.this: Still creating... [00m20s elapsed]
+module.vpc.aws_vpc.this: Still creating... [00m30s elapsed]
+module.vpc.aws_vpc.this: Creation complete after 31s [id=vpc-0957f3eafeacc582c]
+module.vpc.aws_internet_gateway.this: Creating...
+module.vpc.aws_route_table.private[0]: Creating...
+module.vpc.aws_subnet.private[0]: Creating...
+module.vpc.aws_subnet.public[0]: Creating...
+module.vpc.aws_default_security_group.this: Creating...
+module.vpc.aws_internet_gateway.this: Creation complete after 3s [id=igw-0ed51b4c943e18831]
+module.vpc.aws_route_table.private[0]: Creation complete after 3s [id=rtb-007918d5d3ecebbde]
+module.vpc.aws_route_table.public: Creating...
+module.vpc.aws_subnet.private[0]: Creation complete after 3s [id=subnet-026c7092daa0e9ba9]
+module.vpc.aws_route_table_association.private[0]: Creating...
+module.vpc.aws_route_table_association.private[0]: Creation complete after 3s [id=rtbassoc-02dd6734a2f92eb9b]
+module.vpc.aws_default_security_group.this: Creation complete after 7s [id=sg-0cb0af1acfb9d6fb1]
+module.vpc.aws_subnet.public[0]: Still creating... [00m10s elapsed]
+module.vpc.aws_route_table.public: Creation complete after 8s [id=rtb-0a993254381a3c9a1]
+module.vpc.aws_subnet.public[0]: Creation complete after 18s [id=subnet-08ee8b6305a883cd1]
+module.vpc.aws_route_table_association.public[0]: Creating...
+module.vpc.aws_route_table_association.public[0]: Creation complete after 7s [id=rtbassoc-0ed71b47c54227f81]
+
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+private_route_table_ids = [
+  "rtb-007918d5d3ecebbde",
+]
+private_subnet_ids = [
+  "subnet-026c7092daa0e9ba9",
+]
+public_subnet_ids = [
+  "subnet-08ee8b6305a883cd1",
+]
+vpc_id = "vpc-0957f3eafeacc582c"
+=== applying spoke-prod @ 10:33:53Z ===
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.vpc.aws_default_security_group.this will be created
+  + resource "aws_default_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = (known after apply)
+      + egress                 = []
+      + id                     = (known after apply)
+      + ingress                = []
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all               = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-default-sg-locked"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.vpc.aws_internet_gateway.this will be created
+  + resource "aws_internet_gateway" "this" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-igw"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-rt-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.private[1] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-rt-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-rt-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + cidr_block                 = "0.0.0.0/0"
+              + gateway_id                 = (known after apply)
+                # (11 unchanged attributes hidden)
+            },
+        ]
+      + tags             = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all         = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-rt"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.102.10.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.102.11.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-private-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "private"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.102.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-0"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.102.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + tags_all                                       = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-public-1"
+          + "Owner"       = "dennisk-atlas-portfolio"
+          + "Tier"        = "public"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.vpc.aws_vpc.this will be created
+  + resource "aws_vpc" "this" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.102.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+      + tags_all                             = {
+          + "Environment" = "network-spoke-prod"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "atlas-network-spoke-prod-vpc"
+          + "Owner"       = "dennisk-atlas-portfolio"
+        }
+    }
+
+Plan: 14 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + private_route_table_ids = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + private_subnet_ids      = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + public_subnet_ids       = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + vpc_id                  = (known after apply)
+module.vpc.aws_vpc.this: Creating...
+module.vpc.aws_vpc.this: Still creating... [00m10s elapsed]
+module.vpc.aws_vpc.this: Still creating... [00m20s elapsed]
+module.vpc.aws_vpc.this: Creation complete after 28s [id=vpc-055a8bc19809a3390]
+module.vpc.aws_internet_gateway.this: Creating...
+module.vpc.aws_route_table.private[0]: Creating...
+module.vpc.aws_subnet.public[1]: Creating...
+module.vpc.aws_subnet.private[0]: Creating...
+module.vpc.aws_default_security_group.this: Creating...
+module.vpc.aws_subnet.private[1]: Creating...
+module.vpc.aws_route_table.private[1]: Creating...
+module.vpc.aws_subnet.public[0]: Creating...
+module.vpc.aws_internet_gateway.this: Creation complete after 2s [id=igw-07739511dac7e7002]
+module.vpc.aws_route_table.public: Creating...
+module.vpc.aws_subnet.private[0]: Creation complete after 3s [id=subnet-0eb2fa8dcd288b332]
+module.vpc.aws_subnet.private[1]: Creation complete after 3s [id=subnet-04279e3fbe58d65e0]
+module.vpc.aws_route_table.private[0]: Creation complete after 3s [id=rtb-078b3435c3c0b6300]
+module.vpc.aws_route_table.private[1]: Creation complete after 3s [id=rtb-005ae9daba85108ec]
+module.vpc.aws_route_table_association.private[0]: Creating...
+module.vpc.aws_route_table_association.private[1]: Creating...
+module.vpc.aws_route_table_association.private[0]: Creation complete after 2s [id=rtbassoc-0bb4e088a3f1aad3b]
+module.vpc.aws_route_table_association.private[1]: Creation complete after 2s [id=rtbassoc-0825c75c8812b316c]
+module.vpc.aws_default_security_group.this: Creation complete after 6s [id=sg-0476b0a1f50cf9f9e]
+module.vpc.aws_route_table.public: Creation complete after 3s [id=rtb-0a14993aef2a3f8ba]
+module.vpc.aws_subnet.public[1]: Still creating... [00m10s elapsed]
+module.vpc.aws_subnet.public[0]: Still creating... [00m10s elapsed]
+module.vpc.aws_subnet.public[0]: Creation complete after 14s [id=subnet-08776e3ecf3c9eed1]
+module.vpc.aws_subnet.public[1]: Creation complete after 14s [id=subnet-0a9c249bb3226569f]
+module.vpc.aws_route_table_association.public[1]: Creating...
+module.vpc.aws_route_table_association.public[0]: Creating...
+module.vpc.aws_route_table_association.public[0]: Creation complete after 3s [id=rtbassoc-0be51e0e293fd9e28]
+module.vpc.aws_route_table_association.public[1]: Creation complete after 3s [id=rtbassoc-05c203cf9d5f29289]
+
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+private_route_table_ids = [
+  "rtb-078b3435c3c0b6300",
+  "rtb-005ae9daba85108ec",
+]
+private_subnet_ids = [
+  "subnet-0eb2fa8dcd288b332",
+  "subnet-04279e3fbe58d65e0",
+]
+public_subnet_ids = [
+  "subnet-08776e3ecf3c9eed1",
+  "subnet-0a9c249bb3226569f",
+]
+vpc_id = "vpc-055a8bc19809a3390"
+=== applying core @ 10:34:46Z ===
+data.terraform_remote_state.spoke_dev: Reading...
+data.terraform_remote_state.spoke_prod: Reading...
+data.terraform_remote_state.hub: Reading...
+data.terraform_remote_state.spoke_dev: Read complete after 0s
+data.terraform_remote_state.hub: Read complete after 0s
+data.terraform_remote_state.spoke_prod: Read complete after 0s
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_route.hub_to_spoke["0-dev"] will be created
+  + resource "aws_route" "hub_to_spoke" {
+      + destination_cidr_block = "10.101.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-0aa02f2716fd258cb"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.hub_to_spoke["0-prod"] will be created
+  + resource "aws_route" "hub_to_spoke" {
+      + destination_cidr_block = "10.102.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-0aa02f2716fd258cb"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.hub_to_spoke["1-dev"] will be created
+  + resource "aws_route" "hub_to_spoke" {
+      + destination_cidr_block = "10.101.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-0d4b496b8b9395d88"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.hub_to_spoke["1-prod"] will be created
+  + resource "aws_route" "hub_to_spoke" {
+      + destination_cidr_block = "10.102.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-0d4b496b8b9395d88"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.spoke_to_hub["dev-0"] will be created
+  + resource "aws_route" "spoke_to_hub" {
+      + destination_cidr_block = "10.100.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-007918d5d3ecebbde"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.spoke_to_hub["prod-0"] will be created
+  + resource "aws_route" "spoke_to_hub" {
+      + destination_cidr_block = "10.100.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-078b3435c3c0b6300"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # aws_route.spoke_to_hub["prod-1"] will be created
+  + resource "aws_route" "spoke_to_hub" {
+      + destination_cidr_block = "10.100.0.0/16"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-005ae9daba85108ec"
+      + state                  = (known after apply)
+      + transit_gateway_id     = (known after apply)
+    }
+
+  # module.nat_dev.aws_eip.nat["single"] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + arn                  = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + ipam_pool_id         = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + ptr_record           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-dev-nat-eip-single"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all             = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-dev-nat-eip-single"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.nat_dev.aws_nat_gateway.this["single"] will be created
+  + resource "aws_nat_gateway" "this" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = "subnet-08ee8b6305a883cd1"
+      + tags                               = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-dev-nat-single"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                           = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-dev-nat-single"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+    }
+
+  # module.nat_dev.aws_route.private_default["az_a"] will be created
+  + resource "aws_route" "private_default" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-007918d5d3ecebbde"
+      + state                  = (known after apply)
+    }
+
+  # module.nat_prod.aws_eip.nat["az-a"] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + arn                  = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + ipam_pool_id         = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + ptr_record           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-eip-az-a"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all             = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-eip-az-a"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.nat_prod.aws_eip.nat["az-b"] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + arn                  = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + ipam_pool_id         = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + ptr_record           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-eip-az-b"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all             = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-eip-az-b"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.nat_prod.aws_nat_gateway.this["az-a"] will be created
+  + resource "aws_nat_gateway" "this" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = "subnet-08776e3ecf3c9eed1"
+      + tags                               = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-az-a"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                           = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-az-a"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+    }
+
+  # module.nat_prod.aws_nat_gateway.this["az-b"] will be created
+  + resource "aws_nat_gateway" "this" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = "subnet-0a9c249bb3226569f"
+      + tags                               = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-az-b"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                           = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-prod-nat-az-b"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+    }
+
+  # module.nat_prod.aws_route.private_default["az_a"] will be created
+  + resource "aws_route" "private_default" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-078b3435c3c0b6300"
+      + state                  = (known after apply)
+    }
+
+  # module.nat_prod.aws_route.private_default["az_b"] will be created
+  + resource "aws_route" "private_default" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-005ae9daba85108ec"
+      + state                  = (known after apply)
+    }
+
+  # module.privatelink.aws_security_group.endpoint will be created
+  + resource "aws_security_group" "endpoint" {
+      + arn                    = (known after apply)
+      + description            = "Controls access to the com.amazonaws.us-east-1.s3 Interface Endpoint"
+      + egress                 = []
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "10.101.0.0/16",
+                ]
+              + description      = "HTTPS from permitted CIDRs only"
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+        ]
+      + name                   = (known after apply)
+      + name_prefix            = "atlas-network-privatelink-"
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-sg"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all               = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-sg"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc_id                 = "vpc-0957f3eafeacc582c"
+    }
+
+  # module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0] will be created
+  + resource "aws_vpc_endpoint" "gateway_prerequisite" {
+      + arn                   = (known after apply)
+      + cidr_blocks           = (known after apply)
+      + dns_entry             = (known after apply)
+      + id                    = (known after apply)
+      + ip_address_type       = (known after apply)
+      + network_interface_ids = (known after apply)
+      + owner_id              = (known after apply)
+      + policy                = (known after apply)
+      + prefix_list_id        = (known after apply)
+      + private_dns_enabled   = (known after apply)
+      + requester_managed     = (known after apply)
+      + route_table_ids       = [
+          + "rtb-007918d5d3ecebbde",
+        ]
+      + security_group_ids    = (known after apply)
+      + service_name          = "com.amazonaws.us-east-1.s3"
+      + service_region        = (known after apply)
+      + state                 = (known after apply)
+      + subnet_ids            = (known after apply)
+      + tags                  = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-gateway-prereq"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all              = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-gateway-prereq"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc_endpoint_type     = "Gateway"
+      + vpc_id                = "vpc-0957f3eafeacc582c"
+
+      + dns_options (known after apply)
+
+      + subnet_configuration (known after apply)
+    }
+
+  # module.privatelink.aws_vpc_endpoint.this will be created
+  + resource "aws_vpc_endpoint" "this" {
+      + arn                   = (known after apply)
+      + cidr_blocks           = (known after apply)
+      + dns_entry             = (known after apply)
+      + id                    = (known after apply)
+      + ip_address_type       = (known after apply)
+      + network_interface_ids = (known after apply)
+      + owner_id              = (known after apply)
+      + policy                = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "s3:GetObject",
+                          + "s3:ListBucket",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = "*"
+                      + Resource  = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + prefix_list_id        = (known after apply)
+      + private_dns_enabled   = true
+      + requester_managed     = (known after apply)
+      + route_table_ids       = (known after apply)
+      + security_group_ids    = (known after apply)
+      + service_name          = "com.amazonaws.us-east-1.s3"
+      + service_region        = (known after apply)
+      + state                 = (known after apply)
+      + subnet_ids            = [
+          + "subnet-026c7092daa0e9ba9",
+        ]
+      + tags                  = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-endpoint"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all              = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-privatelink-endpoint"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpc_endpoint_type     = "Interface"
+      + vpc_id                = "vpc-0957f3eafeacc582c"
+
+      + dns_options (known after apply)
+
+      + subnet_configuration (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway.this will be created
+  + resource "aws_ec2_transit_gateway" "this" {
+      + amazon_side_asn                    = 64512
+      + arn                                = (known after apply)
+      + association_default_route_table_id = (known after apply)
+      + auto_accept_shared_attachments     = "disable"
+      + default_route_table_association    = "disable"
+      + default_route_table_propagation    = "disable"
+      + description                        = "atlas-network hub-and-spoke Transit Gateway"
+      + dns_support                        = "enable"
+      + id                                 = (known after apply)
+      + multicast_support                  = "disable"
+      + owner_id                           = (known after apply)
+      + propagation_default_route_table_id = (known after apply)
+      + security_group_referencing_support = "disable"
+      + tags                               = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-tgw"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                           = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-tgw"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + vpn_ecmp_support                   = "enable"
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.hub will be created
+  + resource "aws_ec2_transit_gateway_route_table" "hub" {
+      + arn                             = (known after apply)
+      + default_association_route_table = (known after apply)
+      + default_propagation_route_table = (known after apply)
+      + id                              = (known after apply)
+      + tags                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-hub"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-hub"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_id              = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"] will be created
+  + resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      + arn                             = (known after apply)
+      + default_association_route_table = (known after apply)
+      + default_propagation_route_table = (known after apply)
+      + id                              = (known after apply)
+      + tags                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-dev"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-dev"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_id              = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"] will be created
+  + resource "aws_ec2_transit_gateway_route_table" "spoke" {
+      + arn                             = (known after apply)
+      + default_association_route_table = (known after apply)
+      + default_propagation_route_table = (known after apply)
+      + id                              = (known after apply)
+      + tags                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-prod"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-rtb-prod"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_id              = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub will be created
+  + resource "aws_ec2_transit_gateway_route_table_association" "hub" {
+      + id                             = (known after apply)
+      + replace_existing_association   = false
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_association" "spoke" {
+      + id                             = (known after apply)
+      + replace_existing_association   = false
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_association" "spoke" {
+      + id                             = (known after apply)
+      + replace_existing_association   = false
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_propagation" "hub_learns_spokes" {
+      + id                             = (known after apply)
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_propagation" "hub_learns_spokes" {
+      + id                             = (known after apply)
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_propagation" "spoke_learns_hub" {
+      + id                             = (known after apply)
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"] will be created
+  + resource "aws_ec2_transit_gateway_route_table_propagation" "spoke_learns_hub" {
+      + id                             = (known after apply)
+      + resource_id                    = (known after apply)
+      + resource_type                  = (known after apply)
+      + transit_gateway_attachment_id  = (known after apply)
+      + transit_gateway_route_table_id = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub will be created
+  + resource "aws_ec2_transit_gateway_vpc_attachment" "hub" {
+      + appliance_mode_support                          = "disable"
+      + arn                                             = (known after apply)
+      + dns_support                                     = "enable"
+      + id                                              = (known after apply)
+      + ipv6_support                                    = "disable"
+      + security_group_referencing_support              = (known after apply)
+      + subnet_ids                                      = [
+          + "subnet-0024c835b7787f52d",
+          + "subnet-03beac8e6bde86b85",
+        ]
+      + tags                                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-hub"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-hub"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_default_route_table_association = false
+      + transit_gateway_default_route_table_propagation = false
+      + transit_gateway_id                              = (known after apply)
+      + vpc_id                                          = "vpc-04534c90d9a303c48"
+      + vpc_owner_id                                    = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"] will be created
+  + resource "aws_ec2_transit_gateway_vpc_attachment" "spoke" {
+      + appliance_mode_support                          = "disable"
+      + arn                                             = (known after apply)
+      + dns_support                                     = "enable"
+      + id                                              = (known after apply)
+      + ipv6_support                                    = "disable"
+      + security_group_referencing_support              = (known after apply)
+      + subnet_ids                                      = [
+          + "subnet-026c7092daa0e9ba9",
+        ]
+      + tags                                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-dev"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-dev"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_default_route_table_association = false
+      + transit_gateway_default_route_table_propagation = false
+      + transit_gateway_id                              = (known after apply)
+      + vpc_id                                          = "vpc-0957f3eafeacc582c"
+      + vpc_owner_id                                    = (known after apply)
+    }
+
+  # module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"] will be created
+  + resource "aws_ec2_transit_gateway_vpc_attachment" "spoke" {
+      + appliance_mode_support                          = "disable"
+      + arn                                             = (known after apply)
+      + dns_support                                     = "enable"
+      + id                                              = (known after apply)
+      + ipv6_support                                    = "disable"
+      + security_group_referencing_support              = (known after apply)
+      + subnet_ids                                      = [
+          + "subnet-04279e3fbe58d65e0",
+          + "subnet-0eb2fa8dcd288b332",
+        ]
+      + tags                                            = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-prod"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + tags_all                                        = {
+          + "ManagedBy" = "terraform"
+          + "Name"      = "atlas-network-attach-prod"
+          + "Owner"     = "dennisk-atlas-portfolio"
+        }
+      + transit_gateway_default_route_table_association = false
+      + transit_gateway_default_route_table_propagation = false
+      + transit_gateway_id                              = (known after apply)
+      + vpc_id                                          = "vpc-055a8bc19809a3390"
+      + vpc_owner_id                                    = (known after apply)
+    }
+
+Plan: 33 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + hub_attachment_id       = (known after apply)
+  + privatelink_endpoint_id = (known after apply)
+  + spoke_attachment_ids    = {
+      + dev  = (known after apply)
+      + prod = (known after apply)
+    }
+  + transit_gateway_id      = (known after apply)
+module.nat_prod.aws_eip.nat["az-b"]: Creating...
+module.nat_prod.aws_eip.nat["az-a"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway.this: Creating...
+module.nat_dev.aws_eip.nat["single"]: Creating...
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Creating...
+module.privatelink.aws_security_group.endpoint: Creating...
+module.nat_prod.aws_eip.nat["az-a"]: Still creating... [00m10s elapsed]
+module.nat_prod.aws_eip.nat["az-b"]: Still creating... [00m10s elapsed]
+module.nat_dev.aws_eip.nat["single"]: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still creating... [00m10s elapsed]
+module.privatelink.aws_security_group.endpoint: Still creating... [00m10s elapsed]
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Still creating... [00m10s elapsed]
+module.nat_prod.aws_eip.nat["az-b"]: Creation complete after 12s [id=eipalloc-09f94b22b40db66cf]
+module.nat_prod.aws_eip.nat["az-a"]: Creation complete after 12s [id=eipalloc-0d596ef9949fbe736]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Creating...
+module.nat_prod.aws_nat_gateway.this["az-a"]: Creating...
+module.nat_dev.aws_eip.nat["single"]: Creation complete after 13s [id=eipalloc-0087b8e7b7a8262a2]
+module.nat_dev.aws_nat_gateway.this["single"]: Creating...
+module.privatelink.aws_security_group.endpoint: Creation complete after 17s [id=sg-0642e2b812f5a3ef5]
+module.privatelink.aws_vpc_endpoint.gateway_prerequisite[0]: Creation complete after 19s [id=vpce-0b13ca9bb6bc1b364]
+module.privatelink.aws_vpc_endpoint.this: Creating...
+module.transit_gateway.aws_ec2_transit_gateway.this: Still creating... [00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [00m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [00m10s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [00m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Still creating... [00m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [00m20s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [00m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway.this: Creation complete after 40s [id=tgw-0e8b36be88dcf6579]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Creating...
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [00m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [00m30s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [00m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [00m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [00m40s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [00m40s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [00m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [00m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [00m50s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [00m50s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [00m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [00m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m00s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m00s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [01m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [00m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["prod"]: Creation complete after 41s [id=tgw-rtb-00776fb4dd8fcc5a0]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.hub: Creation complete after 41s [id=tgw-rtb-077129d9eed1f9598]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table.spoke["dev"]: Creation complete after 43s [id=tgw-rtb-0b3bf6c7d2f2c8f3e]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [01m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [00m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [00m50s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m20s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m20s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [01m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m00s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m30s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m30s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [01m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m10s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m40s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m40s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Still creating... [01m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m20s elapsed]
+module.nat_dev.aws_nat_gateway.this["single"]: Creation complete after 1m49s [id=nat-0d85e571b275061b9]
+module.nat_dev.aws_route.private_default["az_a"]: Creating...
+module.nat_prod.aws_nat_gateway.this["az-b"]: Still creating... [01m50s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Still creating... [01m50s elapsed]
+module.nat_prod.aws_nat_gateway.this["az-b"]: Creation complete after 1m50s [id=nat-030faf9fa52bb76f1]
+module.nat_dev.aws_route.private_default["az_a"]: Creation complete after 6s [id=r-rtb-007918d5d3ecebbde1080289494]
+module.nat_prod.aws_nat_gateway.this["az-a"]: Creation complete after 1m56s [id=nat-0ae37149d5972d598]
+module.nat_prod.aws_route.private_default["az_b"]: Creating...
+module.nat_prod.aws_route.private_default["az_a"]: Creating...
+module.privatelink.aws_vpc_endpoint.this: Still creating... [01m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m30s elapsed]
+module.nat_prod.aws_route.private_default["az_a"]: Creation complete after 9s [id=r-rtb-078b3435c3c0b63001080289494]
+module.nat_prod.aws_route.private_default["az_b"]: Creation complete after 9s [id=r-rtb-005ae9daba85108ec1080289494]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [01m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [01m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [01m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [02m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [02m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [02m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [02m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [02m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Still creating... [02m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["dev"]: Creation complete after 2m13s [id=tgw-attach-0472874093c043b49]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m40s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Still creating... [02m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Still creating... [02m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.spoke["prod"]: Creation complete after 2m23s [id=tgw-attach-0d28af656e2386e5c]
+module.transit_gateway.aws_ec2_transit_gateway_vpc_attachment.hub: Creation complete after 2m23s [id=tgw-attach-017fdcf94707f4bb4]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Creating...
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["dev"]: Creation complete after 3s [id=tgw-rtb-0b3bf6c7d2f2c8f3e_tgw-attach-017fdcf94707f4bb4]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["dev"]: Creation complete after 3s [id=tgw-rtb-077129d9eed1f9598_tgw-attach-0472874093c043b49]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.hub_learns_spokes["prod"]: Creation complete after 3s [id=tgw-rtb-077129d9eed1f9598_tgw-attach-0d28af656e2386e5c]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_propagation.spoke_learns_hub["prod"]: Creation complete after 3s [id=tgw-rtb-00776fb4dd8fcc5a0_tgw-attach-017fdcf94707f4bb4]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [02m50s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still creating... [00m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still creating... [00m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m00s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Still creating... [00m20s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still creating... [00m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m10s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.hub: Creation complete after 29s [id=tgw-rtb-077129d9eed1f9598_tgw-attach-017fdcf94707f4bb4]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["dev"]: Creation complete after 29s [id=tgw-rtb-0b3bf6c7d2f2c8f3e_tgw-attach-0472874093c043b49]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Still creating... [00m30s elapsed]
+module.transit_gateway.aws_ec2_transit_gateway_route_table_association.spoke["prod"]: Creation complete after 31s [id=tgw-rtb-00776fb4dd8fcc5a0_tgw-attach-0d28af656e2386e5c]
+aws_route.hub_to_spoke["1-dev"]: Creating...
+aws_route.spoke_to_hub["prod-0"]: Creating...
+aws_route.spoke_to_hub["dev-0"]: Creating...
+aws_route.hub_to_spoke["0-prod"]: Creating...
+aws_route.hub_to_spoke["1-prod"]: Creating...
+aws_route.spoke_to_hub["prod-1"]: Creating...
+aws_route.hub_to_spoke["0-dev"]: Creating...
+aws_route.hub_to_spoke["0-dev"]: Creation complete after 3s [id=r-rtb-0aa02f2716fd258cb3672843668]
+aws_route.hub_to_spoke["0-prod"]: Creation complete after 3s [id=r-rtb-0aa02f2716fd258cb1415848567]
+aws_route.spoke_to_hub["prod-1"]: Creation complete after 3s [id=r-rtb-005ae9daba85108ec373368074]
+aws_route.hub_to_spoke["1-dev"]: Creation complete after 3s [id=r-rtb-0d4b496b8b9395d883672843668]
+aws_route.hub_to_spoke["1-prod"]: Creation complete after 3s [id=r-rtb-0d4b496b8b9395d881415848567]
+aws_route.spoke_to_hub["prod-0"]: Creation complete after 3s [id=r-rtb-078b3435c3c0b6300373368074]
+aws_route.spoke_to_hub["dev-0"]: Creation complete after 3s [id=r-rtb-007918d5d3ecebbde373368074]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [03m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [04m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m30s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m40s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [05m50s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [06m00s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [06m10s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Still creating... [06m20s elapsed]
+module.privatelink.aws_vpc_endpoint.this: Creation complete after 6m26s [id=vpce-0501be6870b0d7cd4]
+
+Apply complete! Resources: 33 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+hub_attachment_id = "tgw-attach-017fdcf94707f4bb4"
+privatelink_endpoint_id = "vpce-0501be6870b0d7cd4"
+spoke_attachment_ids = {
+  "dev" = "tgw-attach-0472874093c043b49"
+  "prod" = "tgw-attach-0d28af656e2386e5c"
+}
+transit_gateway_id = "tgw-0e8b36be88dcf6579"
