@@ -74,7 +74,9 @@ run_path() { # run_path <name> <src> <dst> <expected true|false>
   if [[ "$status" == "succeeded" && "$found" == "$expected" ]]; then
     echo "ok:   RA ${name} NetworkPathFound=${found}"
   else
-    echo "FAIL: RA ${name} status=${status} found=${found} expected=${expected}" >&2; return 1
+    echo "FAIL: RA ${name} status=${status} found=${found} expected=${expected}" >&2
+    jq -r '.NetworkInsightsAnalyses[0].StatusMessage // empty' "${EVIDENCE_DIR}/reachability-${name}.json" >&2
+    return 1
   fi
 }
 run_path hub-to-dev  "$HUB" "$DEV"  true  || rc=1

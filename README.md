@@ -64,6 +64,7 @@ Packet-flow walkthroughs (hub↔spoke, blocked dev→prod, NAT egress, S3 via en
 | [ADR-0007](docs/adr/ADR-0007-destroy-order-and-core-module-failures.md) | Destroy order, core module bug, manual cleanup |
 | [ADR-0008](docs/adr/ADR-0008-iam-policy-drift-and-4th-describe-gap.md) | Repo-vs-live IAM policy drift and a fourth Describe* gap |
 | [ADR-0009](docs/adr/ADR-0009-vpc-tgw-routes-and-final-burst-readiness.md) | Missing VPC→TGW routes, Reachability Analyzer permissions, preflight automation |
+| [ADR-0010](docs/adr/ADR-0010-reachability-analyzer-permissions.md) | Reachability Analyzer failed on insufficient permissions; leftover RA paths at teardown |
 
 ---
 

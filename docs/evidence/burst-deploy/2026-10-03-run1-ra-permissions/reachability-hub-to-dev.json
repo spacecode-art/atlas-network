@@ -1,0 +1,14 @@
+{
+    "NetworkInsightsAnalyses": [
+        {
+            "NetworkInsightsAnalysisId": "nia-0bec47b7417b1f072",
+            "NetworkInsightsAnalysisArn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-insights-analysis/nia-0bec47b7417b1f072",
+            "NetworkInsightsPathId": "nip-068aa39287ffcd06d",
+            "StartDate": "2026-10-03T10:44:01.110000+00:00",
+            "Status": "failed",
+            "StatusMessage": "The request failed due to insufficient permissions.",
+            "NetworkPathFound": false,
+            "Tags": []
+        }
+    ]
+}

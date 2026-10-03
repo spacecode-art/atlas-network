@@ -1,0 +1,113 @@
+{
+    "VpcEndpoints": [
+        {
+            "VpcEndpointId": "vpce-0b13ca9bb6bc1b364",
+            "VpcEndpointType": "Gateway",
+            "VpcId": "vpc-0957f3eafeacc582c",
+            "ServiceName": "com.amazonaws.us-east-1.s3",
+            "State": "available",
+            "PolicyDocument": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"*\",\"Resource\":\"*\"}]}",
+            "RouteTableIds": [
+                "rtb-007918d5d3ecebbde"
+            ],
+            "SubnetIds": [],
+            "Groups": [],
+            "IpAddressType": "ipv4",
+            "DnsOptions": {
+                "DnsRecordIpType": "service-defined"
+            },
+            "PrivateDnsEnabled": false,
+            "RequesterManaged": false,
+            "NetworkInterfaceIds": [],
+            "DnsEntries": [],
+            "CreationTimestamp": "2026-10-03T10:35:19+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-privatelink-gateway-prereq"
+                }
+            ],
+            "OwnerId": "<ACCOUNT_ID>",
+            "ServiceRegion": "us-east-1"
+        },
+        {
+            "VpcEndpointId": "vpce-0501be6870b0d7cd4",
+            "VpcEndpointType": "Interface",
+            "VpcId": "vpc-0957f3eafeacc582c",
+            "ServiceName": "com.amazonaws.us-east-1.s3",
+            "State": "available",
+            "PolicyDocument": "{\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+            "RouteTableIds": [],
+            "SubnetIds": [
+                "subnet-026c7092daa0e9ba9"
+            ],
+            "Groups": [
+                {
+                    "GroupId": "sg-0642e2b812f5a3ef5",
+                    "GroupName": "atlas-network-privatelink-20261003103508187900000001"
+                }
+            ],
+            "IpAddressType": "ipv4",
+            "DnsOptions": {
+                "DnsRecordIpType": "ipv4",
+                "PrivateDnsOnlyForInboundResolverEndpoint": true
+            },
+            "PrivateDnsEnabled": true,
+            "RequesterManaged": false,
+            "NetworkInterfaceIds": [
+                "eni-0e772e0151df2542f"
+            ],
+            "DnsEntries": [
+                {
+                    "DnsName": "*.vpce-0501be6870b0d7cd4-jmqf39nn.s3.us-east-1.vpce.amazonaws.com",
+                    "HostedZoneId": "Z7HUB22UULQXV"
+                },
+                {
+                    "DnsName": "*.vpce-0501be6870b0d7cd4-jmqf39nn-us-east-1a.s3.us-east-1.vpce.amazonaws.com",
+                    "HostedZoneId": "Z7HUB22UULQXV"
+                },
+                {
+                    "DnsName": "s3.us-east-1.amazonaws.com",
+                    "HostedZoneId": "Z02902381H6147MZ7QIRA"
+                },
+                {
+                    "DnsName": "*.s3.us-east-1.amazonaws.com",
+                    "HostedZoneId": "Z02902381H6147MZ7QIRA"
+                },
+                {
+                    "DnsName": "*.s3-accesspoint.us-east-1.amazonaws.com",
+                    "HostedZoneId": "Z028735437T5S0WR8MV80"
+                },
+                {
+                    "DnsName": "*.s3-control.us-east-1.amazonaws.com",
+                    "HostedZoneId": "Z02881743JNGIAX6P0ORB"
+                }
+            ],
+            "CreationTimestamp": "2026-10-03T10:35:27.857000+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-privatelink-endpoint"
+                }
+            ],
+            "OwnerId": "<ACCOUNT_ID>",
+            "ServiceRegion": "us-east-1"
+        }
+    ]
+}

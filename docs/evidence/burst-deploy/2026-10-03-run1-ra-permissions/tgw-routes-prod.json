@@ -1,0 +1,17 @@
+{
+    "Routes": [
+        {
+            "DestinationCidrBlock": "10.100.0.0/16",
+            "TransitGatewayRouteTableAnnouncementId": "",
+            "TransitGatewayAttachments": [
+                {
+                    "ResourceId": "vpc-04534c90d9a303c48",
+                    "TransitGatewayAttachmentId": "tgw-attach-017fdcf94707f4bb4",
+                    "ResourceType": "vpc"
+                }
+            ],
+            "Type": "propagated",
+            "State": "active"
+        }
+    ]
+}
