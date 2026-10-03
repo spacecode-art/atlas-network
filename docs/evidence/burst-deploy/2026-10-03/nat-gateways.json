@@ -1,0 +1,109 @@
+{
+    "NatGateways": [
+        {
+            "CreateTime": "2026-10-03T12:24:57+00:00",
+            "NatGatewayAddresses": [
+                {
+                    "AllocationId": "eipalloc-0ce34618d63d74681",
+                    "NetworkInterfaceId": "eni-060e8e1433e7cdcfe",
+                    "PrivateIp": "10.102.1.8",
+                    "PublicIp": "54.82.115.25",
+                    "AssociationId": "eipassoc-0acf2a6930cc83524",
+                    "IsPrimary": true,
+                    "Status": "succeeded"
+                }
+            ],
+            "NatGatewayId": "nat-0eab7c453e0af9dd7",
+            "State": "available",
+            "SubnetId": "subnet-0fe7875065fd9ee38",
+            "VpcId": "vpc-0ca687af6548a3b1a",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-prod-nat-az-b"
+                }
+            ],
+            "ConnectivityType": "public",
+            "AvailabilityMode": "zonal",
+            "AttachedAppliances": []
+        },
+        {
+            "CreateTime": "2026-10-03T12:24:57+00:00",
+            "NatGatewayAddresses": [
+                {
+                    "AllocationId": "eipalloc-044b1d364d84f200a",
+                    "NetworkInterfaceId": "eni-0fb17064f2801f43b",
+                    "PrivateIp": "10.101.0.9",
+                    "PublicIp": "44.221.162.255",
+                    "AssociationId": "eipassoc-0b7c75bedf581fdef",
+                    "IsPrimary": true,
+                    "Status": "succeeded"
+                }
+            ],
+            "NatGatewayId": "nat-091678f7bacd22170",
+            "State": "available",
+            "SubnetId": "subnet-08ddc948dfe41151a",
+            "VpcId": "vpc-0e1923f5d3059f097",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-dev-nat-single"
+                }
+            ],
+            "ConnectivityType": "public",
+            "AvailabilityMode": "zonal",
+            "AttachedAppliances": []
+        },
+        {
+            "CreateTime": "2026-10-03T12:24:57+00:00",
+            "NatGatewayAddresses": [
+                {
+                    "AllocationId": "eipalloc-0393f9c485e6fdf77",
+                    "NetworkInterfaceId": "eni-0f6215f99ca6fa236",
+                    "PrivateIp": "10.102.0.20",
+                    "PublicIp": "44.212.194.255",
+                    "AssociationId": "eipassoc-080342dd6a47ed5fd",
+                    "IsPrimary": true,
+                    "Status": "succeeded"
+                }
+            ],
+            "NatGatewayId": "nat-0e97aa19e4d753962",
+            "State": "available",
+            "SubnetId": "subnet-086b144754b137ab1",
+            "VpcId": "vpc-0ca687af6548a3b1a",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-prod-nat-az-a"
+                }
+            ],
+            "ConnectivityType": "public",
+            "AvailabilityMode": "zonal",
+            "AttachedAppliances": []
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "NetworkInsightsAnalyses": [
+        {
+            "NetworkInsightsAnalysisId": "nia-0f1b71eae1c3a9ed0",
+            "NetworkInsightsAnalysisArn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-insights-analysis/nia-0f1b71eae1c3a9ed0",
+            "NetworkInsightsPathId": "nip-07a9e67e6024a0014",
+            "StartDate": "2026-10-03T12:33:14.141000+00:00",
+            "Status": "failed",
+            "StatusMessage": "The request failed due to insufficient Tiros permissions.",
+            "NetworkPathFound": false,
+            "Tags": []
+        }
+    ]
+}
