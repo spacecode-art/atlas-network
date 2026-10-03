@@ -141,6 +141,99 @@
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/backend.tf"
             },
             {
+                "check_id": "CKV_TF_1",
+                "bc_check_id": "BC_CROSS_1",
+                "check_name": "Ensure Terraform module sources use a commit hash",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        4,
+                        "module \"vpc\" {\n"
+                    ],
+                    [
+                        5,
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
+                    ],
+                    [
+                        6,
+                        "\n"
+                    ],
+                    [
+                        7,
+                        "  environment          = \"network-hub\"\n"
+                    ],
+                    [
+                        8,
+                        "  owner                = var.owner\n"
+                    ],
+                    [
+                        9,
+                        "  vpc_cidr             = \"10.100.0.0/16\"\n"
+                    ],
+                    [
+                        10,
+                        "  availability_zones   = [\"us-east-1a\", \"us-east-1b\"]\n"
+                    ],
+                    [
+                        11,
+                        "  public_subnet_cidrs  = [\"10.100.0.0/24\", \"10.100.1.0/24\"]\n"
+                    ],
+                    [
+                        12,
+                        "  private_subnet_cidrs = [\"10.100.10.0/24\", \"10.100.11.0/24\"]\n"
+                    ],
+                    [
+                        13,
+                        "}"
+                    ]
+                ],
+                "file_path": "/environments/hub/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/main.tf",
+                "repo_file_path": "/terraform/environments/hub/main.tf",
+                "file_line_range": [
+                    4,
+                    13
+                ],
+                "resource": "vpc",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/main.tf",
+                "breadcrumbs": {
+                    "owner": [
+                        {
+                            "type": "tfvar",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
                 "check_id": "CKV_TF_2",
                 "bc_check_id": "BC_CROSS_2",
                 "check_name": "Ensure Terraform module sources use a tag with a version number",
@@ -155,7 +248,7 @@
                     ],
                     [
                         5,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
                     ],
                     [
                         6,
@@ -299,6 +392,115 @@
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/backend.tf"
             },
             {
+                "check_id": "CKV_TF_1",
+                "bc_check_id": "BC_CROSS_1",
+                "check_name": "Ensure Terraform module sources use a commit hash",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        3,
+                        "module \"vpc\" {\n"
+                    ],
+                    [
+                        4,
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
+                    ],
+                    [
+                        5,
+                        "\n"
+                    ],
+                    [
+                        6,
+                        "  environment = \"network-spoke-dev\"\n"
+                    ],
+                    [
+                        7,
+                        "  owner       = var.owner\n"
+                    ],
+                    [
+                        8,
+                        "  vpc_cidr    = \"10.101.0.0/16\"\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  # Single AZ, deliberately \u2014 ADR-0004 puts dev on a single shared NAT\n"
+                    ],
+                    [
+                        11,
+                        "  # Gateway, so a second AZ's worth of subnets here would have nothing\n"
+                    ],
+                    [
+                        12,
+                        "  # to attach to and no purpose. Contrast with spoke-prod's two AZs.\n"
+                    ],
+                    [
+                        13,
+                        "  availability_zones   = [\"us-east-1a\"]\n"
+                    ],
+                    [
+                        14,
+                        "  public_subnet_cidrs  = [\"10.101.0.0/24\"]\n"
+                    ],
+                    [
+                        15,
+                        "  private_subnet_cidrs = [\"10.101.10.0/24\"]\n"
+                    ],
+                    [
+                        16,
+                        "}"
+                    ]
+                ],
+                "file_path": "/environments/spoke-dev/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/main.tf",
+                "repo_file_path": "/terraform/environments/spoke-dev/main.tf",
+                "file_line_range": [
+                    3,
+                    16
+                ],
+                "resource": "vpc",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/main.tf",
+                "breadcrumbs": {
+                    "owner": [
+                        {
+                            "type": "tfvar",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
                 "check_id": "CKV_TF_2",
                 "bc_check_id": "BC_CROSS_2",
                 "check_name": "Ensure Terraform module sources use a tag with a version number",
@@ -313,7 +515,7 @@
                     ],
                     [
                         4,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
                     ],
                     [
                         5,
@@ -473,6 +675,115 @@
                 "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/backend.tf"
             },
             {
+                "check_id": "CKV_TF_1",
+                "bc_check_id": "BC_CROSS_1",
+                "check_name": "Ensure Terraform module sources use a commit hash",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        3,
+                        "module \"vpc\" {\n"
+                    ],
+                    [
+                        4,
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
+                    ],
+                    [
+                        5,
+                        "\n"
+                    ],
+                    [
+                        6,
+                        "  environment = \"network-spoke-prod\"\n"
+                    ],
+                    [
+                        7,
+                        "  owner       = var.owner\n"
+                    ],
+                    [
+                        8,
+                        "  vpc_cidr    = \"10.102.0.0/16\"\n"
+                    ],
+                    [
+                        9,
+                        "\n"
+                    ],
+                    [
+                        10,
+                        "  # Two AZs, matching ADR-0004's per-AZ NAT Gateway strategy for prod \u2014\n"
+                    ],
+                    [
+                        11,
+                        "  # each AZ's private subnet routes through its own gateway, so an AZ\n"
+                    ],
+                    [
+                        12,
+                        "  # outage doesn't take egress down for the surviving AZ.\n"
+                    ],
+                    [
+                        13,
+                        "  availability_zones   = [\"us-east-1a\", \"us-east-1b\"]\n"
+                    ],
+                    [
+                        14,
+                        "  public_subnet_cidrs  = [\"10.102.0.0/24\", \"10.102.1.0/24\"]\n"
+                    ],
+                    [
+                        15,
+                        "  private_subnet_cidrs = [\"10.102.10.0/24\", \"10.102.11.0/24\"]\n"
+                    ],
+                    [
+                        16,
+                        "}"
+                    ]
+                ],
+                "file_path": "/environments/spoke-prod/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/main.tf",
+                "repo_file_path": "/terraform/environments/spoke-prod/main.tf",
+                "file_line_range": [
+                    3,
+                    16
+                ],
+                "resource": "vpc",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/main.tf",
+                "breadcrumbs": {
+                    "owner": [
+                        {
+                            "type": "tfvar",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "owner",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
                 "check_id": "CKV_TF_2",
                 "bc_check_id": "BC_CROSS_2",
                 "check_name": "Ensure Terraform module sources use a tag with a version number",
@@ -487,7 +798,7 @@
                     ],
                     [
                         4,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
+                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf\" # v1.1.0\n"
                     ],
                     [
                         5,
@@ -731,6 +1042,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -749,20 +1074,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -942,6 +1253,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -960,20 +1285,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1153,6 +1464,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -1171,20 +1496,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1364,6 +1675,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -1382,20 +1707,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1575,6 +1886,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -1593,20 +1918,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1788,6 +2099,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -1806,20 +2131,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -1951,6 +2262,14 @@
                             "module_connection": false
                         }
                     ],
+                    "tags": [
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "description": [
                         {
                             "type": "module",
@@ -1962,14 +2281,6 @@
                             "type": "variable",
                             "name": "name_prefix",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "tags": [
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/transit-gateway/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -2024,9 +2335,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2079,9 +2390,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     75,
                     86
@@ -2109,13 +2420,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -2160,9 +2471,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2227,9 +2538,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     93,
                     107
@@ -2257,13 +2568,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -2314,9 +2625,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2450,9 +2761,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2572,9 +2883,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2673,9 +2984,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2776,9 +3087,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -2843,9 +3154,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     93,
                     107
@@ -2873,13 +3184,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -2922,9 +3233,9 @@
                         "vpc_peering_connection_id",
                         "destination_ipv6_cidr_block",
                         "route/*/ipv6_cidr_block",
+                        "route/*/cidr_block",
                         "route/*/vpc_peering_connection_id",
-                        "destination_cidr_block",
-                        "route/*/cidr_block"
+                        "destination_cidr_block"
                     ]
                 },
                 "code_block": [
@@ -3049,8 +3360,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "resource_type",
-                        "networking"
+                        "networking",
+                        "resource_type"
                     ]
                 },
                 "code_block": [
@@ -3192,6 +3503,20 @@
                             "module_connection": false
                         }
                     ],
+                    "vpc_id": [
+                        {
+                            "type": "module",
+                            "name": "privatelink",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "vpc_id",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "locals",
@@ -3210,20 +3535,6 @@
                         {
                             "type": "variable",
                             "name": "service_name",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "vpc_id": [
-                        {
-                            "type": "module",
-                            "name": "privatelink",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/core/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "vpc_id",
                             "path": "/home/prime/Desktop/workspace/atlas-network/terraform/modules/privatelink/variables.tf",
                             "module_connection": false
                         }
@@ -3290,9 +3601,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -3346,9 +3657,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     75,
                     86
@@ -3376,13 +3687,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -3424,9 +3735,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -3492,9 +3803,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     93,
                     107
@@ -3522,13 +3833,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -3576,9 +3887,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -3710,9 +4021,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -3830,9 +4141,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -3929,9 +4240,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -4030,9 +4341,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -4098,9 +4409,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     93,
                     107
@@ -4128,13 +4439,13 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "tags": [
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -4174,9 +4485,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "destination_cidr_block",
-                        "instance_id",
                         "route/*/cidr_block",
+                        "instance_id",
+                        "destination_cidr_block",
                         "route/*/instance_id"
                     ]
                 },
@@ -4276,9 +4587,9 @@
                     "evaluated_keys": [
                         "domain",
                         "vpc",
-                        "resource_type",
                         "instance_id",
-                        "instance"
+                        "instance",
+                        "resource_type"
                     ]
                 },
                 "code_block": [
@@ -4397,9 +4708,9 @@
                     "evaluated_keys": [
                         "domain",
                         "vpc",
-                        "resource_type",
                         "instance_id",
-                        "instance"
+                        "instance",
+                        "resource_type"
                     ]
                 },
                 "code_block": [
@@ -4518,9 +4829,9 @@
                     "evaluated_keys": [
                         "domain",
                         "vpc",
-                        "resource_type",
                         "instance_id",
-                        "instance"
+                        "instance",
+                        "resource_type"
                     ]
                 },
                 "code_block": [
@@ -4644,15 +4955,15 @@
                         }
                     },
                     "evaluated_keys": [
-                        "egress/cidr_blocks",
-                        "ingress/protocol",
                         "ingress/from_port",
-                        "egress/protocol",
+                        "egress/cidr_blocks",
                         "egress/to_port",
-                        "ingress/to_port",
-                        "resource_type",
                         "ingress/self",
-                        "egress/from_port"
+                        "egress/from_port",
+                        "egress/protocol",
+                        "ingress/protocol",
+                        "resource_type",
+                        "ingress/to_port"
                     ]
                 },
                 "code_block": [
@@ -4693,9 +5004,9 @@
                         "}\n"
                     ]
                 ],
-                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
-                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "file_path": "/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
+                "repo_file_path": "/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "file_line_range": [
                     9,
                     17
@@ -4723,7 +5034,7 @@
                 "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-4",
                 "details": [],
                 "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                 "breadcrumbs": {
                     "cidr_block": [
                         {
@@ -4735,7 +5046,7 @@
                         {
                             "type": "variable",
                             "name": "vpc_cidr",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/variables.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/variables.tf",
                             "module_connection": false
                         }
                     ],
@@ -4743,7 +5054,7 @@
                         {
                             "type": "locals",
                             "name": "common_tags",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/v1.1.0/terraform/modules/networking/main.tf",
+                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/.external_modules/github.com/spacecode-art/atlas-foundation/70b9f9b0fd5237a4da82be9864abcfda23be2aaf/terraform/modules/networking/main.tf",
                             "module_connection": false
                         }
                     ],
@@ -4759,325 +5070,13 @@
                 }
             }
         ],
-        "failed_checks": [
-            {
-                "check_id": "CKV_TF_1",
-                "bc_check_id": "BC_CROSS_1",
-                "check_name": "Ensure Terraform module sources use a commit hash",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": []
-                },
-                "code_block": [
-                    [
-                        4,
-                        "module \"vpc\" {\n"
-                    ],
-                    [
-                        5,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
-                    ],
-                    [
-                        6,
-                        "\n"
-                    ],
-                    [
-                        7,
-                        "  environment          = \"network-hub\"\n"
-                    ],
-                    [
-                        8,
-                        "  owner                = var.owner\n"
-                    ],
-                    [
-                        9,
-                        "  vpc_cidr             = \"10.100.0.0/16\"\n"
-                    ],
-                    [
-                        10,
-                        "  availability_zones   = [\"us-east-1a\", \"us-east-1b\"]\n"
-                    ],
-                    [
-                        11,
-                        "  public_subnet_cidrs  = [\"10.100.0.0/24\", \"10.100.1.0/24\"]\n"
-                    ],
-                    [
-                        12,
-                        "  private_subnet_cidrs = [\"10.100.10.0/24\", \"10.100.11.0/24\"]\n"
-                    ],
-                    [
-                        13,
-                        "}"
-                    ]
-                ],
-                "file_path": "/environments/hub/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/main.tf",
-                "repo_file_path": "/terraform/environments/hub/main.tf",
-                "file_line_range": [
-                    4,
-                    13
-                ],
-                "resource": "vpc",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/main.tf",
-                "breadcrumbs": {
-                    "owner": [
-                        {
-                            "type": "tfvar",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/terraform.tfvars",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/hub/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_TF_1",
-                "bc_check_id": "BC_CROSS_1",
-                "check_name": "Ensure Terraform module sources use a commit hash",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": []
-                },
-                "code_block": [
-                    [
-                        3,
-                        "module \"vpc\" {\n"
-                    ],
-                    [
-                        4,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
-                    ],
-                    [
-                        5,
-                        "\n"
-                    ],
-                    [
-                        6,
-                        "  environment = \"network-spoke-dev\"\n"
-                    ],
-                    [
-                        7,
-                        "  owner       = var.owner\n"
-                    ],
-                    [
-                        8,
-                        "  vpc_cidr    = \"10.101.0.0/16\"\n"
-                    ],
-                    [
-                        9,
-                        "\n"
-                    ],
-                    [
-                        10,
-                        "  # Single AZ, deliberately \u2014 ADR-0004 puts dev on a single shared NAT\n"
-                    ],
-                    [
-                        11,
-                        "  # Gateway, so a second AZ's worth of subnets here would have nothing\n"
-                    ],
-                    [
-                        12,
-                        "  # to attach to and no purpose. Contrast with spoke-prod's two AZs.\n"
-                    ],
-                    [
-                        13,
-                        "  availability_zones   = [\"us-east-1a\"]\n"
-                    ],
-                    [
-                        14,
-                        "  public_subnet_cidrs  = [\"10.101.0.0/24\"]\n"
-                    ],
-                    [
-                        15,
-                        "  private_subnet_cidrs = [\"10.101.10.0/24\"]\n"
-                    ],
-                    [
-                        16,
-                        "}"
-                    ]
-                ],
-                "file_path": "/environments/spoke-dev/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/main.tf",
-                "repo_file_path": "/terraform/environments/spoke-dev/main.tf",
-                "file_line_range": [
-                    3,
-                    16
-                ],
-                "resource": "vpc",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/main.tf",
-                "breadcrumbs": {
-                    "owner": [
-                        {
-                            "type": "tfvar",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/terraform.tfvars",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-dev/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_TF_1",
-                "bc_check_id": "BC_CROSS_1",
-                "check_name": "Ensure Terraform module sources use a commit hash",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": []
-                },
-                "code_block": [
-                    [
-                        3,
-                        "module \"vpc\" {\n"
-                    ],
-                    [
-                        4,
-                        "  source = \"git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0\"\n"
-                    ],
-                    [
-                        5,
-                        "\n"
-                    ],
-                    [
-                        6,
-                        "  environment = \"network-spoke-prod\"\n"
-                    ],
-                    [
-                        7,
-                        "  owner       = var.owner\n"
-                    ],
-                    [
-                        8,
-                        "  vpc_cidr    = \"10.102.0.0/16\"\n"
-                    ],
-                    [
-                        9,
-                        "\n"
-                    ],
-                    [
-                        10,
-                        "  # Two AZs, matching ADR-0004's per-AZ NAT Gateway strategy for prod \u2014\n"
-                    ],
-                    [
-                        11,
-                        "  # each AZ's private subnet routes through its own gateway, so an AZ\n"
-                    ],
-                    [
-                        12,
-                        "  # outage doesn't take egress down for the surviving AZ.\n"
-                    ],
-                    [
-                        13,
-                        "  availability_zones   = [\"us-east-1a\", \"us-east-1b\"]\n"
-                    ],
-                    [
-                        14,
-                        "  public_subnet_cidrs  = [\"10.102.0.0/24\", \"10.102.1.0/24\"]\n"
-                    ],
-                    [
-                        15,
-                        "  private_subnet_cidrs = [\"10.102.10.0/24\", \"10.102.11.0/24\"]\n"
-                    ],
-                    [
-                        16,
-                        "}"
-                    ]
-                ],
-                "file_path": "/environments/spoke-prod/main.tf",
-                "file_abs_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/main.tf",
-                "repo_file_path": "/terraform/environments/spoke-prod/main.tf",
-                "file_line_range": [
-                    3,
-                    16
-                ],
-                "resource": "vpc",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/main.tf",
-                "breadcrumbs": {
-                    "owner": [
-                        {
-                            "type": "tfvar",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/terraform.tfvars",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "owner",
-                            "path": "/home/prime/Desktop/workspace/atlas-network/terraform/environments/spoke-prod/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            }
-        ],
+        "failed_checks": [],
         "skipped_checks": [],
         "parsing_errors": []
     },
     "summary": {
-        "passed": 35,
-        "failed": 3,
+        "passed": 38,
+        "failed": 0,
         "skipped": 0,
         "parsing_errors": 0,
         "resource_count": 40,

@@ -1,17 +1,5 @@
 terraform scan results:
 
-Passed checks: 35, Failed checks: 3, Skipped checks: 0
+Passed checks: 38, Failed checks: 0, Skipped checks: 0
 
-Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
-	FAILED for resource: vpc
-	File: /environments/hub/main.tf:4-13
-	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
-Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
-	FAILED for resource: vpc
-	File: /environments/spoke-dev/main.tf:3-16
-	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
-Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
-	FAILED for resource: vpc
-	File: /environments/spoke-prod/main.tf:3-16
-	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision
 

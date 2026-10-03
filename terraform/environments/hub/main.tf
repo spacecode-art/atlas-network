@@ -2,7 +2,7 @@
 # future breaking change to foundation's networking module can't silently
 # break this environment. See the commit message on that tag for why.
 module "vpc" {
-  source = "git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=v1.1.0"
+  source = "git::https://github.com/spacecode-art/atlas-foundation.git//terraform/modules/networking?ref=70b9f9b0fd5237a4da82be9864abcfda23be2aaf" # v1.1.0
 
   environment          = "network-hub"
   owner                = var.owner
