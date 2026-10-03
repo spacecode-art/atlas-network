@@ -118,7 +118,7 @@ GitHub Actions runs `terraform fmt -check`, `terraform validate`, and `terraform
 
 ## Security Review
 
-Checkov runs on every PR (`scripts/security-scan.sh`, uploaded as a CI artifact). Trivy config-scan results are generated locally. Committed results: [`docs/evidence/security-scan/`](docs/evidence/security-scan/). Accepted findings are listed with justification in ADR-0009.
+Checkov runs on every PR (`scripts/security-scan.sh`, uploaded as a CI artifact). Results are Checkov only; Trivy config-scan is a possible addition. Committed results: [`docs/evidence/security-scan/`](docs/evidence/security-scan/). Accepted findings are listed with justification in ADR-0009.
 
 ---
 

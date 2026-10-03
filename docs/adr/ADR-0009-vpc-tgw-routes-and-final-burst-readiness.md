@@ -65,7 +65,19 @@ none of them ran Reachability Analyzer or sent a packet:
   PrivateLink use case in ADR-0003; publishing a real endpoint service is
   out of scope.
 - Accepted scan findings (fill in after first Checkov run):
-  - _none yet_
+  - Checkov 3.3.22, 2026-10-03: 37 passed, 6 failed.
+  - `CKV_TF_1` (module source not pinned to a commit), ×3: **fixed**, not
+    accepted. `atlas-foundation` is now pinned by commit SHA (tag noted in a
+    comment).
+  - `CKV_AWS_130` (public subnets map public IPs on launch), ×2: **accepted**.
+    The setting comes from the shared `atlas-foundation` networking module,
+    where public subnets are intended to host internet-facing resources.
+    This topology launches no instances; the public subnets only host NAT
+    gateways, which use Elastic IPs and do not depend on this setting.
+    Revisit upstream in `atlas-foundation`.
+  - `CKV2_AWS_11` (VPC flow logging), ×1: **accepted**. Flow Logs are out of
+    scope: the stack exists for one timed window with no workload traffic to
+    observe, and enabling them adds IAM surface (README, Monitoring).
 
 ## Lessons
 

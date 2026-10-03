@@ -11,7 +11,9 @@ rc=0
 
 command -v checkov >/dev/null || { echo "checkov required: pip install 'checkov>=3,<4'" >&2; exit 1; }
 
-args=(-d terraform --framework terraform --download-external-modules true)
+# Accepted findings are justified in ADR-0009. Add an ID here only with an ADR entry.
+SKIP="CKV_AWS_130,CKV2_AWS_11"
+args=(-d terraform --framework terraform --download-external-modules true --skip-check "$SKIP")
 checkov "${args[@]}" --output json > "${OUT}/checkov.json" || rc=$?
 checkov "${args[@]}" --output cli --compact --quiet > "${OUT}/checkov.txt" || true
 
