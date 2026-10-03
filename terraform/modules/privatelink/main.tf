@@ -48,6 +48,7 @@ resource "aws_vpc_endpoint" "gateway_prerequisite" {
   service_name      = var.service_name
   vpc_endpoint_type = "Gateway"
   route_table_ids   = var.gateway_endpoint_route_table_ids
+  policy            = var.endpoint_policy
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-privatelink-gateway-prereq"
