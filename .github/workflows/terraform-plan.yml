@@ -1,11 +1,5 @@
 name: Terraform Plan
 
-# Plan-only, by design. There is no apply workflow in this repository —
-# see README "CI/CD" section.
-#
-# Before merging: pin every `uses:` to a full commit SHA:
-#   npx pin-github-action .github/workflows/terraform-plan.yml
-
 on:
   pull_request:
     paths:
@@ -67,8 +61,7 @@ jobs:
         run: pip install "checkov>=3,<4"
 
       - name: Scan Terraform
-        env:
-          SOFT_FAIL: "1" # remove after the first triage pass
+
         run: bash ./scripts/security-scan.sh
 
       - name: Upload scan results

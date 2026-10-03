@@ -1,0 +1,30 @@
+{
+    "Routes": [
+        {
+            "DestinationCidrBlock": "10.101.0.0/16",
+            "TransitGatewayRouteTableAnnouncementId": "",
+            "TransitGatewayAttachments": [
+                {
+                    "ResourceId": "vpc-0e1923f5d3059f097",
+                    "TransitGatewayAttachmentId": "tgw-attach-0d92e4a7f8369a15f",
+                    "ResourceType": "vpc"
+                }
+            ],
+            "Type": "propagated",
+            "State": "active"
+        },
+        {
+            "DestinationCidrBlock": "10.102.0.0/16",
+            "TransitGatewayRouteTableAnnouncementId": "",
+            "TransitGatewayAttachments": [
+                {
+                    "ResourceId": "vpc-0ca687af6548a3b1a",
+                    "TransitGatewayAttachmentId": "tgw-attach-00ae2602e60041ad2",
+                    "ResourceType": "vpc"
+                }
+            ],
+            "Type": "propagated",
+            "State": "active"
+        }
+    ]
+}

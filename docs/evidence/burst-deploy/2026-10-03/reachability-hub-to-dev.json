@@ -1,0 +1,330 @@
+{
+    "NetworkInsightsAnalyses": [
+        {
+            "NetworkInsightsAnalysisId": "nia-09009be046cd94083",
+            "NetworkInsightsAnalysisArn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-insights-analysis/nia-09009be046cd94083",
+            "NetworkInsightsPathId": "nip-0b4d3a2f44e55bd28",
+            "StartDate": "2026-10-03T12:32:17.048000+00:00",
+            "Status": "succeeded",
+            "WarningMessage": "The analysis succeeded but it was unable to analyze all components. Reason: The request was missing the following optional permissions: [software.amazon.awssdk.services.networkfirewall.model.NetworkFirewallException, software.amazon.awssdk.services.directconnect.model.DirectConnectException, software.amazon.awssdk.services.ec2.model.Ec2Exception]",
+            "NetworkPathFound": true,
+            "ForwardPathComponents": [
+                {
+                    "SequenceNumber": 1,
+                    "AttachedTo": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "Component": {
+                        "Id": "tgw-attach-0c68e669ca05f9af6",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0c68e669ca05f9af6",
+                        "Name": "atlas-network-attach-hub"
+                    },
+                    "OutboundHeader": {
+                        "DestinationAddresses": [
+                            "10.101.0.0/16"
+                        ],
+                        "DestinationPortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ],
+                        "Protocol": "6",
+                        "SourceAddresses": [
+                            "10.100.0.0/16"
+                        ],
+                        "SourcePortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ]
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    }
+                },
+                {
+                    "SequenceNumber": 2,
+                    "Component": {
+                        "Id": "tgw-rtb-01647c4d8229304aa",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-01647c4d8229304aa",
+                        "Name": "atlas-network-rtb-hub"
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "TransitGatewayRouteTableRoute": {
+                        "DestinationCidr": "10.101.0.0/16",
+                        "State": "active",
+                        "RouteOrigin": "propagated",
+                        "AttachmentId": "tgw-attach-0d92e4a7f8369a15f",
+                        "ResourceId": "vpc-0e1923f5d3059f097",
+                        "ResourceType": "vpc"
+                    }
+                },
+                {
+                    "SequenceNumber": 3,
+                    "AttachedTo": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "Component": {
+                        "Id": "tgw-attach-0d92e4a7f8369a15f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                        "Name": "atlas-network-attach-dev"
+                    },
+                    "InboundHeader": {
+                        "DestinationAddresses": [
+                            "10.101.0.0/16"
+                        ],
+                        "DestinationPortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ],
+                        "Protocol": "6",
+                        "SourceAddresses": [
+                            "10.100.0.0/16"
+                        ],
+                        "SourcePortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ]
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    }
+                }
+            ],
+            "ReturnPathComponents": [
+                {
+                    "SequenceNumber": 1,
+                    "AttachedTo": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "Component": {
+                        "Id": "tgw-attach-0d92e4a7f8369a15f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                        "Name": "atlas-network-attach-dev"
+                    },
+                    "OutboundHeader": {
+                        "DestinationAddresses": [
+                            "10.100.0.0/16"
+                        ],
+                        "DestinationPortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ],
+                        "Protocol": "6",
+                        "SourceAddresses": [
+                            "10.101.0.0/16"
+                        ],
+                        "SourcePortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ]
+                    },
+                    "AdditionalDetails": [
+                        {
+                            "AdditionalDetailType": "TRANSIT_GATEWAY_APPLIANCE_MODE_RECOMMENDED",
+                            "Component": {
+                                "Id": "tgw-attach-0d92e4a7f8369a15f",
+                                "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                                "Name": ""
+                            }
+                        }
+                    ],
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    }
+                },
+                {
+                    "SequenceNumber": 2,
+                    "AttachedTo": {
+                        "Id": "tgw-attach-0d92e4a7f8369a15f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                        "Name": "atlas-network-attach-dev"
+                    },
+                    "Component": {
+                        "Id": "eni-08f5c37448c8929da",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-interface/eni-08f5c37448c8929da"
+                    },
+                    "Subnet": {
+                        "Id": "subnet-03ee3ee14f1a94662",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-03ee3ee14f1a94662",
+                        "Name": "atlas-network-spoke-dev-private-0"
+                    },
+                    "Vpc": {
+                        "Id": "vpc-0e1923f5d3059f097",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc/vpc-0e1923f5d3059f097",
+                        "Name": "atlas-network-spoke-dev-vpc"
+                    }
+                },
+                {
+                    "SequenceNumber": 3,
+                    "AclRule": {
+                        "Cidr": "0.0.0.0/0",
+                        "Egress": true,
+                        "Protocol": "all",
+                        "RuleAction": "allow",
+                        "RuleNumber": 100
+                    },
+                    "Component": {
+                        "Id": "acl-0718e0af414e7b71f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-acl/acl-0718e0af414e7b71f"
+                    }
+                },
+                {
+                    "SequenceNumber": 4,
+                    "Component": {
+                        "Id": "rtb-01b70199e5c098a1e",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:route-table/rtb-01b70199e5c098a1e",
+                        "Name": "atlas-network-spoke-dev-private-rt-0"
+                    },
+                    "RouteTableRoute": {
+                        "DestinationCidr": "10.100.0.0/16",
+                        "Origin": "createroute",
+                        "TransitGatewayId": "tgw-0a72d09c183152eb4",
+                        "State": "active"
+                    }
+                },
+                {
+                    "SequenceNumber": 5,
+                    "AclRule": {
+                        "Cidr": "0.0.0.0/0",
+                        "Egress": false,
+                        "Protocol": "all",
+                        "RuleAction": "allow",
+                        "RuleNumber": 100
+                    },
+                    "Component": {
+                        "Id": "acl-0718e0af414e7b71f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-acl/acl-0718e0af414e7b71f"
+                    }
+                },
+                {
+                    "SequenceNumber": 6,
+                    "AttachedTo": {
+                        "Id": "tgw-attach-0d92e4a7f8369a15f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                        "Name": "atlas-network-attach-dev"
+                    },
+                    "Component": {
+                        "Id": "eni-08f5c37448c8929da",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:network-interface/eni-08f5c37448c8929da"
+                    },
+                    "Subnet": {
+                        "Id": "subnet-03ee3ee14f1a94662",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:subnet/subnet-03ee3ee14f1a94662",
+                        "Name": "atlas-network-spoke-dev-private-0"
+                    },
+                    "Vpc": {
+                        "Id": "vpc-0e1923f5d3059f097",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:vpc/vpc-0e1923f5d3059f097",
+                        "Name": "atlas-network-spoke-dev-vpc"
+                    }
+                },
+                {
+                    "SequenceNumber": 7,
+                    "AttachedTo": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "Component": {
+                        "Id": "tgw-attach-0d92e4a7f8369a15f",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0d92e4a7f8369a15f",
+                        "Name": "atlas-network-attach-dev"
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    }
+                },
+                {
+                    "SequenceNumber": 8,
+                    "Component": {
+                        "Id": "tgw-rtb-069bd7f35001eeed1",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-route-table/tgw-rtb-069bd7f35001eeed1",
+                        "Name": "atlas-network-rtb-dev"
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "TransitGatewayRouteTableRoute": {
+                        "DestinationCidr": "10.100.0.0/16",
+                        "State": "active",
+                        "RouteOrigin": "propagated",
+                        "AttachmentId": "tgw-attach-0c68e669ca05f9af6",
+                        "ResourceId": "vpc-03708c8ceccd5f6e4",
+                        "ResourceType": "vpc"
+                    }
+                },
+                {
+                    "SequenceNumber": 9,
+                    "AttachedTo": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    },
+                    "Component": {
+                        "Id": "tgw-attach-0c68e669ca05f9af6",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway-attachment/tgw-attach-0c68e669ca05f9af6",
+                        "Name": "atlas-network-attach-hub"
+                    },
+                    "InboundHeader": {
+                        "DestinationAddresses": [
+                            "10.100.0.0/16"
+                        ],
+                        "DestinationPortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ],
+                        "Protocol": "6",
+                        "SourceAddresses": [
+                            "10.101.0.0/16"
+                        ],
+                        "SourcePortRanges": [
+                            {
+                                "From": 0,
+                                "To": 65535
+                            }
+                        ]
+                    },
+                    "TransitGateway": {
+                        "Id": "tgw-0a72d09c183152eb4",
+                        "Arn": "arn:aws:ec2:us-east-1:<ACCOUNT_ID>:transit-gateway/tgw-0a72d09c183152eb4",
+                        "Name": "atlas-network-tgw"
+                    }
+                }
+            ],
+            "Tags": []
+        }
+    ]
+}

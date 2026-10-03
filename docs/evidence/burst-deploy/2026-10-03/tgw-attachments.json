@@ -1,0 +1,304 @@
+{
+    "TransitGatewayAttachments": [
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-010aa50bc854af056",
+            "TransitGatewayId": "tgw-044a6d612488819f3",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0302d84e3484ba1ec",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T11:46:18+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-prod"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0237d293eda800230",
+            "TransitGatewayId": "tgw-044a6d612488819f3",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-002c0b21d05321cbd",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T11:46:18+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-hub"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0e0e1c81e95996bb8",
+            "TransitGatewayId": "tgw-044a6d612488819f3",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0aa563c5980b0a089",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T11:46:18+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-dev"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-00ae2602e60041ad2",
+            "TransitGatewayId": "tgw-0a72d09c183152eb4",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0ca687af6548a3b1a",
+            "State": "available",
+            "Association": {
+                "TransitGatewayRouteTableId": "tgw-rtb-01d795cb1863a8efd",
+                "State": "associated"
+            },
+            "CreationTime": "2026-10-03T12:25:22+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-prod"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0c68e669ca05f9af6",
+            "TransitGatewayId": "tgw-0a72d09c183152eb4",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-03708c8ceccd5f6e4",
+            "State": "available",
+            "Association": {
+                "TransitGatewayRouteTableId": "tgw-rtb-01647c4d8229304aa",
+                "State": "associated"
+            },
+            "CreationTime": "2026-10-03T12:25:22+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-hub"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0d92e4a7f8369a15f",
+            "TransitGatewayId": "tgw-0a72d09c183152eb4",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0e1923f5d3059f097",
+            "State": "available",
+            "Association": {
+                "TransitGatewayRouteTableId": "tgw-rtb-069bd7f35001eeed1",
+                "State": "associated"
+            },
+            "CreationTime": "2026-10-03T12:25:22+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-dev"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0915252324c4f2366",
+            "TransitGatewayId": "tgw-0cc7068e2bb94b626",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-08286afa7ab97c520",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T12:00:58+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-hub"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0dbb7d5e384ddf0e3",
+            "TransitGatewayId": "tgw-0cc7068e2bb94b626",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0f33299282466dd5b",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T12:00:57+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-prod"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0dce455305e3349ff",
+            "TransitGatewayId": "tgw-0cc7068e2bb94b626",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0a12a00be4aab1aec",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T12:00:57+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-dev"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-017fdcf94707f4bb4",
+            "TransitGatewayId": "tgw-0e8b36be88dcf6579",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-04534c90d9a303c48",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T10:35:48+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-hub"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0472874093c043b49",
+            "TransitGatewayId": "tgw-0e8b36be88dcf6579",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-0957f3eafeacc582c",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T10:35:48+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-dev"
+                }
+            ]
+        },
+        {
+            "TransitGatewayAttachmentId": "tgw-attach-0d28af656e2386e5c",
+            "TransitGatewayId": "tgw-0e8b36be88dcf6579",
+            "TransitGatewayOwnerId": "<ACCOUNT_ID>",
+            "ResourceOwnerId": "<ACCOUNT_ID>",
+            "ResourceType": "vpc",
+            "ResourceId": "vpc-055a8bc19809a3390",
+            "State": "deleted",
+            "CreationTime": "2026-10-03T10:35:48+00:00",
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "dennisk-atlas-portfolio"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "terraform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "atlas-network-attach-prod"
+                }
+            ]
+        }
+    ]
+}
