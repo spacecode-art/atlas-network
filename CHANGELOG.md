@@ -4,6 +4,8 @@ All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
+
+## [1.0.0] - 2026-10-03
 - `environments/core`: VPC→TGW `aws_route` resources (spokes → hub CIDR only;
   hub → each spoke CIDR) and `outputs.tf` (ADR-0009)
 - privatelink module: optional `endpoint_policy`; validation rejecting

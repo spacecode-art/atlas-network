@@ -112,7 +112,7 @@ Designed cost if this topology ran continuously in `us-east-1` (approximate, at 
 | Public IPv4 (×3 NAT EIPs) | $0.005/hr each | ~$11/mo |
 | **Total, always-on** | | **~$225–260/mo** |
 
-Actual cost incurred building this repo: at least 8 burst-deploys (4 earlier practice runs plus 4 on 2026-10-03), each time-boxed per budgeted and capped in ADR-0005. See `docs/cost-model/burst-deploy-actuals.md` for the real Cost Explorer line item once captured.
+Actual cost incurred building this repo: $0.00 billed across all burst-deploys (at least 8, each time-boxed per ADR-0005), as reported by the AWS billing console. Modeled gross usage is ~$0.61 per one-hour window. Per-run ledger: `docs/cost-model/burst-deploy-actuals.md`.
 
 ---
 
