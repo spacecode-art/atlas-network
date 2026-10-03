@@ -24,6 +24,13 @@ for env in "${ORDER[@]}"; do
     -var-file="terraform.tfvars" -auto-approve -no-color -input=false \
     | tee "${EVIDENCE_DIR}/${env}-destroy.txt"
   echo "=== ${env} destroy complete ==="
+  if [[ -f "${EVIDENCE_DIR}/ra-path-ids.txt" ]]; then
+  while read -r p; do
+    [[ -n "$p" ]] || continue
+    aws ec2 delete-network-insights-path --network-insights-path-id "$p" \
+      --profile "$AWS_PROFILE" >/dev/null || true
+  done < "${EVIDENCE_DIR}/ra-path-ids.txt"
+fi
 done
 
 echo ""

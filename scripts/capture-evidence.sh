@@ -69,7 +69,8 @@ run_path() { # run_path <name> <src> <dst> <expected true|false>
   aws ec2 describe-network-insights-analyses --network-insights-analysis-ids "$analysis_id" \
     > "${EVIDENCE_DIR}/reachability-${name}.json"
   found="$(jq -r '.NetworkInsightsAnalyses[0].NetworkPathFound' "${EVIDENCE_DIR}/reachability-${name}.json")"
-  aws ec2 delete-network-insights-path --network-insights-path-id "$path_id" >/dev/null
+  # Kept so the console can be screenshotted; destroy-all.sh deletes them.
+  echo "$path_id" >> "${EVIDENCE_DIR}/ra-path-ids.txt"
   if [[ "$status" == "succeeded" && "$found" == "$expected" ]]; then
     echo "ok:   RA ${name} NetworkPathFound=${found}"
   else
